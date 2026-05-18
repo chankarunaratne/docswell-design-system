@@ -39,6 +39,8 @@
 }
 
 .docs__sidebar {
+  display: flex;
+  flex-direction: column;
   position: sticky;
   top: 0;
   align-self: start;
@@ -84,6 +86,10 @@
 
 /* ----- Navigation --------------------------------------------------------- */
 
+.docs__nav {
+  flex: 1;
+}
+
 .docs__nav-group {
   margin-top: var(--spacing-6);
 }
@@ -121,6 +127,18 @@
   color: var(--docs-nav-fg-active);
   font-weight: var(--font-semibold);
   background-color: var(--docs-accent-surface);
+}
+
+.docs__sidebar-footer {
+  margin-top: auto;
+  padding: var(--spacing-3);
+  font-size: var(--text-sm);
+  color: var(--color-foreground-muted);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+.docs__sidebar-footer:hover {
+  color: var(--docs-nav-fg-hover);
 }
 
 /* ----- Typography helpers (docs content only) ----------------------------- */
@@ -187,6 +205,74 @@
   border: 1px solid var(--docs-accent-border);
   border-radius: var(--radius-sm);
   color: var(--docs-accent-hover);
+}
+
+/* ----- Copy buttons ------------------------------------------------------- */
+
+.copy-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-1);
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+.copy-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: var(--spacing-5);
+  height: var(--spacing-5);
+  padding: 0;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-surface);
+  color: var(--color-foreground-subtle);
+  cursor: pointer;
+  transition:
+    color var(--duration-fast) var(--ease-out),
+    border-color var(--duration-fast) var(--ease-out),
+    background-color var(--duration-fast) var(--ease-out);
+}
+
+.copy-btn:hover {
+  color: var(--color-foreground);
+  border-color: var(--color-border-strong);
+  background-color: var(--color-background);
+}
+
+.copy-btn:focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+}
+
+.copy-btn--copied {
+  color: var(--color-success);
+  border-color: var(--color-success);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .copy-btn {
+    transition: none;
+  }
+}
+
+.swatch__meta .copy-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-2);
+}
+
+.spacing-row .copy-wrap,
+.type-row .copy-wrap,
+.swatch-row .copy-wrap {
+  display: inline-flex;
+}
+
+.docs__table td .copy-wrap {
+  display: inline-flex;
 }
 
 /* ----- Tables ------------------------------------------------------------- */
