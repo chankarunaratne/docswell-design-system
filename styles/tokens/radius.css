@@ -1,0 +1,15 @@
+/* ==========================================================================
+   Tier 1 — Border Radius Primitives
+   A small, opinionated scale. The overall "roundness personality" of the
+   product is set here — swap values to go sharper or softer globally.
+   ========================================================================== */
+
+@theme {
+  --radius-none: 0;
+  --radius-sm:   0.25rem;  /*  4px — subtle, tight elements */
+  --radius-md:   0.5rem;   /*  8px — inputs, buttons (default) */
+  --radius-lg:   0.75rem;  /* 12px — cards */
+  --radius-xl:   1rem;     /* 16px — panels, modals */
+  --radius-2xl:  1.5rem;   /* 24px — large surfaces */
+  --radius-full: 9999px;   /* pills, avatars, tags */
+}

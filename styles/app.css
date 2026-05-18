@@ -1,0 +1,70 @@
+/* ==========================================================================
+   app.css — Main entry point
+   This is the only file that imports Tailwind and chains all token layers.
+   The Tailwind CLI watches this file and outputs styles/output.css.
+   ========================================================================== */
+
+@import "tailwindcss";
+
+/* --- Tier 1: Primitive tokens --- */
+@import "./tokens/colors.css";
+@import "./tokens/typography.css";
+@import "./tokens/spacing.css";
+@import "./tokens/radius.css";
+@import "./tokens/shadows.css";
+@import "./tokens/motion.css";
+
+/* --- Tier 2: Semantic mappings --- */
+@import "./semantic/colors.css";
+
+/* --- Tier 3: Components (added as built) --- */
+@import "./components/docs.css";
+/* @import "./components/button.css"; */
+/* @import "./components/input.css"; */
+/* @import "./components/card.css"; */
+
+/* ==========================================================================
+   Base layer — global defaults applied before any component styles
+   ========================================================================== */
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    /* Smooth scrolling, but only when no motion preference is set */
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-size: var(--text-base);
+    line-height: var(--leading-normal);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Respect motion preference globally */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* Consistent focus-visible ring across all interactive elements */
+  :focus-visible {
+    outline: 2px solid var(--color-border-focus);
+    outline-offset: 2px;
+    border-radius: var(--radius-sm);
+  }
+}

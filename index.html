@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Docswell — Design System Documentation</title>
+  <meta name="description" content="Docswell is a hex-first, token-driven design system for the Docswell product. Foundations: colors, typography, spacing, radius, shadows, motion." />
+
+  <!-- Inter + InterDisplay (canonical source). Preconnect for a faster first paint. -->
+  <link rel="preconnect" href="https://rsms.me/" />
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+
+  <link rel="stylesheet" href="styles/output.css" />
+</head>
+<body>
+
+  <div class="docs">
+
+    <!-- ====================================================================
+         Sidebar — logo + navigation
+         ==================================================================== -->
+    <aside class="docs__sidebar" aria-label="Documentation navigation">
+      <a href="#introduction" class="docs__logo" aria-label="Docswell Design System Documentation home">
+        <img src="assets/logo.png" alt="Docswell" class="docs__logo-img" width="32" height="32" />
+      </a>
+
+      <nav class="docs__nav" aria-label="Primary">
+        <ul class="docs__nav-list">
+          <li><a class="docs__nav-link" href="#introduction" data-nav-link>Introduction</a></li>
+        </ul>
+
+        <div class="docs__nav-group">
+          <div class="docs__nav-group-title">Foundations</div>
+          <ul class="docs__nav-list">
+            <li><a class="docs__nav-link" href="#colors"     data-nav-link>Colors</a></li>
+            <li><a class="docs__nav-link" href="#typography" data-nav-link>Typography</a></li>
+            <li><a class="docs__nav-link" href="#spacing"    data-nav-link>Spacing</a></li>
+            <li><a class="docs__nav-link" href="#radius"     data-nav-link>Radius</a></li>
+            <li><a class="docs__nav-link" href="#shadows"    data-nav-link>Shadows</a></li>
+            <li><a class="docs__nav-link" href="#motion"     data-nav-link>Motion</a></li>
+          </ul>
+        </div>
+      </nav>
+    </aside>
+
+    <!-- ====================================================================
+         Main content
+         ==================================================================== -->
+    <main class="docs__main">
+
+      <!-- ── Introduction ─────────────────────────────────────────────── -->
+      <section id="introduction" class="docs__section">
+        <span class="docs__eyebrow">Getting started</span>
+        <h1 class="docs__title">Docswell Design System</h1>
+        <p class="docs__lead">
+          System tokens and components to be used in Docswell apps. Copy and paste them into the code as needed.
+        </p>
+      </section>
+
+      <!-- ── Colors ───────────────────────────────────────────────────── -->
+      <section id="colors" class="docs__section">
+        <span class="docs__eyebrow">Foundations</span>
+        <h1 class="docs__title">Colors</h1>
+        <p class="docs__lead">
+          Hex primitives at the bottom, semantic aliases on top. Components only ever consume semantic tokens, which keeps theming and dark mode free of churn.
+        </p>
+
+        <h2 class="docs__heading">Brand</h2>
+        <p class="docs__paragraph docs__paragraph--muted">
+          Anchored at <code class="docs__token">#1379f0</code> on the 500 step. Lightness ramps perceptually with hue locked at 212°, so every stop reads as the same blue.
+        </p>
+        <div class="swatch-grid">
+          <div class="swatch"><span class="swatch__chip" style="background:#f0f4fa"></span><div class="swatch__meta"><div class="swatch__name">brand-50</div><div class="swatch__value">#f0f4fa</div></div></div>
+          <div class="swatch"><span class="swatch__chip" style="background:#dce8f7"></span><div class="swatch__meta"><div class="swatch__name">brand-100</div><div class="swatch__value">#dce8f7</div></div></div>
+          <div class="swatch"><span class="swatch__chip" style="background:#bad6f8"></span><div class="swatch__meta"><div class="swatch__name">brand-200</div><div class="swatch__value">#bad6f8</div></div></div>
+          <div class="swatch"><span class="swatch__chip" style="background:#75b0f6"></span><div class="swatch__meta"><div class="swatch__name">brand-300</div><div class="swatch__value">#75b0f6</div></div></div>
+          <div class="swatch"><span class="swatch__chip" style="background:#348cf2"></span><div class="swatch__meta"><div class="swatch__name">brand-400</div><div class="swatch__value">#348cf2</div></div></div>
+          <div class="swatch"><span class="swatch__chip" style="background:#1379f0"></span><div class="swatch__meta"><div class="swatch__name">brand-500</div><div class="swatch__value">#1379f0</div></div></div>
+          <div class="swatch"><span class="swatch__chip" style="background:#0b55aa"></span><div class="swatch__meta"><div class="swatch__name">brand-600</div><div class="swatch__value">#0b55aa</div></div></div>
+          <div class="swatch"><span class="swatch__chip" style="background:#083e7c"></span><div class="swatch__meta"><div class="swatch__name">brand-700</div><div class="swatch__value">#083e7c</div></div></div>
+          <div class="swatch"><span class="swatch__chip" style="background:#052b56"></span><div class="swatch__meta"><div class="swatch__name">brand-800</div><div class="swatch__value">#052b56</div></div></div>
+          <div class="swatch"><span class="swatch__chip" style="background:#05182f"></span><div class="swatch__meta"><div class="swatch__name">brand-900</div><div class="swatch__value">#05182f</div></div></div>
+          <div class="swatch"><span class="swatch__chip" style="background:#040c14"></span><div class="swatch__meta"><div class="swatch__name">brand-950</div><div class="swatch__value">#040c14</div></div></div>
+        </div>
+
+        <h2 class="docs__heading">Gray</h2>
+        <p class="docs__paragraph docs__paragraph--muted">
+          Cool-tinted neutrals aligned to the brand hue at low saturation. Reads as gray; the subtle blue cast quietly ties chrome to the brand.
+        </p>
+        <div class="swatch-grid">
+          <div class="swatch"><span class="swatch__chip" style="background:#f4f4f5"></span><div class="swatch__meta"><div class="swatch__name">gray-50</div><div class="swatch__value">#f4f4f5</div></div></div>
+          <div class="swatch"><span class="swatch__chip" style="background:#e6e7e8"></span><div class="swatch__meta"><div class="swatch__name">gray-100</div><div class="swatch__value">#e6e7e8</div></div></div>
+          <div class="swatch"><span class="swatch__chip" style="background:#d2d4d5"></span><div class="swatch__meta"><div class="swatch__name">gray-200</div><div class="swatch__value">#d2d4d5</div></div></div>
+          <div class="swatch"><span class="swatch__chip" style="background:#a9adb3"></span><div class="swatch__meta"><div class="swatch__name">gray-300</div><div class="swatch__value">#a9adb3</div></div></div>
+          <div class="swatch"><span class="swatch__chip" style="background:#848d96"></span><div class="swatch__meta"><div class="swatch__name">gray-400</div><div class="swatch__value">#848d96</div></div></div>
+          <div class="swatch"><span class="swatch__chip" style="background:#69727c"></span><div class="swatch__meta"><div class="swatch__name">gray-500</div><div class="swatch__value">#69727c</div></div></div>
+          <div class="swatch"><span class="swatch__chip" style="background:#525960"></span><div class="swatch__meta"><div class="swatch__name">gray-600</div><div class="swatch__value">#525960</div></div></div>
+          <div class="swatch"><span class="swatch__chip" style="background:#3c3f44"></span><div class="swatch__meta"><div class="swatch__name">gray-700</div><div class="swatch__value">#3c3f44</div></div></div>
+          <div class="swatch"><span class="swatch__chip" style="background:#292b2e"></span><div class="swatch__meta"><div class="swatch__name">gray-800</div><div class="swatch__value">#292b2e</div></div></div>
+          <div class="swatch"><span class="swatch__chip" style="background:#17191a"></span><div class="swatch__meta"><div class="swatch__name">gray-900</div><div class="swatch__value">#17191a</div></div></div>
+          <div class="swatch"><span class="swatch__chip" style="background:#0b0b0c"></span><div class="swatch__meta"><div class="swatch__name">gray-950</div><div class="swatch__value">#0b0b0c</div></div></div>
+        </div>
+
+        <h2 class="docs__heading">Feedback</h2>
+        <p class="docs__paragraph docs__paragraph--muted">
+          Trimmed scales (100, 400, 500, 600, 700) — only the stops the semantic feedback tokens actually map to.
+        </p>
+
+        <h3 class="docs__subheading">Green · success</h3>
+        <div class="swatch-grid">
+          <div class="swatch"><span class="swatch__chip" style="background:#dcfce7"></span><div class="swatch__meta"><div class="swatch__name">green-100</div><div class="swatch__value">#dcfce7</div></div></div>
+          <div class="swatch"><span class="swatch__chip" style="background:#05df72"></span><div class="swatch__meta"><div class="swatch__name">green-400</div><div class="swatch__value">#05df72</div></div></div>
+          <div class="swatch"><span class="swatch__chip" style="background:#00c950"></span><div class="swatch__meta"><div class="swatch__name">green-500</div><div class="swatch__value">#00c950</div></div></div>
+          <div class="swatch"><span class="swatch__chip" style="background:#00a63e"></span><div class="swatch__meta"><div class="swatch__name">green-600</div><div class="swatch__value">#00a63e</div></div></div>
+          <div class="swatch"><span class="swatch__chip" style="background:#008236"></span><div class="swatch__meta"><div class="swatch__name">green-700</div><div class="swatch__value">#008236</div></div></div>
+        </div>
+
+        <h3 class="docs__subheading">Red · error / destructive</h3>
+        <div class="swatch-grid">
+          <div class="swatch"><span class="swatch__chip" style="background:#ffe2e2"></span><div class="swatch__meta"><div class="swatch__name">red-100</div><div class="swatch__value">#ffe2e2</div></div></div>
+          <div class="swatch"><span class="swatch__chip" style="background:#ff6467"></span><div class="swatch__meta"><div class="swatch__name">red-400</div><div class="swatch__value">#ff6467</div></div></div>
+          <div class="swatch"><span class="swatch__chip" style="background:#fb2c36"></span><div class="swatch__meta"><div class="swatch__name">red-500</div><div class="swatch__value">#fb2c36</div></div></div>
+          <div class="swatch"><span class="swatch__chip" style="background:#e7000b"></span><div class="swatch__meta"><div class="swatch__name">red-600</div><div class="swatch__value">#e7000b</div></div></div>
+          <div class="swatch"><span class="swatch__chip" style="background:#c10007"></span><div class="swatch__meta"><div class="swatch__name">red-700</div><div class="swatch__value">#c10007</div></div></div>
+        </div>
+
+        <h3 class="docs__subheading">Amber · warning</h3>
+        <div class="swatch-grid">
+          <div class="swatch"><span class="swatch__chip" style="background:#fef3c6"></span><div class="swatch__meta"><div class="swatch__name">amber-100</div><div class="swatch__value">#fef3c6</div></div></div>
+          <div class="swatch"><span class="swatch__chip" style="background:#ffb900"></span><div class="swatch__meta"><div class="swatch__name">amber-400</div><div class="swatch__value">#ffb900</div></div></div>
+          <div class="swatch"><span class="swatch__chip" style="background:#fe9a00"></span><div class="swatch__meta"><div class="swatch__name">amber-500</div><div class="swatch__value">#fe9a00</div></div></div>
+          <div class="swatch"><span class="swatch__chip" style="background:#e17100"></span><div class="swatch__meta"><div class="swatch__name">amber-600</div><div class="swatch__value">#e17100</div></div></div>
+        </div>
+
+        <h3 class="docs__subheading">Blue · info / links</h3>
+        <div class="swatch-grid">
+          <div class="swatch"><span class="swatch__chip" style="background:#dde8f5"></span><div class="swatch__meta"><div class="swatch__name">blue-100</div><div class="swatch__value">#dde8f5</div></div></div>
+          <div class="swatch"><span class="swatch__chip" style="background:#488ddf"></span><div class="swatch__meta"><div class="swatch__name">blue-400</div><div class="swatch__value">#488ddf</div></div></div>
+          <div class="swatch"><span class="swatch__chip" style="background:#2576d4"></span><div class="swatch__meta"><div class="swatch__name">blue-500</div><div class="swatch__value">#2576d4</div></div></div>
+          <div class="swatch"><span class="swatch__chip" style="background:#1c579d"></span><div class="swatch__meta"><div class="swatch__name">blue-600</div><div class="swatch__value">#1c579d</div></div></div>
+          <div class="swatch"><span class="swatch__chip" style="background:#144072"></span><div class="swatch__meta"><div class="swatch__name">blue-700</div><div class="swatch__value">#144072</div></div></div>
+        </div>
+
+        <h2 class="docs__heading">Semantic tokens</h2>
+        <p class="docs__paragraph docs__paragraph--muted">
+          What components actually consume. Each alias points at a primitive and can be re-pointed for theming without touching component CSS.
+        </p>
+
+        <div class="swatch-row">
+          <span class="swatch-row__chip" style="background:#f4f4f5"></span>
+          <span class="swatch-row__name">--color-background</span>
+          <span class="swatch-row__note">Page background · gray-50</span>
+        </div>
+        <div class="swatch-row">
+          <span class="swatch-row__chip" style="background:#ffffff"></span>
+          <span class="swatch-row__name">--color-surface</span>
+          <span class="swatch-row__note">Cards, modals, panels · white</span>
+        </div>
+        <div class="swatch-row">
+          <span class="swatch-row__chip" style="background:#17191a"></span>
+          <span class="swatch-row__name">--color-foreground</span>
+          <span class="swatch-row__note">Primary body text · gray-900</span>
+        </div>
+        <div class="swatch-row">
+          <span class="swatch-row__chip" style="background:#69727c"></span>
+          <span class="swatch-row__name">--color-foreground-muted</span>
+          <span class="swatch-row__note">Secondary text, labels · gray-500</span>
+        </div>
+        <div class="swatch-row">
+          <span class="swatch-row__chip" style="background:#848d96"></span>
+          <span class="swatch-row__name">--color-foreground-subtle</span>
+          <span class="swatch-row__note">Placeholder, disabled · gray-400</span>
+        </div>
+        <div class="swatch-row">
+          <span class="swatch-row__chip" style="background:#0b55aa"></span>
+          <span class="swatch-row__name">--color-action-primary</span>
+          <span class="swatch-row__note">CTAs, links · brand-600</span>
+        </div>
+        <div class="swatch-row">
+          <span class="swatch-row__chip" style="background:#083e7c"></span>
+          <span class="swatch-row__name">--color-action-primary-hover</span>
+          <span class="swatch-row__note">Hover state · brand-700</span>
+        </div>
+        <div class="swatch-row">
+          <span class="swatch-row__chip" style="background:#d2d4d5"></span>
+          <span class="swatch-row__name">--color-border</span>
+          <span class="swatch-row__note">Hairline dividers, input borders · gray-200</span>
+        </div>
+        <div class="swatch-row">
+          <span class="swatch-row__chip" style="background:#1379f0"></span>
+          <span class="swatch-row__name">--color-border-focus</span>
+          <span class="swatch-row__note">Focus ring color · brand-500</span>
+        </div>
+        <div class="swatch-row">
+          <span class="swatch-row__chip" style="background:#00a63e"></span>
+          <span class="swatch-row__name">--color-success</span>
+          <span class="swatch-row__note">Success states · green-600</span>
+        </div>
+        <div class="swatch-row">
+          <span class="swatch-row__chip" style="background:#e17100"></span>
+          <span class="swatch-row__name">--color-warning</span>
+          <span class="swatch-row__note">Warning states · amber-600</span>
+        </div>
+        <div class="swatch-row">
+          <span class="swatch-row__chip" style="background:#e7000b"></span>
+          <span class="swatch-row__name">--color-error</span>
+          <span class="swatch-row__note">Error, destructive · red-600</span>
+        </div>
+        <div class="swatch-row">
+          <span class="swatch-row__chip" style="background:#1c579d"></span>
+          <span class="swatch-row__name">--color-info</span>
+          <span class="swatch-row__note">Info, help text · blue-600</span>
+        </div>
+      </section>
+
+      <!-- ── Typography ───────────────────────────────────────────────── -->
+      <section id="typography" class="docs__section">
+        <span class="docs__eyebrow">Foundations</span>
+        <h1 class="docs__title">Typography</h1>
+        <p class="docs__lead">
+          Two typefaces from one superfamily. Inter for body and UI, InterDisplay for headings and the logotype — same letterforms, optically retuned for size.
+        </p>
+
+        <h2 class="docs__heading">Families</h2>
+        <table class="docs__table">
+          <thead>
+            <tr><th>Token</th><th>Family</th><th>Usage</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code class="docs__token">--font-display</code></td>
+              <td style="font-family: var(--font-display); font-size: var(--text-lg);">InterDisplay</td>
+              <td>Page titles, section headings, brand marks</td>
+            </tr>
+            <tr>
+              <td><code class="docs__token">--font-sans</code></td>
+              <td style="font-family: var(--font-sans); font-size: var(--text-lg);">Inter</td>
+              <td>Body copy, UI text, labels</td>
+            </tr>
+            <tr>
+              <td><code class="docs__token">--font-mono</code></td>
+              <td style="font-family: var(--font-mono); font-size: var(--text-lg);">ui-monospace</td>
+              <td>Code samples, token names</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2 class="docs__heading">Type scale</h2>
+        <p class="docs__paragraph docs__paragraph--muted">
+          A modular scale in <code class="docs__token">rem</code> units so the whole system honors the user's browser base size.
+        </p>
+        <div class="type-row">
+          <span class="type-row__label">--text-xs</span>
+          <span class="type-row__sample" style="font-size: var(--text-xs);">The quick brown fox jumps over the lazy dog</span>
+          <span class="type-row__meta">12px</span>
+        </div>
+        <div class="type-row">
+          <span class="type-row__label">--text-sm</span>
+          <span class="type-row__sample" style="font-size: var(--text-sm);">The quick brown fox jumps over the lazy dog</span>
+          <span class="type-row__meta">14px</span>
+        </div>
+        <div class="type-row">
+          <span class="type-row__label">--text-base</span>
+          <span class="type-row__sample" style="font-size: var(--text-base);">The quick brown fox jumps over the lazy dog</span>
+          <span class="type-row__meta">16px</span>
+        </div>
+        <div class="type-row">
+          <span class="type-row__label">--text-lg</span>
+          <span class="type-row__sample" style="font-size: var(--text-lg);">The quick brown fox jumps over the lazy dog</span>
+          <span class="type-row__meta">18px</span>
+        </div>
+        <div class="type-row">
+          <span class="type-row__label">--text-xl</span>
+          <span class="type-row__sample" style="font-size: var(--text-xl);">The quick brown fox jumps over the lazy dog</span>
+          <span class="type-row__meta">20px</span>
+        </div>
+        <div class="type-row">
+          <span class="type-row__label">--text-2xl</span>
+          <span class="type-row__sample" style="font-size: var(--text-2xl); font-family: var(--font-display);">The quick brown fox</span>
+          <span class="type-row__meta">24px</span>
+        </div>
+        <div class="type-row">
+          <span class="type-row__label">--text-3xl</span>
+          <span class="type-row__sample" style="font-size: var(--text-3xl); font-family: var(--font-display);">The quick brown fox</span>
+          <span class="type-row__meta">30px</span>
+        </div>
+        <div class="type-row">
+          <span class="type-row__label">--text-4xl</span>
+          <span class="type-row__sample" style="font-size: var(--text-4xl); font-family: var(--font-display); letter-spacing: var(--tracking-tight);">Quick brown fox</span>
+          <span class="type-row__meta">36px</span>
+        </div>
+        <div class="type-row">
+          <span class="type-row__label">--text-5xl</span>
+          <span class="type-row__sample" style="font-size: var(--text-5xl); font-family: var(--font-display); letter-spacing: var(--tracking-tight); line-height: var(--leading-tight);">Quick brown fox</span>
+          <span class="type-row__meta">48px</span>
+        </div>
+
+        <h2 class="docs__heading">Weights</h2>
+        <table class="docs__table">
+          <thead><tr><th>Token</th><th>Sample (Inter)</th><th>Value</th></tr></thead>
+          <tbody>
+            <tr><td><code class="docs__token">--font-normal</code></td><td style="font-weight: 400; font-size: var(--text-lg);">Aa Regular</td><td>400</td></tr>
+            <tr><td><code class="docs__token">--font-medium</code></td><td style="font-weight: 500; font-size: var(--text-lg);">Aa Medium</td><td>500</td></tr>
+            <tr><td><code class="docs__token">--font-semibold</code></td><td style="font-weight: 600; font-size: var(--text-lg);">Aa SemiBold</td><td>600</td></tr>
+            <tr><td><code class="docs__token">--font-bold</code></td><td style="font-weight: 700; font-size: var(--text-lg);">Aa Bold</td><td>700</td></tr>
+          </tbody>
+        </table>
+
+        <h2 class="docs__heading">Line height &amp; tracking</h2>
+        <table class="docs__table">
+          <thead><tr><th>Token</th><th>Value</th><th>Usage</th></tr></thead>
+          <tbody>
+            <tr><td><code class="docs__token">--leading-tight</code></td><td>1.25</td><td>Headings</td></tr>
+            <tr><td><code class="docs__token">--leading-snug</code></td><td>1.375</td><td>Subheadings, dense lists</td></tr>
+            <tr><td><code class="docs__token">--leading-normal</code></td><td>1.5</td><td>Body default</td></tr>
+            <tr><td><code class="docs__token">--leading-relaxed</code></td><td>1.625</td><td>Long-form reading</td></tr>
+            <tr><td><code class="docs__token">--tracking-tight</code></td><td>-0.025em</td><td>Large display type</td></tr>
+            <tr><td><code class="docs__token">--tracking-normal</code></td><td>0em</td><td>Default</td></tr>
+            <tr><td><code class="docs__token">--tracking-wide</code></td><td>0.025em</td><td>Small uppercase labels</td></tr>
+            <tr><td><code class="docs__token">--tracking-wider</code></td><td>0.05em</td><td>Eyebrows, nav group titles</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- ── Spacing ──────────────────────────────────────────────────── -->
+      <section id="spacing" class="docs__section">
+        <span class="docs__eyebrow">Foundations</span>
+        <h1 class="docs__title">Spacing</h1>
+        <p class="docs__lead">
+          A 4px grid. Every spacing token is a multiple of <code class="docs__token">--spacing-1</code>, so layouts compose without arithmetic.
+        </p>
+
+        <h2 class="docs__heading">Scale</h2>
+        <p class="docs__paragraph docs__paragraph--muted">
+          Bar length is the actual token size — visual proof that the scale is uniform.
+        </p>
+
+        <div class="spacing-row"><span class="spacing-row__label">--spacing-1</span> <span class="spacing-row__bar" style="width: 0.25rem;"></span> <span class="spacing-row__value">4px</span></div>
+        <div class="spacing-row"><span class="spacing-row__label">--spacing-2</span> <span class="spacing-row__bar" style="width: 0.5rem;"></span>  <span class="spacing-row__value">8px</span></div>
+        <div class="spacing-row"><span class="spacing-row__label">--spacing-3</span> <span class="spacing-row__bar" style="width: 0.75rem;"></span> <span class="spacing-row__value">12px</span></div>
+        <div class="spacing-row"><span class="spacing-row__label">--spacing-4</span> <span class="spacing-row__bar" style="width: 1rem;"></span>    <span class="spacing-row__value">16px</span></div>
+        <div class="spacing-row"><span class="spacing-row__label">--spacing-5</span> <span class="spacing-row__bar" style="width: 1.25rem;"></span> <span class="spacing-row__value">20px</span></div>
+        <div class="spacing-row"><span class="spacing-row__label">--spacing-6</span> <span class="spacing-row__bar" style="width: 1.5rem;"></span>  <span class="spacing-row__value">24px</span></div>
+        <div class="spacing-row"><span class="spacing-row__label">--spacing-8</span> <span class="spacing-row__bar" style="width: 2rem;"></span>    <span class="spacing-row__value">32px</span></div>
+        <div class="spacing-row"><span class="spacing-row__label">--spacing-10</span><span class="spacing-row__bar" style="width: 2.5rem;"></span> <span class="spacing-row__value">40px</span></div>
+        <div class="spacing-row"><span class="spacing-row__label">--spacing-12</span><span class="spacing-row__bar" style="width: 3rem;"></span>   <span class="spacing-row__value">48px</span></div>
+        <div class="spacing-row"><span class="spacing-row__label">--spacing-16</span><span class="spacing-row__bar" style="width: 4rem;"></span>   <span class="spacing-row__value">64px</span></div>
+        <div class="spacing-row"><span class="spacing-row__label">--spacing-20</span><span class="spacing-row__bar" style="width: 5rem;"></span>   <span class="spacing-row__value">80px</span></div>
+        <div class="spacing-row"><span class="spacing-row__label">--spacing-24</span><span class="spacing-row__bar" style="width: 6rem;"></span>   <span class="spacing-row__value">96px</span></div>
+        <div class="spacing-row"><span class="spacing-row__label">--spacing-32</span><span class="spacing-row__bar" style="width: 8rem;"></span>   <span class="spacing-row__value">128px</span></div>
+        <div class="spacing-row"><span class="spacing-row__label">--spacing-40</span><span class="spacing-row__bar" style="width: 10rem;"></span>  <span class="spacing-row__value">160px</span></div>
+        <div class="spacing-row"><span class="spacing-row__label">--spacing-64</span><span class="spacing-row__bar" style="width: 16rem;"></span>  <span class="spacing-row__value">256px</span></div>
+        <div class="spacing-row"><span class="spacing-row__label">--spacing-72</span><span class="spacing-row__bar" style="width: 18rem;"></span>  <span class="spacing-row__value">288px</span></div>
+      </section>
+
+      <!-- ── Radius ───────────────────────────────────────────────────── -->
+      <section id="radius" class="docs__section">
+        <span class="docs__eyebrow">Foundations</span>
+        <h1 class="docs__title">Radius</h1>
+        <p class="docs__lead">
+          A short, intentional scale. The overall roundness personality of the product is set here — sharpen or soften the whole UI with one edit.
+        </p>
+
+        <div class="demo-grid">
+          <div class="demo-card">
+            <span class="demo-card__sample" style="border-radius: 0;"></span>
+            <span class="demo-card__label"><strong>--radius-none</strong>0</span>
+          </div>
+          <div class="demo-card">
+            <span class="demo-card__sample" style="border-radius: 0.25rem;"></span>
+            <span class="demo-card__label"><strong>--radius-sm</strong>4px</span>
+          </div>
+          <div class="demo-card">
+            <span class="demo-card__sample" style="border-radius: 0.5rem;"></span>
+            <span class="demo-card__label"><strong>--radius-md</strong>8px · default</span>
+          </div>
+          <div class="demo-card">
+            <span class="demo-card__sample" style="border-radius: 0.75rem;"></span>
+            <span class="demo-card__label"><strong>--radius-lg</strong>12px</span>
+          </div>
+          <div class="demo-card">
+            <span class="demo-card__sample" style="border-radius: 1rem;"></span>
+            <span class="demo-card__label"><strong>--radius-xl</strong>16px</span>
+          </div>
+          <div class="demo-card">
+            <span class="demo-card__sample" style="border-radius: 1.5rem;"></span>
+            <span class="demo-card__label"><strong>--radius-2xl</strong>24px</span>
+          </div>
+          <div class="demo-card">
+            <span class="demo-card__sample" style="border-radius: 9999px;"></span>
+            <span class="demo-card__label"><strong>--radius-full</strong>pill / avatar</span>
+          </div>
+        </div>
+
+        <table class="docs__table">
+          <thead><tr><th>Token</th><th>Value</th><th>Usage</th></tr></thead>
+          <tbody>
+            <tr><td><code class="docs__token">--radius-none</code></td><td>0</td><td>Sharp edges</td></tr>
+            <tr><td><code class="docs__token">--radius-sm</code></td><td>0.25rem</td><td>Tags, badges, inline code</td></tr>
+            <tr><td><code class="docs__token">--radius-md</code></td><td>0.5rem</td><td>Inputs, buttons (default)</td></tr>
+            <tr><td><code class="docs__token">--radius-lg</code></td><td>0.75rem</td><td>Cards</td></tr>
+            <tr><td><code class="docs__token">--radius-xl</code></td><td>1rem</td><td>Panels, modals</td></tr>
+            <tr><td><code class="docs__token">--radius-2xl</code></td><td>1.5rem</td><td>Large surfaces, hero blocks</td></tr>
+            <tr><td><code class="docs__token">--radius-full</code></td><td>9999px</td><td>Pills, avatars, tags</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- ── Shadows ──────────────────────────────────────────────────── -->
+      <section id="shadows" class="docs__section">
+        <span class="docs__eyebrow">Foundations</span>
+        <h1 class="docs__title">Shadows</h1>
+        <p class="docs__lead">
+          Shadows communicate elevation. More shadow = higher up = more important. Use sparingly; most surfaces need only <code class="docs__token">--shadow-sm</code> or <code class="docs__token">--shadow-md</code>.
+        </p>
+
+        <div class="demo-grid">
+          <div class="demo-card">
+            <span class="demo-card__sample demo-card__sample--shadow" style="box-shadow: none;"></span>
+            <span class="demo-card__label"><strong>--shadow-none</strong>flat</span>
+          </div>
+          <div class="demo-card">
+            <span class="demo-card__sample demo-card__sample--shadow" style="box-shadow: 0 1px 2px #0000000d;"></span>
+            <span class="demo-card__label"><strong>--shadow-xs</strong>hairline lift</span>
+          </div>
+          <div class="demo-card">
+            <span class="demo-card__sample demo-card__sample--shadow" style="box-shadow: 0 1px 3px #0000001a, 0 1px 2px #0000000f;"></span>
+            <span class="demo-card__label"><strong>--shadow-sm</strong>cards</span>
+          </div>
+          <div class="demo-card">
+            <span class="demo-card__sample demo-card__sample--shadow" style="box-shadow: 0 4px 6px #00000012, 0 2px 4px #0000000f;"></span>
+            <span class="demo-card__label"><strong>--shadow-md</strong>dropdowns, tooltips</span>
+          </div>
+          <div class="demo-card">
+            <span class="demo-card__sample demo-card__sample--shadow" style="box-shadow: 0 10px 15px #0000001a, 0 4px 6px #0000000d;"></span>
+            <span class="demo-card__label"><strong>--shadow-lg</strong>popovers</span>
+          </div>
+          <div class="demo-card">
+            <span class="demo-card__sample demo-card__sample--shadow" style="box-shadow: 0 20px 25px #0000001a, 0 8px 10px #0000000a;"></span>
+            <span class="demo-card__label"><strong>--shadow-xl</strong>modals</span>
+          </div>
+          <div class="demo-card">
+            <span class="demo-card__sample demo-card__sample--shadow" style="box-shadow: inset 0 2px 4px #0000000f;"></span>
+            <span class="demo-card__label"><strong>--shadow-inner</strong>pressed state</span>
+          </div>
+        </div>
+
+        <p class="docs__paragraph docs__paragraph--muted">
+          Opacity is encoded as <strong>8-digit hex</strong> (<code class="docs__token">#rrggbbaa</code>) so shadow tokens live in the same format as color primitives. The focus ring is its own token — <code class="docs__token">--shadow-focus-ring</code> — derived from <code class="docs__token">--color-action-primary</code> via <code class="docs__token">color-mix()</code>.
+        </p>
+      </section>
+
+      <!-- ── Motion ───────────────────────────────────────────────────── -->
+      <section id="motion" class="docs__section">
+        <span class="docs__eyebrow">Foundations</span>
+        <h1 class="docs__title">Motion</h1>
+        <p class="docs__lead">
+          Motion tokens prevent the "every component has its own timing" problem. Every transition uses one of these, and the whole system respects <code class="docs__token">prefers-reduced-motion</code>.
+        </p>
+
+        <h2 class="docs__heading">Duration</h2>
+        <table class="docs__table">
+          <thead><tr><th>Token</th><th>Value</th><th>Usage</th></tr></thead>
+          <tbody>
+            <tr><td><code class="docs__token">--duration-instant</code></td><td>0ms</td><td>Skip animation</td></tr>
+            <tr><td><code class="docs__token">--duration-fast</code></td><td>100ms</td><td>Hover states, small feedback</td></tr>
+            <tr><td><code class="docs__token">--duration-normal</code></td><td>200ms</td><td>Buttons, dropdowns, tooltips</td></tr>
+            <tr><td><code class="docs__token">--duration-slow</code></td><td>300ms</td><td>Modals, drawers, panels</td></tr>
+            <tr><td><code class="docs__token">--duration-slower</code></td><td>500ms</td><td>Page transitions</td></tr>
+          </tbody>
+        </table>
+
+        <h2 class="docs__heading">Easing</h2>
+        <table class="docs__table">
+          <thead><tr><th>Token</th><th>Curve</th><th>Usage</th></tr></thead>
+          <tbody>
+            <tr><td><code class="docs__token">--ease-linear</code></td><td>linear</td><td>Progress bars, scrubbing</td></tr>
+            <tr><td><code class="docs__token">--ease-out</code></td><td>cubic-bezier(0, 0, 0.2, 1)</td><td>Elements entering screen</td></tr>
+            <tr><td><code class="docs__token">--ease-in</code></td><td>cubic-bezier(0.4, 0, 1, 1)</td><td>Elements leaving screen</td></tr>
+            <tr><td><code class="docs__token">--ease-in-out</code></td><td>cubic-bezier(0.4, 0, 0.2, 1)</td><td>State changes, toggles</td></tr>
+            <tr><td><code class="docs__token">--ease-spring</code></td><td>cubic-bezier(0.34, 1.56, 0.64, 1)</td><td>Playful pop (modals, badges)</td></tr>
+            <tr><td><code class="docs__token">--ease-bounce</code></td><td>cubic-bezier(0.175, 0.885, 0.32, 1.275)</td><td>Attention-drawing entrance</td></tr>
+          </tbody>
+        </table>
+
+        <p class="docs__paragraph docs__paragraph--muted">
+          A global rule in <code class="docs__token">app.css</code> collapses all transitions to <code class="docs__token">0.01ms</code> when the user has reduced-motion preferences set — no per-component opt-in required.
+        </p>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- ====================================================================
+       Sidebar active-link highlighting
+       Tiny vanilla JS — observes which section is in view and marks its
+       sidebar link with aria-current. Falls back gracefully if disabled.
+       ==================================================================== -->
+  <script>
+    (() => {
+      const links = document.querySelectorAll('[data-nav-link]');
+      if (!links.length || !('IntersectionObserver' in window)) return;
+
+      const linkById = new Map();
+      links.forEach(link => {
+        const id = link.getAttribute('href')?.replace('#', '');
+        if (id) linkById.set(id, link);
+      });
+
+      const setActive = (id) => {
+        links.forEach(l => l.removeAttribute('aria-current'));
+        const active = linkById.get(id);
+        if (active) active.setAttribute('aria-current', 'true');
+      };
+
+      const sections = document.querySelectorAll('.docs__section');
+      const observer = new IntersectionObserver((entries) => {
+        const visible = entries
+          .filter(e => e.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+        if (visible[0]) setActive(visible[0].target.id);
+      }, {
+        // Trigger when section crosses the upper third of the viewport.
+        rootMargin: '0px 0px -66% 0px',
+        threshold: [0, 0.25, 0.5, 1]
+      });
+
+      sections.forEach(s => observer.observe(s));
+
+      // Initial state based on URL hash or first section.
+      const initial = window.location.hash?.replace('#', '') || sections[0]?.id;
+      if (initial) setActive(initial);
+    })();
+  </script>
+
+</body>
+</html>

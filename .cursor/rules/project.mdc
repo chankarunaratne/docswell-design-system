@@ -1,0 +1,96 @@
+---
+description: docswell-ds — startup design system (Tailwind v4, HTML/CSS/JS, Figma MCP)
+alwaysApply: true
+---
+
+# docswell-ds — Project Rules
+
+## Project context
+
+- **Stack**: HTML, CSS (Tailwind v4 CSS-first), and vanilla JavaScript. No other frameworks unless explicitly requested.
+- **Purpose**: Hands-on learning project — build a practical design system for a startup from scratch in 2026. Teach *why*, not just *what*.
+- **Industry defaults**: Prefer conventions most teams still use (hex colors, Figma-friendly values) unless there is a strong project-specific reason not to.
+- **Audience**: Solo startup developer learning design systems. Prefer small, teachable steps over large code dumps.
+- **Figma**: Connected via Figma MCP. Use Figma for visual intent and spacing reference only. Existing Figma component libraries use legacy techniques — do not mirror their naming, structure, or architecture in code. Define the modern system in this repo.
+
+## Token system (three-tier hierarchy)
+
+All visual decisions live in tokens. Never hardcode colors, spacing, radius, or shadow values in component CSS.
+
+- **Tier 1 — Primitives** (`styles/tokens/`): Raw values with no semantic meaning. e.g. `--blue-500`, `--gray-100`. Color primitives use **hex** (`#rrggbb`).
+- **Tier 2 — Semantic** (`styles/semantic/`): Purpose-driven aliases that reference primitives. e.g. `--color-background`, `--color-action-primary`. Components consume these.
+- **Tier 3 — Component** (`styles/components/`): Scoped tokens for a single component. e.g. `--button-radius`. Must reference semantic tokens, never primitives directly.
+
+## Tailwind v4 conventions
+
+- All tokens are defined inside `@theme {}` blocks in CSS files — no `tailwind.config.js`.
+- Use `@import "tailwindcss"` once in `styles/app.css` only.
+- Color primitives use **hex** format: `#rrggbb` (lowercase). Use 8-digit hex (`#rrggbbaa`) only when alpha is required (e.g. shadows). Do not use OKLCH or HSL for new color tokens.
+- Defining `--color-brand-500` in `@theme` automatically generates `bg-brand-500`, `text-brand-500`, etc. — no duplication needed.
+- Semantic tokens and component tokens go in `@theme` blocks in their respective files.
+- Arbitrary Tailwind values (e.g. `bg-[#fff]`) are forbidden — always use or create a named token.
+
+## File structure
+
+```
+styles/
+  app.css              ← single entry point, all @imports live here
+  tokens/
+    colors.css         ← hex primitive palette
+    typography.css     ← font families, size/weight/line-height scale
+    spacing.css        ← 8pt spacing scale
+    radius.css         ← border radius scale
+    shadows.css        ← elevation/shadow scale
+    motion.css         ← duration + easing tokens
+  semantic/
+    colors.css         ← semantic color aliases (bg, fg, brand, states)
+  components/          ← one file per component, added as needed
+```
+
+## Build order (don't skip layers)
+
+1. Foundations: token files in `styles/tokens/`
+2. Semantic layer: `styles/semantic/`
+3. Primitives: base HTML element resets/defaults
+4. Components: `styles/components/` — only when a real UI need arises
+5. Patterns/pages: compositions of components
+
+## Hex color guidance
+
+- Use lowercase 6-digit hex for solid primitives: `#007cdf`.
+- Build scales as `50, 100, 200, … 950` — match Figma variable naming when possible.
+- When pulling brand colors from Figma, paste the hex value directly into `styles/tokens/colors.css`.
+- Verify WCAG AA contrast after defining semantic pairings (text on background).
+
+## Accessibility & quality
+
+- Meet WCAG AA contrast minimums for all text on backgrounds.
+- Use `:focus-visible` not `:focus` for keyboard focus styles.
+- Respect `prefers-reduced-motion` in all transition/animation CSS.
+- Use semantic HTML (`button`, `nav`, `label`, etc.) before adding ARIA.
+
+## Figma + MCP
+
+- Use MCP tools (`get_design_context`, `get_screenshot`) to read designs — never guess at values.
+- If a Figma value conflicts with the token system, update the code to the modern pattern and note the divergence.
+- Do not copy or reference legacy Figma library component names in code.
+
+## Documentation
+
+- Keep `DESIGN.md` at repo root updated when adding token categories or making system-level decisions.
+- Comment non-obvious token choices inline in CSS (the *why*, not the *what*).
+- Do not add other markdown files unless asked.
+
+## Git & workflow
+
+- Do not commit unless explicitly asked.
+- Do not commit secrets (`.env`, API keys, credentials).
+- Keep changes scoped — no unrelated refactors alongside task work.
+
+## Do not
+
+- Invent components or tokens not grounded in Figma or an agreed spec.
+- Use OKLCH or HSL for new color tokens — use hex primitives in `styles/tokens/colors.css`.
+- Use Tailwind arbitrary values instead of named tokens.
+- Copy outdated Figma library structure into code.
+- Introduce React, Vue, or other frameworks unless requested.

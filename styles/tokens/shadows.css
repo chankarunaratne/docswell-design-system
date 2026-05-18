@@ -1,0 +1,20 @@
+/* ==========================================================================
+   Tier 1 — Shadow / Elevation Primitives
+   Shadows communicate elevation (depth). More shadow = higher up = more important.
+   Use sparingly — most startup UIs need only sm and md.
+   ========================================================================== */
+
+@theme {
+  --shadow-none: none;
+  --shadow-xs:   0 1px 2px  #0000000d;
+  --shadow-sm:   0 1px 3px  #0000001a, 0 1px 2px #0000000f;
+  --shadow-md:   0 4px 6px  #00000012, 0 2px 4px #0000000f;
+  --shadow-lg:   0 10px 15px #0000001a, 0 4px 6px #0000000d;
+  --shadow-xl:   0 20px 25px #0000001a, 0 8px 10px #0000000a;
+
+  /* Inset — for pressed states, inner borders */
+  --shadow-inner: inset 0 2px 4px #0000000f;
+
+  /* Focus ring — consistent across all interactive elements */
+  --shadow-focus-ring: 0 0 0 3px color-mix(in srgb, var(--color-action-primary, #005eb3) 35%, transparent);
+}
