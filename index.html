@@ -153,15 +153,17 @@
           <div class="swatch"><span class="swatch__chip" style="background:#144072"></span><div class="swatch__meta"><div class="swatch__name">blue-700</div><div class="swatch__value">#144072</div></div></div>
         </div>
 
+
         <h2 class="docs__heading">Semantic tokens</h2>
         <p class="docs__paragraph docs__paragraph--muted">
-          What components actually consume. Each alias points at a primitive and can be re-pointed for theming without touching component CSS.
+          What components actually consume. Each alias points at a primitive and can be re-pointed for theming without touching component CSS. Light theme only.
         </p>
 
+        <h3 class="docs__subheading">Surfaces</h3>
         <div class="swatch-row">
           <span class="swatch-row__chip" style="background:#ffffff"></span>
           <span class="swatch-row__name">--color-background</span>
-          <span class="swatch-row__note">Main canvas, content area · white</span>
+          <span class="swatch-row__note">Main canvas · white</span>
         </div>
         <div class="swatch-row">
           <span class="swatch-row__chip" style="background:#f4f4f5"></span>
@@ -173,6 +175,28 @@
           <span class="swatch-row__name">--color-surface</span>
           <span class="swatch-row__note">Cards, modals, panels · white</span>
         </div>
+        <div class="swatch-row">
+          <span class="swatch-row__chip" style="background:#ffffff"></span>
+          <span class="swatch-row__name">--color-surface-raised</span>
+          <span class="swatch-row__note">Elevated surfaces · white</span>
+        </div>
+        <div class="swatch-row">
+          <span class="swatch-row__chip" style="background:#ffffff"></span>
+          <span class="swatch-row__name">--color-surface-overlay</span>
+          <span class="swatch-row__note">Overlays, popovers · white</span>
+        </div>
+        <div class="swatch-row">
+          <span class="swatch-row__chip" style="background:#e6e7e8"></span>
+          <span class="swatch-row__name">--color-surface-hover</span>
+          <span class="swatch-row__note">Row/menu hover · gray-100</span>
+        </div>
+        <div class="swatch-row">
+          <span class="swatch-row__chip" style="background:#d2d4d5"></span>
+          <span class="swatch-row__name">--color-surface-pressed</span>
+          <span class="swatch-row__note">Pressed neutral surface · gray-200</span>
+        </div>
+
+        <h3 class="docs__subheading">Text</h3>
         <div class="swatch-row">
           <span class="swatch-row__chip" style="background:#17191a"></span>
           <span class="swatch-row__name">--color-foreground</span>
@@ -186,47 +210,238 @@
         <div class="swatch-row">
           <span class="swatch-row__chip" style="background:#848d96"></span>
           <span class="swatch-row__name">--color-foreground-subtle</span>
-          <span class="swatch-row__note">Placeholder, disabled · gray-400</span>
+          <span class="swatch-row__note">Placeholders, hints · gray-400</span>
         </div>
+        <div class="swatch-row">
+          <span class="swatch-row__chip" style="background:#ffffff;border:1px solid #d2d4d5"></span>
+          <span class="swatch-row__name">--color-foreground-inverse</span>
+          <span class="swatch-row__note">Text on filled/brand backgrounds · white</span>
+        </div>
+        <div class="swatch-row">
+          <span class="swatch-row__chip" style="background:#848d96"></span>
+          <span class="swatch-row__name">--color-foreground-disabled</span>
+          <span class="swatch-row__note">Disabled labels, icons · gray-400</span>
+        </div>
+
+        <h3 class="docs__subheading">Disabled controls</h3>
+        <div class="swatch-row">
+          <span class="swatch-row__chip" style="background:#f4f4f5"></span>
+          <span class="swatch-row__name">--color-background-disabled</span>
+          <span class="swatch-row__note">Disabled input/button fill · gray-50</span>
+        </div>
+        <div class="swatch-row">
+          <span class="swatch-row__chip" style="background:#e6e7e8"></span>
+          <span class="swatch-row__name">--color-border-disabled</span>
+          <span class="swatch-row__note">Disabled control border · gray-100</span>
+        </div>
+
+        <h3 class="docs__subheading">Actions · primary</h3>
         <div class="swatch-row">
           <span class="swatch-row__chip" style="background:#0b55aa"></span>
           <span class="swatch-row__name">--color-action-primary</span>
-          <span class="swatch-row__note">CTAs, links · brand-600</span>
+          <span class="swatch-row__note">Fill · brand-600</span>
         </div>
         <div class="swatch-row">
           <span class="swatch-row__chip" style="background:#083e7c"></span>
           <span class="swatch-row__name">--color-action-primary-hover</span>
-          <span class="swatch-row__note">Hover state · brand-700</span>
+          <span class="swatch-row__note">Hover · brand-700</span>
+        </div>
+        <div class="swatch-row">
+          <span class="swatch-row__chip" style="background:#ffffff;border:1px solid #d2d4d5"></span>
+          <span class="swatch-row__name">--color-action-primary-text</span>
+          <span class="swatch-row__note">Label on primary · white</span>
+        </div>
+        <div class="swatch-row">
+          <span class="swatch-row__chip" style="background:#e6e7e8"></span>
+          <span class="swatch-row__name">--color-action-primary-disabled</span>
+          <span class="swatch-row__note">Disabled fill · gray-100</span>
+        </div>
+        <div class="swatch-row">
+          <span class="swatch-row__chip" style="background:#848d96"></span>
+          <span class="swatch-row__name">--color-action-primary-text-disabled</span>
+          <span class="swatch-row__note">Disabled label · gray-400</span>
+        </div>
+
+        <h3 class="docs__subheading">Actions · secondary</h3>
+        <div class="swatch-row">
+          <span class="swatch-row__chip" style="background:#e6e7e8"></span>
+          <span class="swatch-row__name">--color-action-secondary</span>
+          <span class="swatch-row__note">Fill · gray-100</span>
         </div>
         <div class="swatch-row">
           <span class="swatch-row__chip" style="background:#d2d4d5"></span>
+          <span class="swatch-row__name">--color-action-secondary-hover</span>
+          <span class="swatch-row__note">Hover · gray-200</span>
+        </div>
+        <div class="swatch-row">
+          <span class="swatch-row__chip" style="background:#17191a"></span>
+          <span class="swatch-row__name">--color-action-secondary-text</span>
+          <span class="swatch-row__note">Label · gray-900</span>
+        </div>
+
+        <h3 class="docs__subheading">Actions · ghost</h3>
+        <div class="swatch-row">
+          <span class="swatch-row__chip" style="background:#ffffff;border:1px dashed #d2d4d5"></span>
+          <span class="swatch-row__name">--color-action-ghost</span>
+          <span class="swatch-row__note">Fill · transparent</span>
+        </div>
+        <div class="swatch-row">
+          <span class="swatch-row__chip" style="background:#e6e7e8"></span>
+          <span class="swatch-row__name">--color-action-ghost-hover</span>
+          <span class="swatch-row__note">Hover · gray-100</span>
+        </div>
+        <div class="swatch-row">
+          <span class="swatch-row__chip" style="background:#17191a"></span>
+          <span class="swatch-row__name">--color-action-ghost-text</span>
+          <span class="swatch-row__note">Label · gray-900</span>
+        </div>
+
+        <h3 class="docs__subheading">Actions · outline</h3>
+        <div class="swatch-row">
+          <span class="swatch-row__chip" style="background:#ffffff;border:1px dashed #d2d4d5"></span>
+          <span class="swatch-row__name">--color-action-outline</span>
+          <span class="swatch-row__note">Fill · transparent</span>
+        </div>
+        <div class="swatch-row">
+          <span class="swatch-row__chip" style="background:#f4f4f5"></span>
+          <span class="swatch-row__name">--color-action-outline-hover</span>
+          <span class="swatch-row__note">Hover fill · gray-50</span>
+        </div>
+        <div class="swatch-row">
+          <span class="swatch-row__chip" style="background:#17191a"></span>
+          <span class="swatch-row__name">--color-action-outline-text</span>
+          <span class="swatch-row__note">Label · gray-900</span>
+        </div>
+        <div class="swatch-row">
+          <span class="swatch-row__chip" style="background:#ffffff;border:1px solid #d2d4d5"></span>
+          <span class="swatch-row__name">--color-action-outline-border</span>
+          <span class="swatch-row__note">Border · gray-200</span>
+        </div>
+
+        <h3 class="docs__subheading">Actions · destructive</h3>
+        <div class="swatch-row">
+          <span class="swatch-row__chip" style="background:#e7000b"></span>
+          <span class="swatch-row__name">--color-action-destructive</span>
+          <span class="swatch-row__note">Fill · red-600</span>
+        </div>
+        <div class="swatch-row">
+          <span class="swatch-row__chip" style="background:#c10007"></span>
+          <span class="swatch-row__name">--color-action-destructive-hover</span>
+          <span class="swatch-row__note">Hover · red-700</span>
+        </div>
+        <div class="swatch-row">
+          <span class="swatch-row__chip" style="background:#ffffff;border:1px solid #d2d4d5"></span>
+          <span class="swatch-row__name">--color-action-destructive-text</span>
+          <span class="swatch-row__note">Label · white</span>
+        </div>
+        <div class="swatch-row">
+          <span class="swatch-row__chip" style="background:#e6e7e8"></span>
+          <span class="swatch-row__name">--color-action-destructive-disabled</span>
+          <span class="swatch-row__note">Disabled fill · gray-100</span>
+        </div>
+        <div class="swatch-row">
+          <span class="swatch-row__chip" style="background:#848d96"></span>
+          <span class="swatch-row__name">--color-action-destructive-text-disabled</span>
+          <span class="swatch-row__note">Disabled label · gray-400</span>
+        </div>
+
+        <h3 class="docs__subheading">Brand accent</h3>
+        <p class="docs__paragraph docs__paragraph--muted">
+          Tint and text roles on light surfaces — distinct from action button fills.
+        </p>
+        <div class="swatch-row">
+          <span class="swatch-row__chip" style="background:#0b55aa"></span>
+          <span class="swatch-row__name">--color-accent</span>
+          <span class="swatch-row__note">Accent text, links · brand-600</span>
+        </div>
+        <div class="swatch-row">
+          <span class="swatch-row__chip" style="background:#083e7c"></span>
+          <span class="swatch-row__name">--color-accent-hover</span>
+          <span class="swatch-row__note">Accent hover · brand-700</span>
+        </div>
+        <div class="swatch-row">
+          <span class="swatch-row__chip" style="background:#1379f0"></span>
+          <span class="swatch-row__name">--color-accent-emphasis</span>
+          <span class="swatch-row__note">Logos, large type · brand-500</span>
+        </div>
+        <div class="swatch-row">
+          <span class="swatch-row__chip" style="background:#348cf2"></span>
+          <span class="swatch-row__name">--color-accent-muted</span>
+          <span class="swatch-row__note">Secondary accent · brand-400</span>
+        </div>
+        <div class="swatch-row">
+          <span class="swatch-row__chip" style="background:#bad6f8"></span>
+          <span class="swatch-row__name">--color-accent-border</span>
+          <span class="swatch-row__note">Tinted borders · brand-200</span>
+        </div>
+        <div class="swatch-row">
+          <span class="swatch-row__chip" style="background:#dce8f7"></span>
+          <span class="swatch-row__name">--color-accent-subtle</span>
+          <span class="swatch-row__note">Soft fills · brand-100</span>
+        </div>
+        <div class="swatch-row">
+          <span class="swatch-row__chip" style="background:#f0f4fa"></span>
+          <span class="swatch-row__name">--color-accent-surface</span>
+          <span class="swatch-row__note">Lightest wash · brand-50</span>
+        </div>
+
+        <h3 class="docs__subheading">Borders</h3>
+        <div class="swatch-row">
+          <span class="swatch-row__chip" style="background:#d2d4d5"></span>
           <span class="swatch-row__name">--color-border</span>
-          <span class="swatch-row__note">Hairline dividers, input borders · gray-200</span>
+          <span class="swatch-row__note">Dividers, input borders · gray-200</span>
+        </div>
+        <div class="swatch-row">
+          <span class="swatch-row__chip" style="background:#848d96"></span>
+          <span class="swatch-row__name">--color-border-strong</span>
+          <span class="swatch-row__note">Emphasized borders · gray-400</span>
         </div>
         <div class="swatch-row">
           <span class="swatch-row__chip" style="background:#1379f0"></span>
           <span class="swatch-row__name">--color-border-focus</span>
-          <span class="swatch-row__note">Focus ring color · brand-500</span>
+          <span class="swatch-row__note">Focus ring · brand-500</span>
         </div>
+
+        <h3 class="docs__subheading">Feedback</h3>
         <div class="swatch-row">
           <span class="swatch-row__chip" style="background:#00a63e"></span>
           <span class="swatch-row__name">--color-success</span>
-          <span class="swatch-row__note">Success states · green-600</span>
+          <span class="swatch-row__note">Success text/icon · green-600</span>
+        </div>
+        <div class="swatch-row">
+          <span class="swatch-row__chip" style="background:#dcfce7"></span>
+          <span class="swatch-row__name">--color-success-surface</span>
+          <span class="swatch-row__note">Success background · green-100</span>
         </div>
         <div class="swatch-row">
           <span class="swatch-row__chip" style="background:#e17100"></span>
           <span class="swatch-row__name">--color-warning</span>
-          <span class="swatch-row__note">Warning states · amber-600</span>
+          <span class="swatch-row__note">Warning text/icon · amber-600</span>
+        </div>
+        <div class="swatch-row">
+          <span class="swatch-row__chip" style="background:#fef3c6"></span>
+          <span class="swatch-row__name">--color-warning-surface</span>
+          <span class="swatch-row__note">Warning background · amber-100</span>
         </div>
         <div class="swatch-row">
           <span class="swatch-row__chip" style="background:#e7000b"></span>
           <span class="swatch-row__name">--color-error</span>
-          <span class="swatch-row__note">Error, destructive · red-600</span>
+          <span class="swatch-row__note">Error text/icon · red-600</span>
+        </div>
+        <div class="swatch-row">
+          <span class="swatch-row__chip" style="background:#ffe2e2"></span>
+          <span class="swatch-row__name">--color-error-surface</span>
+          <span class="swatch-row__note">Error background · red-100</span>
         </div>
         <div class="swatch-row">
           <span class="swatch-row__chip" style="background:#1c579d"></span>
           <span class="swatch-row__name">--color-info</span>
-          <span class="swatch-row__note">Info, help text · blue-600</span>
+          <span class="swatch-row__note">Info text/icon · blue-600</span>
+        </div>
+        <div class="swatch-row">
+          <span class="swatch-row__chip" style="background:#dde8f5"></span>
+          <span class="swatch-row__name">--color-info-surface</span>
+          <span class="swatch-row__note">Info background · blue-100</span>
         </div>
       </section>
 

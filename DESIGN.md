@@ -100,17 +100,40 @@ Careplus uses a **flat white canvas**: the main content area and cards are both 
 
 ### Semantic color tokens
 
+**Surfaces & text**
+
 | Token | Maps to | Usage |
 |---|---|---|
 | `--color-foreground` | `--gray-900` | Primary text |
-| `--color-muted` | `--gray-500` | Secondary text, placeholders |
+| `--color-foreground-muted` | `--gray-500` | Secondary text, labels |
+| `--color-foreground-subtle` | `--gray-400` | Placeholders, hints |
+| `--color-foreground-disabled` | `--gray-400` | Disabled labels, icons |
+| `--color-surface-hover` | `--gray-100` | Row/menu hover |
+| `--color-surface-pressed` | `--gray-200` | Pressed neutral surface |
+| `--color-background-disabled` | `--gray-50` | Disabled input/button fill |
+| `--color-border-disabled` | `--gray-100` | Disabled control border |
 | `--color-border` | `--gray-200` | Dividers, input borders |
-| `--color-action-primary` | `--brand-600` | CTA buttons, links |
-| `--color-action-primary-hover` | `--brand-700` | Hover on primary actions |
+
+**Actions** (each variant: fill, hover, text; disabled where noted)
+
+| Variant | Fill | Hover | Text |
+|---|---|---|---|
+| Primary | `--brand-600` | `--brand-700` | `--white` |
+| Secondary | `--gray-100` | `--gray-200` | `--gray-900` |
+| Ghost | `transparent` | `--gray-100` | `--gray-900` |
+| Outline | `transparent` | `--gray-50` | `--gray-900` (+ `--color-action-outline-border`) |
+| Destructive | `--red-600` | `--red-700` | `--white` |
+
+Disabled primary/destructive buttons use `--gray-100` fill and `--gray-400` text tokens (`--color-action-primary-disabled`, etc.).
+
+**Feedback**
+
+| Token | Maps to | Usage |
+|---|---|---|
 | `--color-success` | `--green-600` | Success states |
-| `--color-warning` | `--amber-500` | Warning states |
-| `--color-error` | `--red-600` | Error states, destructive |
-| `--color-info` | `--blue-500` | Info, help text |
+| `--color-warning` | `--amber-600` | Warning states |
+| `--color-error` | `--red-600` | Error states |
+| `--color-info` | `--blue-600` | Info, help text |
 
 The system ships with a single light theme. Alternate themes can be added later by overriding semantic tokens — not component CSS.
 
@@ -214,6 +237,15 @@ When pulling from Figma via MCP:
 ---
 
 ## Changelog
+
+### 0.1.6 — Documentation site semantic color catalog
+- Colors page lists all 52 semantic tokens, grouped by role (surfaces, actions, accent, feedback)
+
+### 0.1.5 — Action, disabled, and surface interaction tokens
+- Added secondary, ghost, outline, and destructive action semantics (fill, hover, text, disabled)
+- Added disabled foreground/background/border tokens for controls
+- Added `--color-surface-hover` and `--color-surface-pressed` for neutral interaction
+- Documentation site semantic swatches updated
 
 ### 0.1.4 — Light theme only
 - Removed dark-mode CSS overrides (`prefers-color-scheme`, `data-theme`) from semantic colors
