@@ -50,6 +50,111 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
+  /* --- Headings (semantic type scale) --- */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading);
+    font-weight: var(--font-semibold);
+    line-height: var(--leading-heading);
+    color: var(--color-foreground);
+    margin-block: 0;
+  }
+
+  h1 {
+    font-size: var(--text-heading-page);
+    margin-block-end: var(--spacing-4);
+  }
+
+  h2 {
+    font-size: var(--text-heading-section);
+    margin-block-end: var(--spacing-3);
+  }
+
+  h3 {
+    font-size: var(--text-heading-subsection);
+    margin-block-end: var(--spacing-2);
+  }
+
+  /* h4–h6: no semantic size yet — primitive steps, same display family */
+  h4 {
+    font-size: var(--text-xl);
+    margin-block-end: var(--spacing-2);
+  }
+
+  h5 {
+    font-size: var(--text-lg);
+    margin-block-end: var(--spacing-2);
+  }
+
+  h6 {
+    font-size: var(--text-body);
+    font-weight: var(--font-medium);
+    margin-block-end: var(--spacing-2);
+  }
+
+  p {
+    margin-block: 0 var(--spacing-4);
+  }
+
+  a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
+  }
+
+  a:hover {
+    color: var(--color-accent-hover);
+  }
+
+  strong,
+  b {
+    font-weight: var(--font-semibold);
+  }
+
+  code {
+    font-family: var(--font-code);
+    font-size: var(--text-caption);
+    background-color: var(--color-accent-subtle);
+    padding: 0.125em 0.375em;
+    border-radius: var(--radius-sm);
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+
+  hr {
+    margin-block: var(--spacing-6);
+    border: 0;
+    border-top: 1px solid var(--color-border);
+  }
+
+  /* Bare controls: inherit typography; full chrome lives in components */
+  button,
+  [type="button"],
+  [type="submit"],
+  [type="reset"] {
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+    padding: 0;
+    border: none;
+    background: transparent;
+  }
+
+  input,
+  textarea,
+  select {
+    font: inherit;
+    color: inherit;
+  }
+
   /* Respect motion preference globally */
   @media (prefers-reduced-motion: reduce) {
     *,

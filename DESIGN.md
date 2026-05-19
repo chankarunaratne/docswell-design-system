@@ -245,6 +245,31 @@ Always pair `prefers-reduced-motion` overrides:
 
 ---
 
+## Base layer (`@layer base` in `app.css`)
+
+Global element defaults for product UI — not a token tier. Rules consume **semantic** color/type tokens; spacing and radius use **primitives** until role-based aliases exist.
+
+Tailwind Preflight still handles resets (margins on lists, etc.); base only adds brand decisions.
+
+| Element | Tokens / notes |
+|---|---|
+| `body` | `--color-background`, `--color-foreground`, `--font-body`, `--text-body`, `--leading-body` |
+| `h1`–`h3` | `--font-heading`, `--text-heading-page` / `section` / `subsection`, `--leading-heading`, `--font-semibold` |
+| `h4`–`h6` | `--font-heading` + primitive sizes (`--text-xl` → `--text-body`); `h6` uses `--font-medium` |
+| `p` | `margin-block-end: --spacing-4` |
+| `a` | `--color-accent`, `--color-accent-hover`, underline + offset |
+| `strong`, `b` | `--font-semibold` |
+| `code` | `--font-code`, `--text-caption`, `--color-accent-subtle`, `--radius-sm` |
+| `img` | responsive block |
+| `hr` | `--color-border`, `--spacing-6` vertical margin |
+| `button`, inputs | `font`/`color` inherit only; borders and fills belong in components |
+| `:focus-visible` | `--color-border-focus`, `--radius-sm` |
+| `prefers-reduced-motion` | zero effective transition/animation duration |
+
+Documentation site (`.docs` namespace) keeps its own typography; base targets unclassed HTML in product pages.
+
+---
+
 ## Components
 
 Components are added here as they're built. Each entry notes variants, tokens consumed, and any decisions made.
@@ -265,6 +290,10 @@ When pulling from Figma via MCP:
 ---
 
 ## Changelog
+
+### 0.1.9 — Minimum base layer
+- Extended `@layer base` in `app.css`: headings `h1`–`h6`, `p`, `a`, `strong`, `code`, `img`, `hr`, bare control inherit reset
+- Documented base element → token mapping in `DESIGN.md`
 
 ### 0.1.8 — Semantic typography (Tier A)
 - Added `styles/semantic/typography.css` — 14 role-based tokens (families, body/heading sizes, line heights)

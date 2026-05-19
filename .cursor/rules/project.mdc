@@ -13,6 +13,14 @@ alwaysApply: true
 - **Audience**: Solo startup developer learning design systems. Prefer small, teachable steps over large code dumps.
 - **Figma**: Connected via Figma MCP. Use Figma for visual intent and spacing reference only. Existing Figma component libraries use legacy techniques — do not mirror their naming, structure, or architecture in code. Define the modern system in this repo.
 
+## Explanations (questions)
+
+When the user asks a question and you explain a concept:
+
+- Keep it brief — say it once, clearly.
+- Do not restate the same idea in different words (no summary-after-summary, no “in other words” loops).
+- Add detail only if they ask for more.
+
 ## Token system (three-tier hierarchy)
 
 All visual decisions live in tokens. Never hardcode colors, spacing, radius, or shadow values in component CSS.
