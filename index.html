@@ -6,9 +6,14 @@
   <title>Docswell — Design System Documentation</title>
   <meta name="description" content="Docswell is a hex-first, token-driven design system for the Docswell product. Foundations: colors, typography, spacing, radius, shadows, motion." />
 
-  <!-- Inter + InterDisplay (canonical source). Preconnect for a faster first paint. -->
+  <!-- Inter (body) + Open Sauce One (display). Preconnect for a faster first paint. -->
   <link rel="preconnect" href="https://rsms.me/" />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
   <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/open-sauce-one@5.2.5/400.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/open-sauce-one@5.2.5/500.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/open-sauce-one@5.2.5/600.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/open-sauce-one@5.2.5/700.css" />
 
   <link rel="stylesheet" href="styles/output.css" />
 </head>
@@ -154,9 +159,14 @@
         </p>
 
         <div class="swatch-row">
-          <span class="swatch-row__chip" style="background:#f4f4f5"></span>
+          <span class="swatch-row__chip" style="background:#ffffff"></span>
           <span class="swatch-row__name">--color-background</span>
-          <span class="swatch-row__note">Page background · gray-50</span>
+          <span class="swatch-row__note">Main canvas, content area · white</span>
+        </div>
+        <div class="swatch-row">
+          <span class="swatch-row__chip" style="background:#f4f4f5"></span>
+          <span class="swatch-row__name">--color-background-sidebar</span>
+          <span class="swatch-row__note">Nav rail, app chrome · gray-50</span>
         </div>
         <div class="swatch-row">
           <span class="swatch-row__chip" style="background:#ffffff"></span>
@@ -225,7 +235,7 @@
         <span class="docs__eyebrow">Foundations</span>
         <h1 class="docs__title">Typography</h1>
         <p class="docs__lead">
-          Two typefaces from one superfamily. Inter for body and UI, InterDisplay for headings and the logotype — same letterforms, optically retuned for size.
+          Two complementary sans serifs. Inter for body and UI; Open Sauce One for headings and the logotype — a distinct display voice without sacrificing UI readability.
         </p>
 
         <h2 class="docs__heading">Families</h2>
@@ -236,7 +246,7 @@
           <tbody>
             <tr>
               <td><code class="docs__token">--font-display</code></td>
-              <td style="font-family: var(--font-display); font-size: var(--text-lg);">InterDisplay</td>
+              <td style="font-family: var(--font-display); font-size: var(--text-lg);">Open Sauce One</td>
               <td>Page titles, section headings, brand marks</td>
             </tr>
             <tr>
@@ -304,7 +314,7 @@
 
         <h2 class="docs__heading">Weights</h2>
         <table class="docs__table">
-          <thead><tr><th>Token</th><th>Sample (Inter)</th><th>Value</th></tr></thead>
+          <thead><tr><th>Token</th><th>Sample</th><th>Value</th></tr></thead>
           <tbody>
             <tr><td><code class="docs__token">--font-normal</code></td><td style="font-weight: 400; font-size: var(--text-lg);">Aa Regular</td><td>400</td></tr>
             <tr><td><code class="docs__token">--font-medium</code></td><td style="font-weight: 500; font-size: var(--text-lg);">Aa Medium</td><td>500</td></tr>

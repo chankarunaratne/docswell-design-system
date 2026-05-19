@@ -30,12 +30,11 @@
 
 .docs {
   /* Two-column grid: fixed nav rail + flexible content.
-     The whole shell sits on a single white surface; the vertical hairline
-     between sidebar and main is the only visual separator. */
+     Canvas is white; sidebar uses the tinted chrome token (product pattern). */
   display: grid;
   grid-template-columns: var(--docs-sidebar-width) 1fr;
   min-height: 100vh;
-  background-color: var(--color-surface);
+  background-color: var(--color-background);
 }
 
 .docs__sidebar {
@@ -47,7 +46,7 @@
   height: 100vh;
   overflow-y: auto;
   padding: var(--spacing-8) var(--spacing-6);
-  background-color: var(--color-surface);
+  background-color: var(--color-background-sidebar);
   border-right: 1px solid var(--docs-rule);
 }
 
@@ -239,7 +238,7 @@
 .copy-btn:hover {
   color: var(--color-foreground);
   border-color: var(--color-border-strong);
-  background-color: var(--color-background);
+  background-color: var(--color-background-sidebar);
 }
 
 .copy-btn:focus-visible {

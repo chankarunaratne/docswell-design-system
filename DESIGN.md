@@ -86,15 +86,25 @@ Each color gets an 11-step scale: `50, 100, 200, 300, 400, 500, 600, 700, 800, 9
 | `--amber-*` | Warning |
 | `--blue-*` | Info / links |
 
+### Background model (product-aligned)
+
+Careplus uses a **flat white canvas**: the main content area and cards are both white; borders (not background contrast) separate cards. The nav sidebar alone uses a subtle gray tint.
+
+| Token | Maps to | Usage |
+|---|---|---|
+| `--color-background` | `--white` | Main canvas, content area |
+| `--color-background-sidebar` | `--gray-50` | Nav rail, app chrome |
+| `--color-surface` | `--white` | Cards, modals, panels |
+
+`--color-background` and `--color-surface` share the same hex in light mode by design. Semantic names stay distinct so dark mode or a future tinted canvas can diverge without refactors.
+
 ### Semantic color tokens (light mode defaults)
 
 | Token | Maps to | Usage |
 |---|---|---|
-| `--color-background` | `--gray-50` | Page background |
 | `--color-foreground` | `--gray-900` | Primary text |
 | `--color-muted` | `--gray-500` | Secondary text, placeholders |
 | `--color-border` | `--gray-200` | Dividers, input borders |
-| `--color-surface` | `--white` | Card backgrounds |
 | `--color-action-primary` | `--brand-600` | CTA buttons, links |
 | `--color-action-primary-hover` | `--brand-700` | Hover on primary actions |
 | `--color-success` | `--green-600` | Success states |
@@ -125,12 +135,12 @@ Dark mode overrides these via `@media (prefers-color-scheme: dark)` or a `[data-
 
 ## Typography
 
-Two typefaces from one superfamily: **Inter** for body and UI, **InterDisplay** for headings and the logotype. Same letterforms, optically retuned for size — Inter is tightened for small text, InterDisplay opens up for larger sizes. Loaded from the canonical [rsms.me/inter](https://rsms.me/inter/) CDN; system fonts remain as fallbacks so the UI degrades gracefully if web fonts fail to load.
+Two complementary sans serifs: **Inter** for body and UI, **Open Sauce One** for headings and the logotype. Inter is loaded from the canonical [rsms.me/inter](https://rsms.me/inter/) CDN; Open Sauce One from [Fontsource](https://fontsource.org/fonts/open-sauce-one) (SIL OFL). System fonts remain as fallbacks so the UI degrades gracefully if web fonts fail to load.
 
 | Token | Value | Notes |
 |---|---|---|
 | `--font-sans` | `Inter`, ui-sans-serif, system-ui, … | Body text, UI, labels |
-| `--font-display` | `InterDisplay`, `Inter`, ui-sans-serif, … | Page titles, section headings, brand marks |
+| `--font-display` | `Open Sauce One`, ui-sans-serif, system-ui, … | Page titles, section headings, brand marks |
 | `--font-mono` | ui-monospace, JetBrains Mono, Fira Code, … | Code samples, token names |
 
 ### Type scale (fluid-ready)
@@ -204,6 +214,10 @@ When pulling from Figma via MCP:
 ---
 
 ## Changelog
+
+### 0.1.3 — Open Sauce One display typeface
+- `--font-display` now uses Open Sauce One; body remains Inter via `--font-sans`
+- Documentation site loads Open Sauce One (400–700) from Fontsource CDN and updates typography copy
 
 ### 0.1.2 — Documentation site + Inter typography
 - Added Inter + InterDisplay (rsms.me) as the system typefaces; `--font-display` token introduced for headings/logo
