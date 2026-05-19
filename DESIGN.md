@@ -96,9 +96,9 @@ Careplus uses a **flat white canvas**: the main content area and cards are both 
 | `--color-background-sidebar` | `--gray-50` | Nav rail, app chrome |
 | `--color-surface` | `--white` | Cards, modals, panels |
 
-`--color-background` and `--color-surface` share the same hex in light mode by design. Semantic names stay distinct so dark mode or a future tinted canvas can diverge without refactors.
+`--color-background` and `--color-surface` share the same hex by design. Semantic names stay distinct so a future tinted canvas can diverge without refactors.
 
-### Semantic color tokens (light mode defaults)
+### Semantic color tokens
 
 | Token | Maps to | Usage |
 |---|---|---|
@@ -112,7 +112,7 @@ Careplus uses a **flat white canvas**: the main content area and cards are both 
 | `--color-error` | `--red-600` | Error states, destructive |
 | `--color-info` | `--blue-500` | Info, help text |
 
-Dark mode overrides these via `@media (prefers-color-scheme: dark)` or a `[data-theme="dark"]` selector — no new component CSS needed.
+The system ships with a single light theme. Alternate themes can be added later by overriding semantic tokens — not component CSS.
 
 ---
 
@@ -214,6 +214,11 @@ When pulling from Figma via MCP:
 ---
 
 ## Changelog
+
+### 0.1.4 — Light theme only
+- Removed dark-mode CSS overrides (`prefers-color-scheme`, `data-theme`) from semantic colors
+- Renamed `--color-foreground-on-dark` → `--color-foreground-inverse` (filled/brand surfaces, not a theme)
+- Docs site and `DESIGN.md` updated to reflect single light theme
 
 ### 0.1.3 — Open Sauce One display typeface
 - `--font-display` now uses Open Sauce One; body remains Inter via `--font-sans`
