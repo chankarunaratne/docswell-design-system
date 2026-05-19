@@ -44,6 +44,7 @@ styles/
     motion.css         ← duration + easing tokens
   semantic/
     colors.css         ← semantic color aliases (bg, fg, brand, states)
+    typography.css     ← semantic type aliases (body, headings, families)
   components/          ← one file per component, added as needed
 ```
 

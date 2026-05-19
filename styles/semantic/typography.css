@@ -1,0 +1,29 @@
+/* ==========================================================================
+   Tier 2 — Semantic Typography Tokens
+   Purpose-driven aliases for product UI and components. Reference primitives
+   only — never hardcode sizes or families here.
+   ========================================================================== */
+
+@theme {
+  /* --- Font families --- */
+  --font-body:    var(--font-sans);
+  --font-heading: var(--font-display);
+  --font-code:    var(--font-mono);
+
+  /* --- Body text sizes --- */
+  --text-body:             var(--text-base);
+  --text-body-secondary:   var(--text-sm);
+  --text-caption:          var(--text-xs);
+  --text-lead:             var(--text-lg);
+
+  /* --- Heading sizes --- */
+  --text-heading-subsection: var(--text-lg);
+  --text-heading-section:    var(--text-2xl);
+  --text-heading-page:       var(--text-3xl);
+  --text-heading-hero:       var(--text-4xl);
+
+  /* --- Line height --- */
+  --leading-body:          var(--leading-normal);
+  --leading-body-relaxed:  var(--leading-relaxed);
+  --leading-heading:       var(--leading-tight);
+}

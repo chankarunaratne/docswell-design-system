@@ -160,13 +160,38 @@ The system ships with a single light theme. Alternate themes can be added later 
 
 Two complementary sans serifs: **Inter** for body and UI, **Open Sauce One** for headings and the logotype. Inter is loaded from the canonical [rsms.me/inter](https://rsms.me/inter/) CDN; Open Sauce One from [Fontsource](https://fontsource.org/fonts/open-sauce-one) (SIL OFL). System fonts remain as fallbacks so the UI degrades gracefully if web fonts fail to load.
 
+**Components and product UI use semantic tokens** (`styles/semantic/typography.css`). Primitives (`styles/tokens/typography.css`) are the scale; change a primitive once to shift every semantic alias.
+
+### Semantic tokens (Tier 2)
+
+| Token | Maps to | Usage |
+|---|---|---|
+| `--font-body` | `--font-sans` | Body copy, UI, buttons, inputs |
+| `--font-heading` | `--font-display` | Page titles, section headings, brand marks |
+| `--font-code` | `--font-mono` | Code samples, token names |
+| `--text-body` | `--text-base` | Default body and UI text |
+| `--text-body-secondary` | `--text-sm` | Meta, nav, secondary copy |
+| `--text-caption` | `--text-xs` | Captions, hints, fine print |
+| `--text-lead` | `--text-lg` | Intro under a page title |
+| `--text-heading-subsection` | `--text-lg` | Card titles, tertiary headings |
+| `--text-heading-section` | `--text-2xl` | Section headings |
+| `--text-heading-page` | `--text-3xl` | Primary page title in app chrome |
+| `--text-heading-hero` | `--text-4xl` | Hero / documentation page titles |
+| `--leading-body` | `--leading-normal` | Default UI line height |
+| `--leading-body-relaxed` | `--leading-relaxed` | Paragraphs, long-form |
+| `--leading-heading` | `--leading-tight` | Display and section headings |
+
+Weights and letter-spacing stay primitive for now (`--font-medium`, `--tracking-wider`, etc.) until a repeated pattern warrants semantic aliases.
+
+### Primitive families
+
 | Token | Value | Notes |
 |---|---|---|
-| `--font-sans` | `Inter`, ui-sans-serif, system-ui, … | Body text, UI, labels |
-| `--font-display` | `Open Sauce One`, ui-sans-serif, system-ui, … | Page titles, section headings, brand marks |
-| `--font-mono` | ui-monospace, JetBrains Mono, Fira Code, … | Code samples, token names |
+| `--font-sans` | `Inter`, ui-sans-serif, system-ui, … | Body primitive |
+| `--font-display` | `Open Sauce One`, ui-sans-serif, system-ui, … | Heading primitive |
+| `--font-mono` | ui-monospace, JetBrains Mono, Fira Code, … | Code primitive |
 
-### Type scale (fluid-ready)
+### Primitive type scale (fluid-ready)
 
 Compact UI scale — **14px body** at a typical 16px browser root (`--text-base: 0.875rem`).
 
@@ -240,6 +265,11 @@ When pulling from Figma via MCP:
 ---
 
 ## Changelog
+
+### 0.1.8 — Semantic typography (Tier A)
+- Added `styles/semantic/typography.css` — 14 role-based tokens (families, body/heading sizes, line heights)
+- `body`, documentation site shell, and `DESIGN.md` updated to consume semantic typography
+- Documentation site typography section lists semantic tokens and maps each to its primitive
 
 ### 0.1.7 — 14px body type scale
 - `--text-base` is now `0.875rem` (14px at default root); full scale shifted for compact UI density

@@ -16,6 +16,7 @@
 
 /* --- Tier 2: Semantic mappings --- */
 @import "./semantic/colors.css";
+@import "./semantic/typography.css";
 
 /* --- Tier 3: Components (added as built) --- */
 @import "./components/docs.css";
@@ -42,9 +43,9 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
-    font-family: var(--font-sans);
-    font-size: var(--text-base);
-    line-height: var(--leading-normal);
+    font-family: var(--font-body);
+    font-size: var(--text-body);
+    line-height: var(--leading-body);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }

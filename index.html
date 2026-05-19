@@ -450,10 +450,36 @@
         <span class="docs__eyebrow">Foundations</span>
         <h1 class="docs__title">Typography</h1>
         <p class="docs__lead">
-          Two complementary sans serifs. Inter for body and UI; Open Sauce One for headings and the logotype — a distinct display voice without sacrificing UI readability.
+          Two complementary sans serifs. Inter for body and UI; Open Sauce One for headings and the logotype — a distinct display voice without sacrificing UI readability. Product UI and components use <strong>semantic</strong> tokens; primitives below are the scale they resolve to.
         </p>
 
-        <h2 class="docs__heading">Families</h2>
+        <h2 class="docs__heading">Semantic tokens</h2>
+        <p class="docs__paragraph docs__paragraph--muted">
+          Role-based aliases in <code class="docs__token">styles/semantic/typography.css</code>. Use these in components — not raw scale steps like <code class="docs__token">--text-sm</code>.
+        </p>
+        <table class="docs__table">
+          <thead>
+            <tr><th>Token</th><th>Maps to</th><th>Usage</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code class="docs__token">--font-body</code></td><td><code class="docs__token">--font-sans</code></td><td>Body copy, UI, buttons, inputs</td></tr>
+            <tr><td><code class="docs__token">--font-heading</code></td><td><code class="docs__token">--font-display</code></td><td>Page titles, section headings, brand marks</td></tr>
+            <tr><td><code class="docs__token">--font-code</code></td><td><code class="docs__token">--font-mono</code></td><td>Code samples, token names</td></tr>
+            <tr><td><code class="docs__token">--text-body</code></td><td><code class="docs__token">--text-base</code></td><td>Default body and UI text (14px typical)</td></tr>
+            <tr><td><code class="docs__token">--text-body-secondary</code></td><td><code class="docs__token">--text-sm</code></td><td>Meta, nav links, secondary copy</td></tr>
+            <tr><td><code class="docs__token">--text-caption</code></td><td><code class="docs__token">--text-xs</code></td><td>Captions, hints, fine print</td></tr>
+            <tr><td><code class="docs__token">--text-lead</code></td><td><code class="docs__token">--text-lg</code></td><td>Intro text under a page title</td></tr>
+            <tr><td><code class="docs__token">--text-heading-subsection</code></td><td><code class="docs__token">--text-lg</code></td><td>Card titles, tertiary headings</td></tr>
+            <tr><td><code class="docs__token">--text-heading-section</code></td><td><code class="docs__token">--text-2xl</code></td><td>Section headings within a page</td></tr>
+            <tr><td><code class="docs__token">--text-heading-page</code></td><td><code class="docs__token">--text-3xl</code></td><td>Primary page title in app chrome</td></tr>
+            <tr><td><code class="docs__token">--text-heading-hero</code></td><td><code class="docs__token">--text-4xl</code></td><td>Hero titles, documentation page titles</td></tr>
+            <tr><td><code class="docs__token">--leading-body</code></td><td><code class="docs__token">--leading-normal</code></td><td>Default UI line height</td></tr>
+            <tr><td><code class="docs__token">--leading-body-relaxed</code></td><td><code class="docs__token">--leading-relaxed</code></td><td>Paragraphs, long-form reading</td></tr>
+            <tr><td><code class="docs__token">--leading-heading</code></td><td><code class="docs__token">--leading-tight</code></td><td>Display and section headings</td></tr>
+          </tbody>
+        </table>
+
+        <h2 class="docs__heading">Primitive families</h2>
         <table class="docs__table">
           <thead>
             <tr><th>Token</th><th>Family</th><th>Usage</th></tr>
@@ -461,25 +487,25 @@
           <tbody>
             <tr>
               <td><code class="docs__token">--font-display</code></td>
-              <td style="font-family: var(--font-display); font-size: var(--text-lg);">Open Sauce One</td>
-              <td>Page titles, section headings, brand marks</td>
+              <td style="font-family: var(--font-display); font-size: var(--text-lead);">Open Sauce One</td>
+              <td>Heading primitive → <code class="docs__token">--font-heading</code></td>
             </tr>
             <tr>
               <td><code class="docs__token">--font-sans</code></td>
-              <td style="font-family: var(--font-sans); font-size: var(--text-lg);">Inter</td>
-              <td>Body copy, UI text, labels</td>
+              <td style="font-family: var(--font-sans); font-size: var(--text-lead);">Inter</td>
+              <td>Body primitive → <code class="docs__token">--font-body</code></td>
             </tr>
             <tr>
               <td><code class="docs__token">--font-mono</code></td>
-              <td style="font-family: var(--font-mono); font-size: var(--text-lg);">ui-monospace</td>
-              <td>Code samples, token names</td>
+              <td style="font-family: var(--font-mono); font-size: var(--text-lead);">ui-monospace</td>
+              <td>Code primitive → <code class="docs__token">--font-code</code></td>
             </tr>
           </tbody>
         </table>
 
-        <h2 class="docs__heading">Type scale</h2>
+        <h2 class="docs__heading">Primitive type scale</h2>
         <p class="docs__paragraph docs__paragraph--muted">
-          A compact scale in <code class="docs__token">rem</code> units — <code class="docs__token">--text-base</code> is 14px at a typical 16px browser root. Sizes scale if the user changes their default.
+          A compact scale in <code class="docs__token">rem</code> units — <code class="docs__token">--text-base</code> is 14px at a typical 16px browser root. Semantic sizes above alias into this scale; change a primitive once to shift the whole system.
         </p>
         <div class="type-row">
           <span class="type-row__label">--text-xs</span>
@@ -542,10 +568,13 @@
         <table class="docs__table">
           <thead><tr><th>Token</th><th>Value</th><th>Usage</th></tr></thead>
           <tbody>
-            <tr><td><code class="docs__token">--leading-tight</code></td><td>1.25</td><td>Headings</td></tr>
-            <tr><td><code class="docs__token">--leading-snug</code></td><td>1.375</td><td>Subheadings, dense lists</td></tr>
-            <tr><td><code class="docs__token">--leading-normal</code></td><td>1.5</td><td>Body default</td></tr>
-            <tr><td><code class="docs__token">--leading-relaxed</code></td><td>1.625</td><td>Long-form reading</td></tr>
+            <tr><td><code class="docs__token">--leading-body</code></td><td>1.5</td><td>Semantic · default UI → <code class="docs__token">--leading-normal</code></td></tr>
+            <tr><td><code class="docs__token">--leading-body-relaxed</code></td><td>1.625</td><td>Semantic · paragraphs → <code class="docs__token">--leading-relaxed</code></td></tr>
+            <tr><td><code class="docs__token">--leading-heading</code></td><td>1.25</td><td>Semantic · headings → <code class="docs__token">--leading-tight</code></td></tr>
+            <tr><td><code class="docs__token">--leading-tight</code></td><td>1.25</td><td>Primitive · large display type</td></tr>
+            <tr><td><code class="docs__token">--leading-snug</code></td><td>1.375</td><td>Primitive · dense lists, swatch meta</td></tr>
+            <tr><td><code class="docs__token">--leading-normal</code></td><td>1.5</td><td>Primitive · body default</td></tr>
+            <tr><td><code class="docs__token">--leading-relaxed</code></td><td>1.625</td><td>Primitive · long-form reading</td></tr>
             <tr><td><code class="docs__token">--tracking-tight</code></td><td>-0.025em</td><td>Large display type</td></tr>
             <tr><td><code class="docs__token">--tracking-normal</code></td><td>0em</td><td>Default</td></tr>
             <tr><td><code class="docs__token">--tracking-wide</code></td><td>0.025em</td><td>Small uppercase labels</td></tr>
