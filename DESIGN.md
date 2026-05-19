@@ -168,16 +168,19 @@ Two complementary sans serifs: **Inter** for body and UI, **Open Sauce One** for
 
 ### Type scale (fluid-ready)
 
-| Token | Size | Usage |
+Compact UI scale — **14px body** at a typical 16px browser root (`--text-base: 0.875rem`).
+
+| Token | Size (typical) | Usage |
 |---|---|---|
-| `--text-xs` | 0.75rem | Labels, captions |
-| `--text-sm` | 0.875rem | Secondary body, meta |
-| `--text-base` | 1rem | Primary body copy |
-| `--text-lg` | 1.125rem | Lead text |
-| `--text-xl` | 1.25rem | Small headings |
-| `--text-2xl` | 1.5rem | Section headings |
-| `--text-3xl` | 1.875rem | Page headings |
-| `--text-4xl` | 2.25rem | Hero headings |
+| `--text-xs` | 0.75rem (12px) | Labels, captions |
+| `--text-sm` | 0.8125rem (13px) | Secondary body, meta |
+| `--text-base` | 0.875rem (14px) | Primary body copy |
+| `--text-lg` | 1rem (16px) | Lead text |
+| `--text-xl` | 1.125rem (18px) | Small headings |
+| `--text-2xl` | 1.25rem (20px) | Section headings |
+| `--text-3xl` | 1.5rem (24px) | Page headings |
+| `--text-4xl` | 1.875rem (30px) | Hero headings |
+| `--text-5xl` | 2.25rem (36px) | Display |
 
 ---
 
@@ -237,6 +240,10 @@ When pulling from Figma via MCP:
 ---
 
 ## Changelog
+
+### 0.1.7 — 14px body type scale
+- `--text-base` is now `0.875rem` (14px at default root); full scale shifted for compact UI density
+- Documentation site type scale labels updated
 
 ### 0.1.6 — Documentation site semantic color catalog
 - Colors page lists all 52 semantic tokens, grouped by role (surfaces, actions, accent, feedback)

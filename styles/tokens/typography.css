@@ -14,17 +14,18 @@
   --font-mono:    ui-monospace, "JetBrains Mono", "Fira Code", Menlo, Consolas, monospace;
 
   /* --- Type scale ---
-     Based on a modular scale. rem units so it respects the user's browser base size.
+     14px body (--text-base). rem units respect the browser root (typically 16px).
+     px comments assume default root; sizes scale if the user changes it.
      Use clamp() later for fluid sizes if headings need to scale with viewport. */
-  --text-xs:   0.75rem;    /* 12px — captions, labels */
-  --text-sm:   0.875rem;   /* 14px — secondary body, meta */
-  --text-base: 1rem;       /* 16px — primary body */
-  --text-lg:   1.125rem;   /* 18px — lead / intro text */
-  --text-xl:   1.25rem;    /* 20px — small headings */
-  --text-2xl:  1.5rem;     /* 24px — section headings */
-  --text-3xl:  1.875rem;   /* 30px — page headings */
-  --text-4xl:  2.25rem;    /* 36px — hero headings */
-  --text-5xl:  3rem;       /* 48px — display */
+  --text-xs:   0.75rem;     /* 12px — captions, labels */
+  --text-sm:   0.8125rem;   /* 13px — secondary body, meta */
+  --text-base: 0.875rem;    /* 14px — primary body */
+  --text-lg:   1rem;        /* 16px — lead / intro text */
+  --text-xl:   1.125rem;    /* 18px — small headings */
+  --text-2xl:  1.25rem;     /* 20px — section headings */
+  --text-3xl:  1.5rem;      /* 24px — page headings */
+  --text-4xl:  1.875rem;    /* 30px — hero headings */
+  --text-5xl:  2.25rem;     /* 36px — display */
 
   /* --- Font weights --- */
   --font-normal:   400;
