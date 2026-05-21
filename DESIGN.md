@@ -274,7 +274,21 @@ Documentation site (`.docs` namespace) keeps its own typography; base targets un
 
 Components are added here as they're built. Each entry notes variants, tokens consumed, and any decisions made.
 
-<!-- Added as components are built -->
+### Button — Primary (`btn btn--primary`)
+
+Skeuomorphic primary from Figma node `714:3053`.
+
+| Property | Figma value | Token / implementation |
+|---|---|---|
+| Fill | `#1379f0` (brand-500) | `--button-primary-fill` → `--color-accent-emphasis` |
+| Shine | `linear-gradient(180deg, white 12% → transparent)` | `--button-primary-shine-start` (`#ffffff1f`) overlay only |
+| Top rim | `inset 0 1px 0` whitish line | `--button-primary-edge-highlight` (not a full white border) |
+| Outer ring | `0 0 0 1px #1379f0` | `--button-primary-ring` via `box-shadow` |
+| Radius | 6px | `--button-radius` |
+| Padding | 8×6px | `--button-padding-inline` / `--button-padding-block` |
+| Label | Inter Medium 14/20, white | `--text-body`, `--font-medium`, `--button-primary-text` |
+
+Hover/active deepen to `--color-action-primary-hover` (brand-700). Disabled uses action disabled semantics.
 
 ---
 
@@ -290,6 +304,10 @@ When pulling from Figma via MCP:
 ---
 
 ## Changelog
+
+### 0.2.0 — Primary button component
+- Added `styles/components/button.css` — skeuomorphic primary button from Figma `714:3053`
+- Documentation site: Components → Button section with live preview and token table
 
 ### 0.1.9 — Minimum base layer
 - Extended `@layer base` in `app.css`: headings `h1`–`h6`, `p`, `a`, `strong`, `code`, `img`, `hr`, bare control inherit reset

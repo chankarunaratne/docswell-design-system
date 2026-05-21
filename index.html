@@ -45,6 +45,13 @@
             <li><a class="docs__nav-link" href="#motion"     data-nav-link>Motion</a></li>
           </ul>
         </div>
+
+        <div class="docs__nav-group">
+          <div class="docs__nav-group-title">Components</div>
+          <ul class="docs__nav-list">
+            <li><a class="docs__nav-link" href="#button" data-nav-link>Button</a></li>
+          </ul>
+        </div>
       </nav>
 
       <a
@@ -747,6 +754,43 @@
         <p class="docs__paragraph docs__paragraph--muted">
           A global rule in <code class="docs__token">app.css</code> collapses all transitions to <code class="docs__token">0.01ms</code> when the user has reduced-motion preferences set — no per-component opt-in required.
         </p>
+      </section>
+
+      <!-- ── Button ───────────────────────────────────────────────────── -->
+      <section id="button" class="docs__section">
+        <span class="docs__eyebrow">Components</span>
+        <h1 class="docs__title">Button</h1>
+        <p class="docs__lead">
+          Primary action control with a skeuomorphic brand treatment — solid <code class="docs__token">brand-500</code> fill, a 12% white top-shine gradient, a full 1px white border (glass rim), and a <code class="docs__token">brand-500</code> outer ring. Matched to Figma node <code class="docs__token">714:3053</code>.
+        </p>
+
+        <h2 class="docs__heading">Primary</h2>
+        <p class="docs__paragraph docs__paragraph--muted">
+          Default size: 32px tall, 6px radius, 8×6px padding, Inter Medium 14/20 label.
+        </p>
+
+        <div class="component-preview" aria-label="Button preview">
+          <button type="button" class="btn btn--primary">Compose</button>
+          <button type="button" class="btn btn--primary" disabled>Compose</button>
+        </div>
+
+        <h2 class="docs__heading">Usage</h2>
+        <pre class="docs__code"><code>&lt;button type="button" class="btn btn--primary"&gt;Compose&lt;/button&gt;</code></pre>
+
+        <h2 class="docs__heading">Component tokens</h2>
+        <table class="docs__table">
+          <thead><tr><th>Token</th><th>Maps to</th><th>Role</th></tr></thead>
+          <tbody>
+            <tr><td><code class="docs__token">--button-radius</code></td><td>6px</td><td>Corner radius (Figma)</td></tr>
+            <tr><td><code class="docs__token">--button-padding-inline</code></td><td><code class="docs__token">--spacing-2</code></td><td>Horizontal padding (8px)</td></tr>
+            <tr><td><code class="docs__token">--button-padding-block</code></td><td>6px</td><td>Vertical padding (Figma)</td></tr>
+            <tr><td><code class="docs__token">--button-primary-fill</code></td><td><code class="docs__token">--color-accent-emphasis</code></td><td>Base fill · brand-500</td></tr>
+            <tr><td><code class="docs__token">--button-primary-shine-start</code></td><td><code class="docs__token">#ffffff1f</code></td><td>Top shine · 12% white</td></tr>
+            <tr><td><code class="docs__token">--button-primary-rim-start</code></td><td><code class="docs__token">#ffffff</code></td><td>Glass rim top · opaque white</td></tr>
+            <tr><td><code class="docs__token">--button-primary-rim-end</code></td><td><code class="docs__token">#ffffff00</code></td><td>Glass rim bottom · transparent</td></tr>
+            <tr><td><code class="docs__token">--button-primary-ring</code></td><td><code class="docs__token">--color-accent-emphasis</code></td><td>Outer 1px ring · brand-500</td></tr>
+          </tbody>
+        </table>
       </section>
 
     </main>

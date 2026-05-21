@@ -1,0 +1,83 @@
+/* ==========================================================================
+   Tier 3 — Button component
+   Primary skeuomorphic button from Figma (node 714:3053).
+   Three-layer depth: brand-500 outer ring → gradient glass rim (white ↓
+   transparent) → brand-500 fill with 12 % white top-shine gradient.
+
+   The gradient rim uses the background-clip technique: a transparent CSS
+   border reserves the 1px space, then a background-image layer clipped to
+   border-box paints the gradient through that gap. The solid fill and
+   shine are clipped to padding-box so they don't bleed into the border.
+   ========================================================================== */
+
+@theme {
+  --button-radius:           0.375rem;
+  --button-padding-inline:   var(--spacing-2);
+  --button-padding-block:    0.375rem;
+
+  --button-primary-fill:           var(--color-accent-emphasis);
+  --button-primary-text:           var(--color-action-primary-text);
+  --button-primary-ring:           var(--color-accent-emphasis);
+  --button-primary-shine-start:    #ffffff1f;
+  --button-primary-shine-end:      #ffffff00;
+  /* Gradient border (glass rim): opaque white at top fades to nothing */
+  --button-primary-rim-start:      #ffffff4d;
+  --button-primary-rim-end:        #ffffff00;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-2);
+  padding: var(--button-padding-block) var(--button-padding-inline);
+  border-radius: var(--button-radius);
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  font-weight: var(--font-medium);
+  line-height: 1.25rem;
+  white-space: nowrap;
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition:
+    background-color var(--duration-fast) var(--ease-out),
+    box-shadow var(--duration-fast) var(--ease-out);
+}
+
+.btn--primary {
+  --_fill: var(--button-primary-fill);
+
+  color: var(--button-primary-text);
+  border: 1px solid transparent;
+  background-color: var(--_fill);
+  background-image:
+    linear-gradient(180deg, var(--button-primary-shine-start) 0%, var(--button-primary-shine-end) 100%),
+    linear-gradient(0deg, var(--_fill), var(--_fill)),
+    linear-gradient(180deg, var(--button-primary-rim-start) 0%, var(--button-primary-rim-end) 100%);
+  background-origin: border-box;
+  background-clip: padding-box, padding-box, border-box;
+  box-shadow: 0 0 0 1px var(--button-primary-ring);
+}
+
+.btn--primary:hover:not(:disabled) {
+  --_fill: var(--color-action-primary-hover);
+  box-shadow: 0 0 0 1px var(--color-action-primary-hover);
+}
+
+.btn--primary:active:not(:disabled) {
+  --_fill: var(--color-action-primary-hover);
+  box-shadow: 0 0 0 1px var(--color-action-primary-hover);
+}
+
+.btn--primary:disabled {
+  color: var(--color-action-primary-text-disabled);
+  background-color: var(--color-action-primary-disabled);
+  background-image: none;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+.btn--primary:focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+}

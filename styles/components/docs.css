@@ -206,6 +206,23 @@
   color: var(--docs-accent-hover);
 }
 
+.docs__code {
+  margin: 0 0 var(--spacing-6);
+  padding: var(--spacing-4) var(--spacing-5);
+  background-color: var(--color-background-sidebar);
+  border: 1px solid var(--docs-rule);
+  border-radius: var(--radius-md);
+  overflow-x: auto;
+}
+.docs__code code {
+  font-family: var(--font-code);
+  font-size: var(--text-body-secondary);
+  color: var(--color-foreground);
+  background: none;
+  border: none;
+  padding: 0;
+}
+
 /* ----- Copy buttons ------------------------------------------------------- */
 
 .copy-wrap {
@@ -384,6 +401,20 @@
   font-family: var(--font-code);
   font-size: var(--text-body-secondary);
   color: var(--color-foreground-muted);
+}
+
+/* ----- Component preview -------------------------------------------------- */
+
+.component-preview {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--spacing-4);
+  margin: var(--spacing-6) 0 var(--spacing-8);
+  padding: var(--spacing-10);
+  background-color: var(--color-surface);
+  border: 1px solid var(--docs-rule);
+  border-radius: var(--radius-lg);
 }
 
 /* ----- Radius / shadow demo cards ----------------------------------------- */
