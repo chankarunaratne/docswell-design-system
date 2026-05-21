@@ -16,13 +16,17 @@
   --button-padding-block:    0.375rem;
 
   --button-primary-fill:           var(--color-accent-emphasis);
+  --button-primary-fill-active:    var(--color-action-primary);
   --button-primary-text:           var(--color-action-primary-text);
   --button-primary-ring:           var(--color-accent-emphasis);
+  --button-primary-ring-active:    var(--color-action-primary);
   --button-primary-shine-start:    #ffffff1f;
   --button-primary-shine-end:      #ffffff00;
+  --button-primary-shine-hover-start: #ffffff40;
   /* Gradient border (glass rim): opaque white at top fades to nothing */
   --button-primary-rim-start:      #ffffff4d;
   --button-primary-rim-end:        #ffffff00;
+  --button-primary-rim-hover-start:   #ffffff80;
 }
 
 .btn {
@@ -59,14 +63,17 @@
   box-shadow: 0 0 0 1px var(--button-primary-ring);
 }
 
+/* Hover keeps brand-500 fill — only lifts the gloss so it never reads muddy/dark */
 .btn--primary:hover:not(:disabled) {
-  --_fill: var(--color-action-primary-hover);
-  box-shadow: 0 0 0 1px var(--color-action-primary-hover);
+  background-image:
+    linear-gradient(180deg, var(--button-primary-shine-hover-start) 0%, var(--button-primary-shine-end) 100%),
+    linear-gradient(0deg, var(--_fill), var(--_fill)),
+    linear-gradient(180deg, var(--button-primary-rim-hover-start) 0%, var(--button-primary-rim-end) 100%);
 }
 
 .btn--primary:active:not(:disabled) {
-  --_fill: var(--color-action-primary-hover);
-  box-shadow: 0 0 0 1px var(--color-action-primary-hover);
+  --_fill: var(--button-primary-fill-active);
+  box-shadow: 0 0 0 1px var(--button-primary-ring-active);
 }
 
 .btn--primary:disabled {

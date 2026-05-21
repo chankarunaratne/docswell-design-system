@@ -288,7 +288,7 @@ Skeuomorphic primary from Figma node `714:3053`.
 | Padding | 8×6px | `--button-padding-inline` / `--button-padding-block` |
 | Label | Inter Medium 14/20, white | `--text-body`, `--font-medium`, `--button-primary-text` |
 
-Hover/active deepen to `--color-action-primary-hover` (brand-700). Disabled uses action disabled semantics.
+Hover keeps the brand-500 fill and only brightens the gloss (`--button-primary-shine-hover-start` 25% white, `--button-primary-rim-hover-start` 50% white) so it never reads muddy. Active presses to `--button-primary-fill-active` → `--color-action-primary` (brand-600). Disabled uses action disabled semantics.
 
 ---
 
