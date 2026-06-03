@@ -761,38 +761,141 @@
         <span class="docs__eyebrow">Components</span>
         <h1 class="docs__title">Button</h1>
         <p class="docs__lead">
-          Primary action control with a skeuomorphic brand treatment — solid <code class="docs__token">brand-500</code> fill, a 12% white top-shine gradient, a full 1px white border (glass rim), and a <code class="docs__token">brand-500</code> outer ring. Matched to Figma node <code class="docs__token">714:3053</code>.
+          Action controls in four variants — <strong>primary</strong> (brand emphasis), <strong>secondary</strong> (neutral), <strong>destructive</strong> (danger), and an <strong>icon-only</strong> modifier. All share a 32px height, 6px radius, Inter Medium 14/20 label, and consistent state styling.
         </p>
 
+        <!-- Primary -->
         <h2 class="docs__heading">Primary</h2>
         <p class="docs__paragraph docs__paragraph--muted">
-          Default size: 32px tall, 6px radius, 8×6px padding, Inter Medium 14/20 label. Hover keeps the <code class="docs__token">brand-500</code> fill and brightens the gloss only; active presses to <code class="docs__token">brand-600</code>.
+          Skeuomorphic brand button with gloss, glass rim, and outer ring. Hover brightens the gloss only; active presses to <code class="docs__token">brand-600</code>.
         </p>
 
-        <div class="component-preview" aria-label="Button preview">
+        <div class="component-preview" aria-label="Primary button preview">
           <button type="button" class="btn btn--primary">Compose</button>
           <button type="button" class="btn btn--primary" disabled>Compose</button>
         </div>
 
-        <h2 class="docs__heading">Usage</h2>
         <pre class="docs__code"><code>&lt;button type="button" class="btn btn--primary"&gt;Compose&lt;/button&gt;</code></pre>
 
-        <h2 class="docs__heading">Component tokens</h2>
+        <h3 class="docs__subheading">Primary tokens</h3>
         <table class="docs__table">
           <thead><tr><th>Token</th><th>Maps to</th><th>Role</th></tr></thead>
           <tbody>
-            <tr><td><code class="docs__token">--button-radius</code></td><td>6px</td><td>Corner radius (Figma)</td></tr>
-            <tr><td><code class="docs__token">--button-padding-inline</code></td><td><code class="docs__token">--spacing-2</code></td><td>Horizontal padding (8px)</td></tr>
-            <tr><td><code class="docs__token">--button-padding-block</code></td><td>6px</td><td>Vertical padding (Figma)</td></tr>
-            <tr><td><code class="docs__token">--button-primary-fill</code></td><td><code class="docs__token">--color-accent-emphasis</code></td><td>Base fill · brand-500 (unchanged on hover)</td></tr>
+            <tr><td><code class="docs__token">--button-primary-fill</code></td><td><code class="docs__token">--color-accent-emphasis</code></td><td>Base fill · brand-500</td></tr>
             <tr><td><code class="docs__token">--button-primary-fill-active</code></td><td><code class="docs__token">--color-action-primary</code></td><td>Active fill · brand-600</td></tr>
             <tr><td><code class="docs__token">--button-primary-shine-start</code></td><td><code class="docs__token">#ffffff1f</code></td><td>Top shine · 12% white</td></tr>
-            <tr><td><code class="docs__token">--button-primary-shine-hover-start</code></td><td><code class="docs__token">#ffffff40</code></td><td>Hover top shine · 25% white</td></tr>
-            <tr><td><code class="docs__token">--button-primary-rim-start</code></td><td><code class="docs__token">#ffffff</code></td><td>Glass rim top · opaque white</td></tr>
-            <tr><td><code class="docs__token">--button-primary-rim-end</code></td><td><code class="docs__token">#ffffff00</code></td><td>Glass rim bottom · transparent</td></tr>
-            <tr><td><code class="docs__token">--button-primary-rim-hover-start</code></td><td><code class="docs__token">#ffffff80</code></td><td>Hover glass rim top · 50% white</td></tr>
-            <tr><td><code class="docs__token">--button-primary-ring</code></td><td><code class="docs__token">--color-accent-emphasis</code></td><td>Outer 1px ring · brand-500</td></tr>
+            <tr><td><code class="docs__token">--button-primary-shine-hover-start</code></td><td><code class="docs__token">#ffffff40</code></td><td>Hover shine · 25% white</td></tr>
+            <tr><td><code class="docs__token">--button-primary-rim-start</code></td><td><code class="docs__token">#ffffff4d</code></td><td>Glass rim top</td></tr>
+            <tr><td><code class="docs__token">--button-primary-rim-hover-start</code></td><td><code class="docs__token">#ffffff80</code></td><td>Hover rim top</td></tr>
+            <tr><td><code class="docs__token">--button-primary-ring</code></td><td><code class="docs__token">--color-accent-emphasis</code></td><td>Outer ring · brand-500</td></tr>
             <tr><td><code class="docs__token">--button-primary-ring-active</code></td><td><code class="docs__token">--color-action-primary</code></td><td>Active ring · brand-600</td></tr>
+          </tbody>
+        </table>
+
+        <!-- Secondary -->
+        <h2 class="docs__heading">Secondary</h2>
+        <p class="docs__paragraph docs__paragraph--muted">
+          Neutral filled button for lower-emphasis actions. Gray fill with a subtle border; darkens on hover/active.
+        </p>
+
+        <div class="component-preview" aria-label="Secondary button preview">
+          <button type="button" class="btn btn--secondary">Cancel</button>
+          <button type="button" class="btn btn--secondary" disabled>Cancel</button>
+        </div>
+
+        <pre class="docs__code"><code>&lt;button type="button" class="btn btn--secondary"&gt;Cancel&lt;/button&gt;</code></pre>
+
+        <h3 class="docs__subheading">Secondary tokens</h3>
+        <table class="docs__table">
+          <thead><tr><th>Token</th><th>Maps to</th><th>Role</th></tr></thead>
+          <tbody>
+            <tr><td><code class="docs__token">--button-secondary-fill</code></td><td><code class="docs__token">--color-action-secondary</code></td><td>Default fill · gray-100</td></tr>
+            <tr><td><code class="docs__token">--button-secondary-fill-hover</code></td><td><code class="docs__token">--color-action-secondary-hover</code></td><td>Hover fill · gray-200</td></tr>
+            <tr><td><code class="docs__token">--button-secondary-fill-active</code></td><td><code class="docs__token">--color-surface-pressed</code></td><td>Active fill · gray-200</td></tr>
+            <tr><td><code class="docs__token">--button-secondary-text</code></td><td><code class="docs__token">--color-action-secondary-text</code></td><td>Label · gray-900</td></tr>
+            <tr><td><code class="docs__token">--button-secondary-border</code></td><td><code class="docs__token">--color-border</code></td><td>Border · gray-200</td></tr>
+          </tbody>
+        </table>
+
+        <!-- Destructive -->
+        <h2 class="docs__heading">Destructive</h2>
+        <p class="docs__paragraph docs__paragraph--muted">
+          Danger button for irreversible actions (delete, remove). Red fill with darkened hover/active states.
+        </p>
+
+        <div class="component-preview" aria-label="Destructive button preview">
+          <button type="button" class="btn btn--destructive">Delete</button>
+          <button type="button" class="btn btn--destructive" disabled>Delete</button>
+        </div>
+
+        <pre class="docs__code"><code>&lt;button type="button" class="btn btn--destructive"&gt;Delete&lt;/button&gt;</code></pre>
+
+        <h3 class="docs__subheading">Destructive tokens</h3>
+        <table class="docs__table">
+          <thead><tr><th>Token</th><th>Maps to</th><th>Role</th></tr></thead>
+          <tbody>
+            <tr><td><code class="docs__token">--button-destructive-fill</code></td><td><code class="docs__token">--color-action-destructive</code></td><td>Default fill · red-600</td></tr>
+            <tr><td><code class="docs__token">--button-destructive-fill-hover</code></td><td><code class="docs__token">--color-action-destructive-hover</code></td><td>Hover fill · red-700</td></tr>
+            <tr><td><code class="docs__token">--button-destructive-fill-active</code></td><td><code class="docs__token">--red-800</code></td><td>Active fill · red-800</td></tr>
+            <tr><td><code class="docs__token">--button-destructive-text</code></td><td><code class="docs__token">--color-action-destructive-text</code></td><td>Label · white</td></tr>
+            <tr><td><code class="docs__token">--button-destructive-ring</code></td><td><code class="docs__token">--color-action-destructive</code></td><td>Outer ring · red-600</td></tr>
+            <tr><td><code class="docs__token">--button-destructive-ring-active</code></td><td><code class="docs__token">--red-800</code></td><td>Active ring · red-800</td></tr>
+          </tbody>
+        </table>
+
+        <!-- Icon-only -->
+        <h2 class="docs__heading">Icon-only</h2>
+        <p class="docs__paragraph docs__paragraph--muted">
+          Square modifier for buttons that contain only an icon (no label). Combine with any variant class. Fixed 32×32px with centered 16px icon.
+        </p>
+
+        <div class="component-preview" aria-label="Icon-only button preview">
+          <button type="button" class="btn btn--secondary btn--icon" aria-label="Settings">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"><path fill-rule="evenodd" d="M6.955 1.45A.5.5 0 0 1 7.452 1h1.096a.5.5 0 0 1 .497.45l.17 1.699c.484.12.94.312 1.356.562l1.321-.916a.5.5 0 0 1 .67.055l.775.776a.5.5 0 0 1 .055.67l-.916 1.32c.25.417.442.873.562 1.357l1.699.17a.5.5 0 0 1 .45.497v1.096a.5.5 0 0 1-.45.497l-1.699.17c-.12.484-.312.94-.562 1.356l.916 1.321a.5.5 0 0 1-.055.67l-.776.776a.5.5 0 0 1-.67.055l-1.32-.916c-.417.25-.873.442-1.357.562l-.17 1.699a.5.5 0 0 1-.497.45H7.452a.5.5 0 0 1-.497-.45l-.17-1.699a4.973 4.973 0 0 1-1.356-.562l-1.321.916a.5.5 0 0 1-.67-.055l-.775-.776a.5.5 0 0 1-.055-.67l.916-1.32a4.972 4.972 0 0 1-.562-1.357l-1.699-.17A.5.5 0 0 1 1 8.548V7.452a.5.5 0 0 1 .45-.497l1.699-.17c.12-.484.312-.94.562-1.356l-.916-1.321a.5.5 0 0 1 .055-.67l.776-.776a.5.5 0 0 1 .67-.055l1.32.916c.417-.25.873-.442 1.357-.562l.17-1.699ZM8 10a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" clip-rule="evenodd"/></svg>
+          </button>
+          <button type="button" class="btn btn--primary btn--icon" aria-label="Add">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"><path d="M8.75 3.75a.75.75 0 0 0-1.5 0v3.5h-3.5a.75.75 0 0 0 0 1.5h3.5v3.5a.75.75 0 0 0 1.5 0v-3.5h3.5a.75.75 0 0 0 0-1.5h-3.5v-3.5Z"/></svg>
+          </button>
+          <button type="button" class="btn btn--destructive btn--icon" aria-label="Remove">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"><path fill-rule="evenodd" d="M5 3.25V4H2.75a.75.75 0 0 0 0 1.5h.3l.815 8.15A1.5 1.5 0 0 0 5.357 15h5.285a1.5 1.5 0 0 0 1.493-1.35l.815-8.15h.3a.75.75 0 0 0 0-1.5H11v-.75A2.25 2.25 0 0 0 8.75 1h-1.5A2.25 2.25 0 0 0 5 3.25Zm2.25-.75a.75.75 0 0 0-.75.75V4h3v-.75a.75.75 0 0 0-.75-.75h-1.5ZM6.05 6a.75.75 0 0 1 .787.713l.275 5.5a.75.75 0 0 1-1.498.075l-.275-5.5A.75.75 0 0 1 6.05 6Zm3.9 0a.75.75 0 0 1 .712.787l-.275 5.5a.75.75 0 0 1-1.498-.075l.275-5.5a.75.75 0 0 1 .786-.712Z" clip-rule="evenodd"/></svg>
+          </button>
+          <button type="button" class="btn btn--secondary btn--icon" disabled aria-label="Disabled">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"><path fill-rule="evenodd" d="M6.955 1.45A.5.5 0 0 1 7.452 1h1.096a.5.5 0 0 1 .497.45l.17 1.699c.484.12.94.312 1.356.562l1.321-.916a.5.5 0 0 1 .67.055l.775.776a.5.5 0 0 1 .055.67l-.916 1.32c.25.417.442.873.562 1.357l1.699.17a.5.5 0 0 1 .45.497v1.096a.5.5 0 0 1-.45.497l-1.699.17c-.12.484-.312.94-.562 1.356l.916 1.321a.5.5 0 0 1-.055.67l-.776.776a.5.5 0 0 1-.67.055l-1.32-.916c-.417.25-.873.442-1.357.562l-.17 1.699a.5.5 0 0 1-.497.45H7.452a.5.5 0 0 1-.497-.45l-.17-1.699a4.973 4.973 0 0 1-1.356-.562l-1.321.916a.5.5 0 0 1-.67-.055l-.775-.776a.5.5 0 0 1-.055-.67l.916-1.32a4.972 4.972 0 0 1-.562-1.357l-1.699-.17A.5.5 0 0 1 1 8.548V7.452a.5.5 0 0 1 .45-.497l1.699-.17c.12-.484.312-.94.562-1.356l-.916-1.321a.5.5 0 0 1 .055-.67l.776-.776a.5.5 0 0 1 .67-.055l1.32.916c.417-.25.873-.442 1.357-.562l.17-1.699ZM8 10a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" clip-rule="evenodd"/></svg>
+          </button>
+        </div>
+
+        <pre class="docs__code"><code>&lt;button type="button" class="btn btn--secondary btn--icon" aria-label="Settings"&gt;
+  &lt;svg ...&gt;&lt;/svg&gt;
+&lt;/button&gt;</code></pre>
+
+        <h3 class="docs__subheading">Icon-only token</h3>
+        <table class="docs__table">
+          <thead><tr><th>Token</th><th>Value</th><th>Role</th></tr></thead>
+          <tbody>
+            <tr><td><code class="docs__token">--button-icon-size</code></td><td>2rem (32px)</td><td>Fixed width &amp; height</td></tr>
+          </tbody>
+        </table>
+
+        <!-- Shared tokens -->
+        <h2 class="docs__heading">Shared tokens</h2>
+        <table class="docs__table">
+          <thead><tr><th>Token</th><th>Value</th><th>Role</th></tr></thead>
+          <tbody>
+            <tr><td><code class="docs__token">--button-radius</code></td><td>0.375rem (6px)</td><td>Corner radius</td></tr>
+            <tr><td><code class="docs__token">--button-padding-inline</code></td><td><code class="docs__token">--spacing-2</code> (8px)</td><td>Horizontal padding</td></tr>
+            <tr><td><code class="docs__token">--button-padding-block</code></td><td>0.375rem (6px)</td><td>Vertical padding</td></tr>
+          </tbody>
+        </table>
+
+        <!-- States reference -->
+        <h2 class="docs__heading">States</h2>
+        <table class="docs__table">
+          <thead><tr><th>State</th><th>Applies to</th><th>Behavior</th></tr></thead>
+          <tbody>
+            <tr><td><code class="docs__token">:hover</code></td><td>All variants</td><td>Lightened/darkened fill (skipped when <code class="docs__token">:disabled</code>)</td></tr>
+            <tr><td><code class="docs__token">:active</code></td><td>All variants</td><td>Pressed fill — one step darker than hover</td></tr>
+            <tr><td><code class="docs__token">:disabled</code></td><td>All variants</td><td>Muted fill + text, <code class="docs__token">cursor: not-allowed</code></td></tr>
+            <tr><td><code class="docs__token">:focus-visible</code></td><td>All variants</td><td>2px <code class="docs__token">--color-border-focus</code> outline, 2px offset</td></tr>
           </tbody>
         </table>
       </section>

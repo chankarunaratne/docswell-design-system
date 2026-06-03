@@ -274,7 +274,11 @@ Documentation site (`.docs` namespace) keeps its own typography; base targets un
 
 Components are added here as they're built. Each entry notes variants, tokens consumed, and any decisions made.
 
-### Button — Primary (`btn btn--primary`)
+### Button
+
+Four variants sharing a 32px height, 6px radius, and consistent state coverage (hover, active, disabled, focus-visible).
+
+#### Primary (`btn btn--primary`)
 
 Skeuomorphic primary from Figma node `714:3053`.
 
@@ -290,6 +294,32 @@ Skeuomorphic primary from Figma node `714:3053`.
 
 Hover keeps the brand-500 fill and only brightens the gloss (`--button-primary-shine-hover-start` 25% white, `--button-primary-rim-hover-start` 50% white) so it never reads muddy. Active presses to `--button-primary-fill-active` → `--color-action-primary` (brand-600). Disabled uses action disabled semantics.
 
+#### Secondary (`btn btn--secondary`)
+
+Neutral filled button for lower-emphasis companion actions (Cancel, Back, etc.).
+
+| State | Fill | Border | Text |
+|---|---|---|---|
+| Default | `--color-action-secondary` (gray-100) | `--color-border` (gray-200) | `--color-action-secondary-text` (gray-900) |
+| Hover | `--color-action-secondary-hover` (gray-200) | — | — |
+| Active | `--color-surface-pressed` (gray-200) | — | — |
+| Disabled | `--color-background-disabled` (gray-50) | `--color-border-disabled` (gray-100) | `--color-foreground-disabled` (gray-400) |
+
+#### Destructive (`btn btn--destructive`)
+
+Danger button for irreversible actions (delete, remove).
+
+| State | Fill | Ring | Text |
+|---|---|---|---|
+| Default | `--color-action-destructive` (red-600) | red-600 | white |
+| Hover | `--color-action-destructive-hover` (red-700) | — | — |
+| Active | `--red-800` | red-800 | — |
+| Disabled | `--color-action-destructive-disabled` (gray-100) | none | `--color-action-destructive-text-disabled` (gray-400) |
+
+#### Icon-only modifier (`btn--icon`)
+
+Square modifier (32×32px) for icon-only buttons. Combine with any variant: `btn btn--secondary btn--icon`. Uses `--button-icon-size: 2rem`. Always pair with `aria-label` for accessibility.
+
 ---
 
 ## Figma sync
@@ -304,6 +334,12 @@ When pulling from Figma via MCP:
 ---
 
 ## Changelog
+
+### 0.3.0 — Button variant expansion
+- Added secondary (`btn--secondary`), destructive (`btn--destructive`), and icon-only (`btn--icon`) variants
+- Each variant has full state coverage: hover, active, disabled, focus-visible
+- Component tokens added for secondary and destructive fills, borders, and rings
+- Documentation updated with previews, usage, token tables, and states reference
 
 ### 0.2.0 — Primary button component
 - Added `styles/components/button.css` — skeuomorphic primary button from Figma `714:3053`

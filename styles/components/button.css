@@ -1,8 +1,11 @@
 /* ==========================================================================
    Tier 3 — Button component
-   Primary skeuomorphic button from Figma (node 714:3053).
-   Three-layer depth: brand-500 outer ring → gradient glass rim (white ↓
-   transparent) → brand-500 fill with 12 % white top-shine gradient.
+   Variants: primary (skeuomorphic), secondary (neutral fill), destructive
+   (danger), and an icon-only modifier.
+
+   Primary uses a three-layer depth technique: brand-500 outer ring →
+   gradient glass rim (white ↓ transparent) → brand-500 fill with 12 %
+   white top-shine gradient.
 
    The gradient rim uses the background-clip technique: a transparent CSS
    border reserves the 1px space, then a background-image layer clipped to
@@ -11,10 +14,13 @@
    ========================================================================== */
 
 @theme {
+  /* --- Shared --- */
   --button-radius:           0.375rem;
   --button-padding-inline:   var(--spacing-2);
   --button-padding-block:    0.375rem;
+  --button-icon-size:        2rem;
 
+  /* --- Primary --- */
   --button-primary-fill:           var(--color-accent-emphasis);
   --button-primary-fill-active:    var(--color-action-primary);
   --button-primary-text:           var(--color-action-primary-text);
@@ -23,11 +29,29 @@
   --button-primary-shine-start:    #ffffff1f;
   --button-primary-shine-end:      #ffffff00;
   --button-primary-shine-hover-start: #ffffff40;
-  /* Gradient border (glass rim): opaque white at top fades to nothing */
   --button-primary-rim-start:      #ffffff4d;
   --button-primary-rim-end:        #ffffff00;
   --button-primary-rim-hover-start:   #ffffff80;
+
+  /* --- Secondary --- */
+  --button-secondary-fill:         var(--color-action-secondary);
+  --button-secondary-fill-hover:   var(--color-action-secondary-hover);
+  --button-secondary-fill-active:  var(--color-surface-pressed);
+  --button-secondary-text:         var(--color-action-secondary-text);
+  --button-secondary-border:       var(--color-border);
+
+  /* --- Destructive --- */
+  --button-destructive-fill:           var(--color-action-destructive);
+  --button-destructive-fill-hover:     var(--color-action-destructive-hover);
+  --button-destructive-fill-active:    var(--red-800);
+  --button-destructive-text:           var(--color-action-destructive-text);
+  --button-destructive-ring:           var(--color-action-destructive);
+  --button-destructive-ring-active:    var(--red-800);
 }
+
+/* ==========================================================================
+   Base (.btn)
+   ========================================================================== */
 
 .btn {
   display: inline-flex;
@@ -43,10 +67,16 @@
   white-space: nowrap;
   text-decoration: none;
   border: 1px solid transparent;
+  cursor: pointer;
   transition:
     background-color var(--duration-fast) var(--ease-out),
     box-shadow var(--duration-fast) var(--ease-out);
 }
+
+/* ==========================================================================
+   Primary (.btn--primary)
+   Skeuomorphic brand button from Figma node 714:3053.
+   ========================================================================== */
 
 .btn--primary {
   --_fill: var(--button-primary-fill);
@@ -63,7 +93,6 @@
   box-shadow: 0 0 0 1px var(--button-primary-ring);
 }
 
-/* Hover keeps brand-500 fill — only lifts the gloss so it never reads muddy/dark */
 .btn--primary:hover:not(:disabled) {
   background-image:
     linear-gradient(180deg, var(--button-primary-shine-hover-start) 0%, var(--button-primary-shine-end) 100%),
@@ -87,4 +116,85 @@
 .btn--primary:focus-visible {
   outline: 2px solid var(--color-border-focus);
   outline-offset: 2px;
+}
+
+/* ==========================================================================
+   Secondary (.btn--secondary)
+   Neutral filled button for lower-emphasis actions.
+   ========================================================================== */
+
+.btn--secondary {
+  color: var(--button-secondary-text);
+  background-color: var(--button-secondary-fill);
+  border-color: var(--button-secondary-border);
+}
+
+.btn--secondary:hover:not(:disabled) {
+  background-color: var(--button-secondary-fill-hover);
+}
+
+.btn--secondary:active:not(:disabled) {
+  background-color: var(--button-secondary-fill-active);
+}
+
+.btn--secondary:disabled {
+  color: var(--color-foreground-disabled);
+  background-color: var(--color-background-disabled);
+  border-color: var(--color-border-disabled);
+  cursor: not-allowed;
+}
+
+.btn--secondary:focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+}
+
+/* ==========================================================================
+   Destructive (.btn--destructive)
+   Danger / irreversible action. Same depth technique as primary but red.
+   ========================================================================== */
+
+.btn--destructive {
+  color: var(--button-destructive-text);
+  background-color: var(--button-destructive-fill);
+  box-shadow: 0 0 0 1px var(--button-destructive-ring);
+}
+
+.btn--destructive:hover:not(:disabled) {
+  background-color: var(--button-destructive-fill-hover);
+}
+
+.btn--destructive:active:not(:disabled) {
+  background-color: var(--button-destructive-fill-active);
+  box-shadow: 0 0 0 1px var(--button-destructive-ring-active);
+}
+
+.btn--destructive:disabled {
+  color: var(--color-action-destructive-text-disabled);
+  background-color: var(--color-action-destructive-disabled);
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+.btn--destructive:focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+}
+
+/* ==========================================================================
+   Icon-only modifier (.btn--icon)
+   Makes any variant a square button sized for a single icon (no label).
+   Combine with a variant class: `btn btn--secondary btn--icon`.
+   ========================================================================== */
+
+.btn--icon {
+  width: var(--button-icon-size);
+  height: var(--button-icon-size);
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.btn--icon svg {
+  width: 1rem;
+  height: 1rem;
 }
