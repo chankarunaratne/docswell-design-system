@@ -22,16 +22,16 @@
 
   /* --- Primary --- */
   --button-primary-fill:           var(--color-action-primary);
+  --button-primary-fill-hover:     var(--color-action-primary-hover);
   --button-primary-fill-active:    var(--color-action-primary-active);
   --button-primary-text:           var(--color-action-primary-text);
   --button-primary-ring:           var(--color-action-primary);
+  --button-primary-ring-hover:     var(--color-action-primary-hover);
   --button-primary-ring-active:    var(--color-action-primary-active);
   --button-primary-shine-start:    #ffffff1f;
   --button-primary-shine-end:      #ffffff00;
-  --button-primary-shine-hover-start: #ffffff40;
   --button-primary-rim-start:      #ffffff4d;
   --button-primary-rim-end:        #ffffff00;
-  --button-primary-rim-hover-start:   #ffffff80;
 
   /* --- Secondary --- */
   --button-secondary-fill:         var(--color-action-secondary);
@@ -94,14 +94,16 @@
 }
 
 .btn--primary:hover:not(:disabled) {
-  background-image:
-    linear-gradient(180deg, var(--button-primary-shine-hover-start) 0%, var(--button-primary-shine-end) 100%),
-    linear-gradient(0deg, var(--_fill), var(--_fill)),
-    linear-gradient(180deg, var(--button-primary-rim-hover-start) 0%, var(--button-primary-rim-end) 100%);
+  --_fill: var(--button-primary-fill-hover);
+  background-color: var(--_fill);
+  background-image: none;
+  box-shadow: 0 0 0 1px var(--button-primary-ring-hover);
 }
 
 .btn--primary:active:not(:disabled) {
   --_fill: var(--button-primary-fill-active);
+  background-color: var(--_fill);
+  background-image: none;
   box-shadow: 0 0 0 1px var(--button-primary-ring-active);
 }
 

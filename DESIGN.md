@@ -294,7 +294,7 @@ Skeuomorphic primary from Figma node `714:3053`.
 | Padding | 8×6px | `--button-padding-inline` / `--button-padding-block` |
 | Label | Inter Medium 14/20, white | `--text-body`, `--font-medium`, `--button-primary-text` |
 
-Hover keeps the brand-500 fill and only brightens the gloss (`--button-primary-shine-hover-start` 25% white, `--button-primary-rim-hover-start` 50% white) so it never reads muddy. Active presses to `--button-primary-fill-active` → `--color-action-primary-active` (brand-700). Disabled uses action disabled semantics.
+Default/rest uses the skeuomorphic shine + rim layers. Hover and active drop those layers and use flat fills: `--button-primary-fill-hover` → `--color-action-primary-hover` (brand-600), active → `--color-action-primary-active` (brand-700). Disabled uses action disabled semantics.
 
 #### Secondary (`btn btn--secondary`)
 
@@ -336,6 +336,10 @@ When pulling from Figma via MCP:
 ---
 
 ## Changelog
+
+### 0.3.2 — Primary button flat hover/active
+- Hover and active use darker flat fills (brand-600 / 700); shine and rim layers apply on rest only
+- Removed `--button-primary-shine-hover-start` and `--button-primary-rim-hover-start`
 
 ### 0.3.1 — Primary action scale alignment
 - Retuned `--color-action-primary` ladder: brand-500 (fill) → 600 (hover) → 700 (active)

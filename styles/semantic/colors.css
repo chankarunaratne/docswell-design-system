@@ -29,8 +29,7 @@
   --color-border-disabled:     var(--gray-100);
 
   /* --- Actions: primary ---
-     Default fill is brand-500 (exact brand hex). Hover/active step darker for
-     flat controls; skeuomorphic primary keeps rest fill on hover (gloss only). */
+     Default fill is brand-500 (exact brand hex). Hover/active step darker. */
   --color-action-primary:              var(--brand-500);
   --color-action-primary-hover:        var(--brand-600);
   --color-action-primary-active:       var(--brand-700);
