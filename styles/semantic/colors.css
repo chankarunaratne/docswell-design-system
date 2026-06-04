@@ -28,9 +28,12 @@
   --color-background-disabled: var(--gray-50);
   --color-border-disabled:     var(--gray-100);
 
-  /* --- Actions: primary --- */
-  --color-action-primary:              var(--brand-600);
-  --color-action-primary-hover:        var(--brand-700);
+  /* --- Actions: primary ---
+     Default fill is brand-500 (exact brand hex). Hover/active step darker for
+     flat controls; skeuomorphic primary keeps rest fill on hover (gloss only). */
+  --color-action-primary:              var(--brand-500);
+  --color-action-primary-hover:        var(--brand-600);
+  --color-action-primary-active:       var(--brand-700);
   --color-action-primary-text:         var(--white);
   --color-action-primary-disabled:     var(--gray-100);
   --color-action-primary-text-disabled: var(--gray-400);
@@ -62,7 +65,7 @@
      Distinct from action fills: text and tint roles on light surfaces. */
   --color-accent:             var(--brand-600); /* readable accent text (WCAG AA on white) */
   --color-accent-hover:       var(--brand-700);
-  --color-accent-emphasis:    var(--brand-500); /* exact brand hex — logos, large type */
+  --color-accent-emphasis:    var(--brand-500); /* exact brand hex — logos, chrome, not button fills */
   --color-accent-muted:       var(--brand-400); /* secondary accent, demo fills */
   --color-accent-border:      var(--brand-200); /* tinted borders on accent surfaces */
   --color-accent-subtle:      var(--brand-100); /* soft fills (badges, code blocks) */

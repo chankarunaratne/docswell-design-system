@@ -114,15 +114,17 @@ Careplus uses a **flat white canvas**: the main content area and cards are both 
 | `--color-border-disabled` | `--gray-100` | Disabled control border |
 | `--color-border` | `--gray-200` | Dividers, input borders |
 
-**Actions** (each variant: fill, hover, text; disabled where noted)
+**Actions** (each variant: fill, hover, active, text; disabled where noted)
 
-| Variant | Fill | Hover | Text |
-|---|---|---|---|
-| Primary | `--brand-600` | `--brand-700` | `--white` |
-| Secondary | `--gray-100` | `--gray-200` | `--gray-900` |
-| Ghost | `transparent` | `--gray-100` | `--gray-900` |
-| Outline | `transparent` | `--gray-50` | `--gray-900` (+ `--color-action-outline-border`) |
-| Destructive | `--red-600` | `--red-700` | `--white` |
+| Variant | Fill | Hover | Active | Text |
+|---|---|---|---|---|
+| Primary | `--brand-500` | `--brand-600` | `--brand-700` | `--white` |
+| Secondary | `--gray-100` | `--gray-200` | — | `--gray-900` |
+| Ghost | `transparent` | `--gray-100` | — | `--gray-900` |
+| Outline | `transparent` | `--gray-50` | — | `--gray-900` (+ `--color-action-outline-border`) |
+| Destructive | `--red-600` | `--red-700` | — | `--white` |
+
+Primary actions use `--color-action-primary` / `-hover` / `-active` (brand-500 → 600 → 700). **Accent** tokens (`--color-accent`, `--color-accent-emphasis`) are for links, chrome, and brand moments on light surfaces — not primary button fills.
 
 Disabled primary/destructive buttons use `--gray-100` fill and `--gray-400` text tokens (`--color-action-primary-disabled`, etc.).
 
@@ -284,15 +286,15 @@ Skeuomorphic primary from Figma node `714:3053`.
 
 | Property | Figma value | Token / implementation |
 |---|---|---|
-| Fill | `#1379f0` (brand-500) | `--button-primary-fill` → `--color-accent-emphasis` |
+| Fill | `#1379f0` (brand-500) | `--button-primary-fill` → `--color-action-primary` |
 | Shine | `linear-gradient(180deg, white 12% → transparent)` | `--button-primary-shine-start` (`#ffffff1f`) overlay only |
 | Top rim | `inset 0 1px 0` whitish line | `--button-primary-edge-highlight` (not a full white border) |
-| Outer ring | `0 0 0 1px #1379f0` | `--button-primary-ring` via `box-shadow` |
+| Outer ring | `0 0 0 1px #1379f0` | `--button-primary-ring` → `--color-action-primary` via `box-shadow` |
 | Radius | 6px | `--button-radius` |
 | Padding | 8×6px | `--button-padding-inline` / `--button-padding-block` |
 | Label | Inter Medium 14/20, white | `--text-body`, `--font-medium`, `--button-primary-text` |
 
-Hover keeps the brand-500 fill and only brightens the gloss (`--button-primary-shine-hover-start` 25% white, `--button-primary-rim-hover-start` 50% white) so it never reads muddy. Active presses to `--button-primary-fill-active` → `--color-action-primary` (brand-600). Disabled uses action disabled semantics.
+Hover keeps the brand-500 fill and only brightens the gloss (`--button-primary-shine-hover-start` 25% white, `--button-primary-rim-hover-start` 50% white) so it never reads muddy. Active presses to `--button-primary-fill-active` → `--color-action-primary-active` (brand-700). Disabled uses action disabled semantics.
 
 #### Secondary (`btn btn--secondary`)
 
@@ -334,6 +336,11 @@ When pulling from Figma via MCP:
 ---
 
 ## Changelog
+
+### 0.3.1 — Primary action scale alignment
+- Retuned `--color-action-primary` ladder: brand-500 (fill) → 600 (hover) → 700 (active)
+- Added `--color-action-primary-active`; primary button fill/ring now map to action semantics (not `--color-accent-emphasis`)
+- Documentation site swatches and token tables updated
 
 ### 0.3.0 — Button variant expansion
 - Added secondary (`btn--secondary`), destructive (`btn--destructive`), and icon-only (`btn--icon`) variants

@@ -21,11 +21,11 @@
   --button-icon-size:        2rem;
 
   /* --- Primary --- */
-  --button-primary-fill:           var(--color-accent-emphasis);
-  --button-primary-fill-active:    var(--color-action-primary);
+  --button-primary-fill:           var(--color-action-primary);
+  --button-primary-fill-active:    var(--color-action-primary-active);
   --button-primary-text:           var(--color-action-primary-text);
-  --button-primary-ring:           var(--color-accent-emphasis);
-  --button-primary-ring-active:    var(--color-action-primary);
+  --button-primary-ring:           var(--color-action-primary);
+  --button-primary-ring-active:    var(--color-action-primary-active);
   --button-primary-shine-start:    #ffffff1f;
   --button-primary-shine-end:      #ffffff00;
   --button-primary-shine-hover-start: #ffffff40;
