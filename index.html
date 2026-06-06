@@ -766,18 +766,42 @@
         <span class="docs__eyebrow">Components</span>
         <h1 class="docs__title">Button</h1>
         <p class="docs__lead">
-          Action controls in four variants — <strong>primary</strong> (brand emphasis), <strong>secondary</strong> (neutral), <strong>destructive</strong> (danger), and an <strong>icon-only</strong> modifier. All share a 32px height, 6px radius, Inter Medium 14/20 label, and consistent state styling.
+          Action controls in four variants — <strong>primary</strong> (brand emphasis), <strong>secondary</strong> (neutral), <strong>destructive</strong> (danger), and an <strong>icon-only</strong> modifier. All share a 32px height, 6px radius, Inter Medium 14/20 label, and full state coverage (rest, hover, active, disabled, focus-visible).
         </p>
 
         <!-- Primary -->
         <h2 class="docs__heading">Primary</h2>
         <p class="docs__paragraph docs__paragraph--muted">
-          Skeuomorphic brand button with gloss, glass rim, and outer ring. Hover brightens the gloss only; active presses to <code class="docs__token">brand-600</code>.
+          Rest uses a skeuomorphic treatment (shine, glass rim, outer ring) on <code class="docs__token">brand-500</code>. Hover and active drop those layers and darken the flat fill to <code class="docs__token">brand-600</code> and <code class="docs__token">brand-700</code> via the action-primary semantic ladder.
         </p>
 
-        <div class="component-preview" aria-label="Primary button preview">
-          <button type="button" class="btn btn--primary">Compose</button>
-          <button type="button" class="btn btn--primary" disabled>Compose</button>
+        <h3 class="docs__subheading">Primary states</h3>
+        <div class="button-state-matrix" aria-label="Primary button states">
+          <div class="button-state-cell">
+            <span class="button-state-cell__label">Rest</span>
+            <button type="button" class="btn btn--primary">Compose</button>
+            <span class="button-state-cell__token">brand-500 + gloss</span>
+          </div>
+          <div class="button-state-cell">
+            <span class="button-state-cell__label">Hover</span>
+            <button type="button" class="btn btn--primary btn--docs-hover" tabindex="-1">Compose</button>
+            <span class="button-state-cell__token">--color-action-primary-hover</span>
+          </div>
+          <div class="button-state-cell">
+            <span class="button-state-cell__label">Active</span>
+            <button type="button" class="btn btn--primary btn--docs-active" tabindex="-1">Compose</button>
+            <span class="button-state-cell__token">--color-action-primary-active</span>
+          </div>
+          <div class="button-state-cell">
+            <span class="button-state-cell__label">Disabled</span>
+            <button type="button" class="btn btn--primary" disabled tabindex="-1">Compose</button>
+            <span class="button-state-cell__token">action-primary-disabled</span>
+          </div>
+          <div class="button-state-cell">
+            <span class="button-state-cell__label">Focus</span>
+            <button type="button" class="btn btn--primary btn--docs-focus" tabindex="-1">Compose</button>
+            <span class="button-state-cell__token">--color-border-focus</span>
+          </div>
         </div>
 
         <pre class="docs__code"><code>&lt;button type="button" class="btn btn--primary"&gt;Compose&lt;/button&gt;</code></pre>
@@ -794,18 +818,46 @@
             <tr><td><code class="docs__token">--button-primary-ring</code></td><td><code class="docs__token">--color-action-primary</code></td><td>Rest ring · brand-500</td></tr>
             <tr><td><code class="docs__token">--button-primary-ring-hover</code></td><td><code class="docs__token">--color-action-primary-hover</code></td><td>Hover ring · brand-600</td></tr>
             <tr><td><code class="docs__token">--button-primary-ring-active</code></td><td><code class="docs__token">--color-action-primary-active</code></td><td>Active ring · brand-700</td></tr>
+            <tr><td><code class="docs__token">--button-primary-text</code></td><td><code class="docs__token">--color-action-primary-text</code></td><td>Label · white</td></tr>
           </tbody>
         </table>
+        <p class="docs__paragraph docs__paragraph--muted">
+          Disabled uses semantic tokens directly (no Tier 3 alias): <code class="docs__token">--color-action-primary-disabled</code> and <code class="docs__token">--color-action-primary-text-disabled</code>.
+        </p>
 
         <!-- Secondary -->
         <h2 class="docs__heading">Secondary</h2>
         <p class="docs__paragraph docs__paragraph--muted">
-          Neutral filled button for lower-emphasis actions. Gray fill with a subtle border; darkens on hover/active.
+          Neutral filled button for lower-emphasis actions. Gray fill with a subtle border; darkens on hover and active.
         </p>
 
-        <div class="component-preview" aria-label="Secondary button preview">
-          <button type="button" class="btn btn--secondary">Cancel</button>
-          <button type="button" class="btn btn--secondary" disabled>Cancel</button>
+        <h3 class="docs__subheading">Secondary states</h3>
+        <div class="button-state-matrix" aria-label="Secondary button states">
+          <div class="button-state-cell">
+            <span class="button-state-cell__label">Rest</span>
+            <button type="button" class="btn btn--secondary">Cancel</button>
+            <span class="button-state-cell__token">gray-100 fill</span>
+          </div>
+          <div class="button-state-cell">
+            <span class="button-state-cell__label">Hover</span>
+            <button type="button" class="btn btn--secondary btn--docs-hover" tabindex="-1">Cancel</button>
+            <span class="button-state-cell__token">gray-200</span>
+          </div>
+          <div class="button-state-cell">
+            <span class="button-state-cell__label">Active</span>
+            <button type="button" class="btn btn--secondary btn--docs-active" tabindex="-1">Cancel</button>
+            <span class="button-state-cell__token">surface-pressed</span>
+          </div>
+          <div class="button-state-cell">
+            <span class="button-state-cell__label">Disabled</span>
+            <button type="button" class="btn btn--secondary" disabled tabindex="-1">Cancel</button>
+            <span class="button-state-cell__token">background-disabled</span>
+          </div>
+          <div class="button-state-cell">
+            <span class="button-state-cell__label">Focus</span>
+            <button type="button" class="btn btn--secondary btn--docs-focus" tabindex="-1">Cancel</button>
+            <span class="button-state-cell__token">--color-border-focus</span>
+          </div>
         </div>
 
         <pre class="docs__code"><code>&lt;button type="button" class="btn btn--secondary"&gt;Cancel&lt;/button&gt;</code></pre>
@@ -825,12 +877,36 @@
         <!-- Destructive -->
         <h2 class="docs__heading">Destructive</h2>
         <p class="docs__paragraph docs__paragraph--muted">
-          Danger button for irreversible actions (delete, remove). Red fill with darkened hover/active states.
+          Danger button for irreversible actions (delete, remove). Red fill with outer ring; hover and active darken the fill and ring.
         </p>
 
-        <div class="component-preview" aria-label="Destructive button preview">
-          <button type="button" class="btn btn--destructive">Delete</button>
-          <button type="button" class="btn btn--destructive" disabled>Delete</button>
+        <h3 class="docs__subheading">Destructive states</h3>
+        <div class="button-state-matrix" aria-label="Destructive button states">
+          <div class="button-state-cell">
+            <span class="button-state-cell__label">Rest</span>
+            <button type="button" class="btn btn--destructive">Delete</button>
+            <span class="button-state-cell__token">red-600</span>
+          </div>
+          <div class="button-state-cell">
+            <span class="button-state-cell__label">Hover</span>
+            <button type="button" class="btn btn--destructive btn--docs-hover" tabindex="-1">Delete</button>
+            <span class="button-state-cell__token">red-700</span>
+          </div>
+          <div class="button-state-cell">
+            <span class="button-state-cell__label">Active</span>
+            <button type="button" class="btn btn--destructive btn--docs-active" tabindex="-1">Delete</button>
+            <span class="button-state-cell__token">red-800</span>
+          </div>
+          <div class="button-state-cell">
+            <span class="button-state-cell__label">Disabled</span>
+            <button type="button" class="btn btn--destructive" disabled tabindex="-1">Delete</button>
+            <span class="button-state-cell__token">action-destructive-disabled</span>
+          </div>
+          <div class="button-state-cell">
+            <span class="button-state-cell__label">Focus</span>
+            <button type="button" class="btn btn--destructive btn--docs-focus" tabindex="-1">Delete</button>
+            <span class="button-state-cell__token">--color-border-focus</span>
+          </div>
         </div>
 
         <pre class="docs__code"><code>&lt;button type="button" class="btn btn--destructive"&gt;Delete&lt;/button&gt;</code></pre>
@@ -893,14 +969,35 @@
         </table>
 
         <!-- States reference -->
-        <h2 class="docs__heading">States</h2>
+        <h2 class="docs__heading">States reference</h2>
+        <p class="docs__paragraph docs__paragraph--muted">
+          State matrices above use <code class="docs__token">btn--docs-*</code> classes (documentation only) to snapshot hover, active, and focus. In product UI, use real pseudo-classes and the <code class="docs__token">disabled</code> attribute.
+        </p>
         <table class="docs__table">
-          <thead><tr><th>State</th><th>Applies to</th><th>Behavior</th></tr></thead>
+          <thead><tr><th>State</th><th>Primary</th><th>Secondary</th><th>Destructive</th></tr></thead>
           <tbody>
-            <tr><td><code class="docs__token">:hover</code></td><td>All variants</td><td>Lightened/darkened fill (skipped when <code class="docs__token">:disabled</code>)</td></tr>
-            <tr><td><code class="docs__token">:active</code></td><td>All variants</td><td>Pressed fill — one step darker than hover</td></tr>
-            <tr><td><code class="docs__token">:disabled</code></td><td>All variants</td><td>Muted fill + text, <code class="docs__token">cursor: not-allowed</code></td></tr>
-            <tr><td><code class="docs__token">:focus-visible</code></td><td>All variants</td><td>2px <code class="docs__token">--color-border-focus</code> outline, 2px offset</td></tr>
+            <tr>
+              <td><code class="docs__token">:hover</code></td>
+              <td>Flat <code class="docs__token">brand-600</code> — gloss/rim removed</td>
+              <td><code class="docs__token">--button-secondary-fill-hover</code></td>
+              <td><code class="docs__token">--button-destructive-fill-hover</code></td>
+            </tr>
+            <tr>
+              <td><code class="docs__token">:active</code></td>
+              <td>Flat <code class="docs__token">brand-700</code></td>
+              <td><code class="docs__token">--button-secondary-fill-active</code></td>
+              <td><code class="docs__token">--button-destructive-fill-active</code> + ring</td>
+            </tr>
+            <tr>
+              <td><code class="docs__token">:disabled</code></td>
+              <td><code class="docs__token">--color-action-primary-disabled</code> + text-disabled</td>
+              <td><code class="docs__token">--color-background-disabled</code>, border-disabled, foreground-disabled</td>
+              <td><code class="docs__token">--color-action-destructive-disabled</code> + text-disabled</td>
+            </tr>
+            <tr>
+              <td><code class="docs__token">:focus-visible</code></td>
+              <td colspan="3">2px <code class="docs__token">--color-border-focus</code> outline, 2px offset (all variants)</td>
+            </tr>
           </tbody>
         </table>
       </section>

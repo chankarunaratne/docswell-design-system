@@ -417,6 +417,89 @@
   border-radius: var(--radius-lg);
 }
 
+/* ----- Button state matrix (docs only) ------------------------------------
+   Static snapshots of :hover / :active / :focus-visible for documentation.
+   Mirrors rules in styles/components/button.css — not for product UI. */
+
+.button-state-matrix {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(6.5rem, 1fr));
+  gap: var(--spacing-6);
+  margin: var(--spacing-6) 0 var(--spacing-8);
+  padding: var(--spacing-10);
+  background-color: var(--color-surface);
+  border: 1px solid var(--docs-rule);
+  border-radius: var(--radius-lg);
+}
+
+.button-state-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-3);
+}
+
+.button-state-cell__label {
+  font-size: var(--text-caption);
+  font-weight: var(--font-medium);
+  color: var(--color-foreground-muted);
+  text-align: center;
+}
+
+.button-state-cell__token {
+  font-family: var(--font-code);
+  font-size: var(--text-caption);
+  color: var(--color-foreground-subtle);
+  text-align: center;
+  line-height: 1.3;
+}
+
+.docs .btn--primary.btn--docs-hover:not(:disabled) {
+  --_fill: var(--button-primary-fill-hover);
+  background-color: var(--_fill);
+  background-image: none;
+  box-shadow: 0 0 0 1px var(--button-primary-ring-hover);
+}
+
+.docs .btn--primary.btn--docs-active:not(:disabled) {
+  --_fill: var(--button-primary-fill-active);
+  background-color: var(--_fill);
+  background-image: none;
+  box-shadow: 0 0 0 1px var(--button-primary-ring-active);
+}
+
+.docs .btn--primary.btn--docs-focus:not(:disabled) {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+}
+
+.docs .btn--secondary.btn--docs-hover:not(:disabled) {
+  background-color: var(--button-secondary-fill-hover);
+}
+
+.docs .btn--secondary.btn--docs-active:not(:disabled) {
+  background-color: var(--button-secondary-fill-active);
+}
+
+.docs .btn--secondary.btn--docs-focus:not(:disabled) {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+}
+
+.docs .btn--destructive.btn--docs-hover:not(:disabled) {
+  background-color: var(--button-destructive-fill-hover);
+}
+
+.docs .btn--destructive.btn--docs-active:not(:disabled) {
+  background-color: var(--button-destructive-fill-active);
+  box-shadow: 0 0 0 1px var(--button-destructive-ring-active);
+}
+
+.docs .btn--destructive.btn--docs-focus:not(:disabled) {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+}
+
 /* ----- Radius / shadow demo cards ----------------------------------------- */
 
 .demo-grid {

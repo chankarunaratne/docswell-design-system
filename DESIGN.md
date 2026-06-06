@@ -340,6 +340,7 @@ When pulling from Figma via MCP:
 ### 0.3.2 — Primary button flat hover/active
 - Hover and active use darker flat fills (brand-600 / 700); shine and rim layers apply on rest only
 - Removed `--button-primary-shine-hover-start` and `--button-primary-rim-hover-start`
+- Documentation site: per-variant state matrices (rest/hover/active/disabled/focus), updated copy and states reference table; `btn--docs-*` snapshot classes in `docs.css`
 
 ### 0.3.1 — Primary action scale alignment
 - Retuned `--color-action-primary` ladder: brand-500 (fill) → 600 (hover) → 700 (active)
