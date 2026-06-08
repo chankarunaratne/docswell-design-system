@@ -282,19 +282,19 @@ Four variants sharing a 32px height, 6px radius, and consistent state coverage (
 
 #### Primary (`btn btn--primary`)
 
-Skeuomorphic primary from Figma node `714:3053`.
+Flat brand-colored primary button.
 
-| Property | Figma value | Token / implementation |
+| Property | Value | Token |
 |---|---|---|
-| Fill | `#1379f0` (brand-500) | `--button-primary-fill` → `--color-action-primary` |
-| Shine | `linear-gradient(180deg, white 12% → transparent)` | `--button-primary-shine-start` (`#ffffff1f`) overlay only |
-| Top rim | `inset 0 1px 0` whitish line | `--button-primary-edge-highlight` (not a full white border) |
-| Outer ring | `0 0 0 1px #1379f0` | `--button-primary-ring` → `--color-action-primary` via `box-shadow` |
+| Background | brand-500 | `--button-primary-bg` → `--color-action-primary` |
+| Background (hover) | brand-600 | `--button-primary-bg-hover` → `--color-action-primary-hover` |
+| Background (active) | brand-700 | `--button-primary-bg-active` → `--color-action-primary-active` |
+| Border | brand-500 | `--button-primary-border` → `--color-action-primary` |
+| Text | white | `--button-primary-text` → `--color-action-primary-text` |
 | Radius | 6px | `--button-radius` |
 | Padding | 8×6px | `--button-padding-inline` / `--button-padding-block` |
-| Label | Inter Medium 14/20, white | `--text-body`, `--font-medium`, `--button-primary-text` |
 
-Default/rest uses the skeuomorphic shine + rim layers. Hover and active drop those layers and use flat fills: `--button-primary-fill-hover` → `--color-action-primary-hover` (brand-600), active → `--color-action-primary-active` (brand-700). Disabled uses action disabled semantics.
+Disabled uses action disabled semantics (`--color-action-primary-disabled`, `--color-action-primary-text-disabled`).
 
 #### Secondary (`btn btn--secondary`)
 
@@ -311,12 +311,12 @@ Neutral filled button for lower-emphasis companion actions (Cancel, Back, etc.).
 
 Danger button for irreversible actions (delete, remove).
 
-| State | Fill | Ring | Text |
+| State | Background | Border | Text |
 |---|---|---|---|
 | Default | `--color-action-destructive` (red-600) | red-600 | white |
-| Hover | `--color-action-destructive-hover` (red-700) | — | — |
+| Hover | `--color-action-destructive-hover` (red-700) | red-700 | — |
 | Active | `--red-800` | red-800 | — |
-| Disabled | `--color-action-destructive-disabled` (gray-100) | none | `--color-action-destructive-text-disabled` (gray-400) |
+| Disabled | `--color-action-destructive-disabled` (gray-100) | transparent | `--color-action-destructive-text-disabled` (gray-400) |
 
 #### Icon-only modifier (`btn--icon`)
 
@@ -336,6 +336,12 @@ When pulling from Figma via MCP:
 ---
 
 ## Changelog
+
+### 0.3.3 — Flat primary button, simplified tokens
+- Removed skeuomorphic shine/rim/ring layers from primary button — now a flat brand-color fill
+- Renamed all variant tokens from `--button-*-fill` → `--button-*-bg` and `--button-*-ring` → `--button-*-border` to follow standard design system naming
+- All three variants (primary, secondary, destructive) now share consistent `bg` / `bg-hover` / `bg-active` / `text` / `border` token structure
+- Updated docs page token tables and states reference
 
 ### 0.3.2 — Primary button flat hover/active
 - Hover and active use darker flat fills (brand-600 / 700); shine and rim layers apply on rest only

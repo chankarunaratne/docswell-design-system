@@ -1,16 +1,7 @@
 /* ==========================================================================
    Tier 3 — Button component
-   Variants: primary (skeuomorphic), secondary (neutral fill), destructive
-   (danger), and an icon-only modifier.
-
-   Primary uses a three-layer depth technique: brand-500 outer ring →
-   gradient glass rim (white ↓ transparent) → brand-500 fill with 12 %
-   white top-shine gradient.
-
-   The gradient rim uses the background-clip technique: a transparent CSS
-   border reserves the 1px space, then a background-image layer clipped to
-   border-box paints the gradient through that gap. The solid fill and
-   shine are clipped to padding-box so they don't bleed into the border.
+   Variants: primary, secondary (neutral fill), destructive (danger),
+   and an icon-only modifier.
    ========================================================================== */
 
 @theme {
@@ -21,32 +12,29 @@
   --button-icon-size:        2rem;
 
   /* --- Primary --- */
-  --button-primary-fill:           var(--color-action-primary);
-  --button-primary-fill-hover:     var(--color-action-primary-hover);
-  --button-primary-fill-active:    var(--color-action-primary-active);
+  --button-primary-bg:             var(--color-action-primary);
+  --button-primary-bg-hover:       var(--color-action-primary-hover);
+  --button-primary-bg-active:      var(--color-action-primary-active);
   --button-primary-text:           var(--color-action-primary-text);
-  --button-primary-ring:           var(--color-action-primary);
-  --button-primary-ring-hover:     var(--color-action-primary-hover);
-  --button-primary-ring-active:    var(--color-action-primary-active);
-  --button-primary-shine-start:    #ffffff1f;
-  --button-primary-shine-end:      #ffffff00;
-  --button-primary-rim-start:      #ffffff4d;
-  --button-primary-rim-end:        #ffffff00;
+  --button-primary-border:         var(--color-action-primary);
+  --button-primary-border-hover:   var(--color-action-primary-hover);
+  --button-primary-border-active:  var(--color-action-primary-active);
 
   /* --- Secondary --- */
-  --button-secondary-fill:         var(--color-action-secondary);
-  --button-secondary-fill-hover:   var(--color-action-secondary-hover);
-  --button-secondary-fill-active:  var(--color-surface-pressed);
+  --button-secondary-bg:           var(--color-action-secondary);
+  --button-secondary-bg-hover:     var(--color-action-secondary-hover);
+  --button-secondary-bg-active:    var(--color-surface-pressed);
   --button-secondary-text:         var(--color-action-secondary-text);
   --button-secondary-border:       var(--color-border);
 
   /* --- Destructive --- */
-  --button-destructive-fill:           var(--color-action-destructive);
-  --button-destructive-fill-hover:     var(--color-action-destructive-hover);
-  --button-destructive-fill-active:    var(--red-800);
+  --button-destructive-bg:             var(--color-action-destructive);
+  --button-destructive-bg-hover:       var(--color-action-destructive-hover);
+  --button-destructive-bg-active:      var(--red-800);
   --button-destructive-text:           var(--color-action-destructive-text);
-  --button-destructive-ring:           var(--color-action-destructive);
-  --button-destructive-ring-active:    var(--red-800);
+  --button-destructive-border:         var(--color-action-destructive);
+  --button-destructive-border-hover:   var(--color-action-destructive-hover);
+  --button-destructive-border-active:  var(--red-800);
 }
 
 /* ==========================================================================
@@ -75,43 +63,28 @@
 
 /* ==========================================================================
    Primary (.btn--primary)
-   Skeuomorphic brand button from Figma node 714:3053.
    ========================================================================== */
 
 .btn--primary {
-  --_fill: var(--button-primary-fill);
-
   color: var(--button-primary-text);
-  border: 1px solid transparent;
-  background-color: var(--_fill);
-  background-image:
-    linear-gradient(180deg, var(--button-primary-shine-start) 0%, var(--button-primary-shine-end) 100%),
-    linear-gradient(0deg, var(--_fill), var(--_fill)),
-    linear-gradient(180deg, var(--button-primary-rim-start) 0%, var(--button-primary-rim-end) 100%);
-  background-origin: border-box;
-  background-clip: padding-box, padding-box, border-box;
-  box-shadow: 0 0 0 1px var(--button-primary-ring);
+  background-color: var(--button-primary-bg);
+  border-color: var(--button-primary-border);
 }
 
 .btn--primary:hover:not(:disabled) {
-  --_fill: var(--button-primary-fill-hover);
-  background-color: var(--_fill);
-  background-image: none;
-  box-shadow: 0 0 0 1px var(--button-primary-ring-hover);
+  background-color: var(--button-primary-bg-hover);
+  border-color: var(--button-primary-border-hover);
 }
 
 .btn--primary:active:not(:disabled) {
-  --_fill: var(--button-primary-fill-active);
-  background-color: var(--_fill);
-  background-image: none;
-  box-shadow: 0 0 0 1px var(--button-primary-ring-active);
+  background-color: var(--button-primary-bg-active);
+  border-color: var(--button-primary-border-active);
 }
 
 .btn--primary:disabled {
   color: var(--color-action-primary-text-disabled);
   background-color: var(--color-action-primary-disabled);
-  background-image: none;
-  box-shadow: none;
+  border-color: transparent;
   cursor: not-allowed;
 }
 
@@ -127,16 +100,16 @@
 
 .btn--secondary {
   color: var(--button-secondary-text);
-  background-color: var(--button-secondary-fill);
+  background-color: var(--button-secondary-bg);
   border-color: var(--button-secondary-border);
 }
 
 .btn--secondary:hover:not(:disabled) {
-  background-color: var(--button-secondary-fill-hover);
+  background-color: var(--button-secondary-bg-hover);
 }
 
 .btn--secondary:active:not(:disabled) {
-  background-color: var(--button-secondary-fill-active);
+  background-color: var(--button-secondary-bg-active);
 }
 
 .btn--secondary:disabled {
@@ -153,28 +126,29 @@
 
 /* ==========================================================================
    Destructive (.btn--destructive)
-   Danger / irreversible action. Same depth technique as primary but red.
+   Danger / irreversible action.
    ========================================================================== */
 
 .btn--destructive {
   color: var(--button-destructive-text);
-  background-color: var(--button-destructive-fill);
-  box-shadow: 0 0 0 1px var(--button-destructive-ring);
+  background-color: var(--button-destructive-bg);
+  border-color: var(--button-destructive-border);
 }
 
 .btn--destructive:hover:not(:disabled) {
-  background-color: var(--button-destructive-fill-hover);
+  background-color: var(--button-destructive-bg-hover);
+  border-color: var(--button-destructive-border-hover);
 }
 
 .btn--destructive:active:not(:disabled) {
-  background-color: var(--button-destructive-fill-active);
-  box-shadow: 0 0 0 1px var(--button-destructive-ring-active);
+  background-color: var(--button-destructive-bg-active);
+  border-color: var(--button-destructive-border-active);
 }
 
 .btn--destructive:disabled {
   color: var(--color-action-destructive-text-disabled);
   background-color: var(--color-action-destructive-disabled);
-  box-shadow: none;
+  border-color: transparent;
   cursor: not-allowed;
 }
 

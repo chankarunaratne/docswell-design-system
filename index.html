@@ -772,7 +772,7 @@
         <!-- Primary -->
         <h2 class="docs__heading">Primary</h2>
         <p class="docs__paragraph docs__paragraph--muted">
-          Rest uses a skeuomorphic treatment (shine, glass rim, outer ring) on <code class="docs__token">brand-500</code>. Hover and active drop those layers and darken the flat fill to <code class="docs__token">brand-600</code> and <code class="docs__token">brand-700</code> via the action-primary semantic ladder.
+          Flat brand fill on <code class="docs__token">brand-500</code>. Hover and active darken to <code class="docs__token">brand-600</code> and <code class="docs__token">brand-700</code> via the action-primary semantic ladder.
         </p>
 
         <h3 class="docs__subheading">Primary states</h3>
@@ -780,7 +780,7 @@
           <div class="button-state-cell">
             <span class="button-state-cell__label">Rest</span>
             <button type="button" class="btn btn--primary">Compose</button>
-            <span class="button-state-cell__token">brand-500 + gloss</span>
+            <span class="button-state-cell__token">brand-500</span>
           </div>
           <div class="button-state-cell">
             <span class="button-state-cell__label">Hover</span>
@@ -810,15 +810,13 @@
         <table class="docs__table">
           <thead><tr><th>Token</th><th>Maps to</th><th>Role</th></tr></thead>
           <tbody>
-            <tr><td><code class="docs__token">--button-primary-fill</code></td><td><code class="docs__token">--color-action-primary</code></td><td>Rest fill · brand-500</td></tr>
-            <tr><td><code class="docs__token">--button-primary-fill-hover</code></td><td><code class="docs__token">--color-action-primary-hover</code></td><td>Hover fill · brand-600 (flat, no gloss)</td></tr>
-            <tr><td><code class="docs__token">--button-primary-fill-active</code></td><td><code class="docs__token">--color-action-primary-active</code></td><td>Active fill · brand-700 (flat)</td></tr>
-            <tr><td><code class="docs__token">--button-primary-shine-start</code></td><td><code class="docs__token">#ffffff1f</code></td><td>Rest only · top shine · 12% white</td></tr>
-            <tr><td><code class="docs__token">--button-primary-rim-start</code></td><td><code class="docs__token">#ffffff4d</code></td><td>Rest only · glass rim top</td></tr>
-            <tr><td><code class="docs__token">--button-primary-ring</code></td><td><code class="docs__token">--color-action-primary</code></td><td>Rest ring · brand-500</td></tr>
-            <tr><td><code class="docs__token">--button-primary-ring-hover</code></td><td><code class="docs__token">--color-action-primary-hover</code></td><td>Hover ring · brand-600</td></tr>
-            <tr><td><code class="docs__token">--button-primary-ring-active</code></td><td><code class="docs__token">--color-action-primary-active</code></td><td>Active ring · brand-700</td></tr>
+            <tr><td><code class="docs__token">--button-primary-bg</code></td><td><code class="docs__token">--color-action-primary</code></td><td>Background · brand-500</td></tr>
+            <tr><td><code class="docs__token">--button-primary-bg-hover</code></td><td><code class="docs__token">--color-action-primary-hover</code></td><td>Hover background · brand-600</td></tr>
+            <tr><td><code class="docs__token">--button-primary-bg-active</code></td><td><code class="docs__token">--color-action-primary-active</code></td><td>Active background · brand-700</td></tr>
             <tr><td><code class="docs__token">--button-primary-text</code></td><td><code class="docs__token">--color-action-primary-text</code></td><td>Label · white</td></tr>
+            <tr><td><code class="docs__token">--button-primary-border</code></td><td><code class="docs__token">--color-action-primary</code></td><td>Border · brand-500</td></tr>
+            <tr><td><code class="docs__token">--button-primary-border-hover</code></td><td><code class="docs__token">--color-action-primary-hover</code></td><td>Hover border · brand-600</td></tr>
+            <tr><td><code class="docs__token">--button-primary-border-active</code></td><td><code class="docs__token">--color-action-primary-active</code></td><td>Active border · brand-700</td></tr>
           </tbody>
         </table>
         <p class="docs__paragraph docs__paragraph--muted">
@@ -866,9 +864,9 @@
         <table class="docs__table">
           <thead><tr><th>Token</th><th>Maps to</th><th>Role</th></tr></thead>
           <tbody>
-            <tr><td><code class="docs__token">--button-secondary-fill</code></td><td><code class="docs__token">--color-action-secondary</code></td><td>Default fill · gray-100</td></tr>
-            <tr><td><code class="docs__token">--button-secondary-fill-hover</code></td><td><code class="docs__token">--color-action-secondary-hover</code></td><td>Hover fill · gray-200</td></tr>
-            <tr><td><code class="docs__token">--button-secondary-fill-active</code></td><td><code class="docs__token">--color-surface-pressed</code></td><td>Active fill · gray-200</td></tr>
+            <tr><td><code class="docs__token">--button-secondary-bg</code></td><td><code class="docs__token">--color-action-secondary</code></td><td>Background · gray-100</td></tr>
+            <tr><td><code class="docs__token">--button-secondary-bg-hover</code></td><td><code class="docs__token">--color-action-secondary-hover</code></td><td>Hover background · gray-200</td></tr>
+            <tr><td><code class="docs__token">--button-secondary-bg-active</code></td><td><code class="docs__token">--color-surface-pressed</code></td><td>Active background · gray-200</td></tr>
             <tr><td><code class="docs__token">--button-secondary-text</code></td><td><code class="docs__token">--color-action-secondary-text</code></td><td>Label · gray-900</td></tr>
             <tr><td><code class="docs__token">--button-secondary-border</code></td><td><code class="docs__token">--color-border</code></td><td>Border · gray-200</td></tr>
           </tbody>
@@ -877,7 +875,7 @@
         <!-- Destructive -->
         <h2 class="docs__heading">Destructive</h2>
         <p class="docs__paragraph docs__paragraph--muted">
-          Danger button for irreversible actions (delete, remove). Red fill with outer ring; hover and active darken the fill and ring.
+          Danger button for irreversible actions (delete, remove). Red fill; hover and active darken the background and border.
         </p>
 
         <h3 class="docs__subheading">Destructive states</h3>
@@ -915,12 +913,13 @@
         <table class="docs__table">
           <thead><tr><th>Token</th><th>Maps to</th><th>Role</th></tr></thead>
           <tbody>
-            <tr><td><code class="docs__token">--button-destructive-fill</code></td><td><code class="docs__token">--color-action-destructive</code></td><td>Default fill · red-600</td></tr>
-            <tr><td><code class="docs__token">--button-destructive-fill-hover</code></td><td><code class="docs__token">--color-action-destructive-hover</code></td><td>Hover fill · red-700</td></tr>
-            <tr><td><code class="docs__token">--button-destructive-fill-active</code></td><td><code class="docs__token">--red-800</code></td><td>Active fill · red-800</td></tr>
+            <tr><td><code class="docs__token">--button-destructive-bg</code></td><td><code class="docs__token">--color-action-destructive</code></td><td>Background · red-600</td></tr>
+            <tr><td><code class="docs__token">--button-destructive-bg-hover</code></td><td><code class="docs__token">--color-action-destructive-hover</code></td><td>Hover background · red-700</td></tr>
+            <tr><td><code class="docs__token">--button-destructive-bg-active</code></td><td><code class="docs__token">--red-800</code></td><td>Active background · red-800</td></tr>
             <tr><td><code class="docs__token">--button-destructive-text</code></td><td><code class="docs__token">--color-action-destructive-text</code></td><td>Label · white</td></tr>
-            <tr><td><code class="docs__token">--button-destructive-ring</code></td><td><code class="docs__token">--color-action-destructive</code></td><td>Outer ring · red-600</td></tr>
-            <tr><td><code class="docs__token">--button-destructive-ring-active</code></td><td><code class="docs__token">--red-800</code></td><td>Active ring · red-800</td></tr>
+            <tr><td><code class="docs__token">--button-destructive-border</code></td><td><code class="docs__token">--color-action-destructive</code></td><td>Border · red-600</td></tr>
+            <tr><td><code class="docs__token">--button-destructive-border-hover</code></td><td><code class="docs__token">--color-action-destructive-hover</code></td><td>Hover border · red-700</td></tr>
+            <tr><td><code class="docs__token">--button-destructive-border-active</code></td><td><code class="docs__token">--red-800</code></td><td>Active border · red-800</td></tr>
           </tbody>
         </table>
 
@@ -978,15 +977,15 @@
           <tbody>
             <tr>
               <td><code class="docs__token">:hover</code></td>
-              <td>Flat <code class="docs__token">brand-600</code> — gloss/rim removed</td>
-              <td><code class="docs__token">--button-secondary-fill-hover</code></td>
-              <td><code class="docs__token">--button-destructive-fill-hover</code></td>
+              <td><code class="docs__token">--button-primary-bg-hover</code></td>
+              <td><code class="docs__token">--button-secondary-bg-hover</code></td>
+              <td><code class="docs__token">--button-destructive-bg-hover</code></td>
             </tr>
             <tr>
               <td><code class="docs__token">:active</code></td>
-              <td>Flat <code class="docs__token">brand-700</code></td>
-              <td><code class="docs__token">--button-secondary-fill-active</code></td>
-              <td><code class="docs__token">--button-destructive-fill-active</code> + ring</td>
+              <td><code class="docs__token">--button-primary-bg-active</code></td>
+              <td><code class="docs__token">--button-secondary-bg-active</code></td>
+              <td><code class="docs__token">--button-destructive-bg-active</code></td>
             </tr>
             <tr>
               <td><code class="docs__token">:disabled</code></td>
