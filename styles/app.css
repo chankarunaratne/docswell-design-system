@@ -13,6 +13,7 @@
 @import "./tokens/radius.css";
 @import "./tokens/shadows.css";
 @import "./tokens/motion.css";
+@import "./tokens/z-index.css";
 
 /* --- Tier 2: Semantic mappings --- */
 @import "./semantic/colors.css";

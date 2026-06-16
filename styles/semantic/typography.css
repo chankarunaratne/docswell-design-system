@@ -10,20 +10,36 @@
   --font-heading: var(--font-display);
   --font-code:    var(--font-mono);
 
-  /* --- Body text sizes --- */
+  /* --- Body/UI text sizes --- */
   --text-body:             var(--text-base);
   --text-body-secondary:   var(--text-sm);
   --text-caption:          var(--text-xs);
   --text-lead:             var(--text-lg);
+  --text-label:            var(--text-sm);
+  --text-input:            var(--text-body);
+  --text-button:           var(--text-body);
+  --text-overline:         var(--text-caption);
+  --text-link:             var(--text-body);
 
   /* --- Heading sizes --- */
   --text-heading-subsection: var(--text-lg);
   --text-heading-section:    var(--text-2xl);
   --text-heading-page:       var(--text-3xl);
   --text-heading-hero:       var(--text-4xl);
+  --text-heading-display:    var(--text-5xl);
 
-  /* --- Line height --- */
+  /* --- Weights & tracking for recurring UI roles --- */
+  --font-weight-body:      var(--font-normal);
+  --font-weight-label:     var(--font-medium);
+  --font-weight-button:    var(--font-medium);
+  --font-weight-heading:   var(--font-semibold);
+  --tracking-overline:     var(--tracking-wider);
+
+  /* --- Line heights --- */
   --leading-body:          var(--leading-normal);
   --leading-body-relaxed:  var(--leading-relaxed);
   --leading-heading:       var(--leading-tight);
+  --leading-label:         var(--leading-snug);
+  --leading-input:         var(--leading-normal);
+  --leading-button:        var(--leading-snug);
 }

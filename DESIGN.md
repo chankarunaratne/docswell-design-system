@@ -80,7 +80,7 @@ Each color gets an 11-step scale: `50, 100, 200, 300, 400, 500, 600, 700, 800, 9
 | Token name | Role |
 |---|---|
 | `--brand-*` | Primary brand color |
-| `--gray-*` | Neutral UI chrome |
+| `--gray-*` | Neutral UI chrome — Careplus-aligned; see gray scale notes below |
 | `--green-*` | Success / positive |
 | `--red-*` | Error / destructive |
 | `--amber-*` | Warning |
@@ -98,19 +98,49 @@ Careplus uses a **flat white canvas**: the main content area and cards are both 
 
 `--color-background` and `--color-surface` share the same hex by design. Semantic names stay distinct so a future tinted canvas can diverge without refactors.
 
+### Gray scale (Careplus-aligned)
+
+Rebuilt from Figma variable hex in the Docswell-for-Portfolio file. **Seven stops are pinned exactly**; the rest are generated in OKLCH perceptual space.
+
+| Stop | Hex | Source |
+|---|---|---|
+| `--gray-25` | `#f8fafb` | Figma Background/Disabled [0] — disabled input/control fill |
+| `--gray-50` | `#f6f8fa` | Figma Background/Normal [25] |
+| `--gray-100` | `#eceff3` | Figma Border/Normal [50] |
+| `--gray-200` | `#dfe1e7` | Figma Border/Hover [100] |
+| `--gray-300` | `#a4acb9` | Figma Icon/Disabled [300] |
+| `--gray-400` | `#818898` | Figma Text/Subdued [400] |
+| `--gray-500` | `#666d80` | Figma Text/Normal [500] |
+| `--gray-700` | `#36394a` | Figma Text/Muted [600] — primary UI emphasis |
+| `--gray-600` | `#4f5567` | OKLCH: L at 45% between 500→700, shared hue |
+| `--gray-800`–`950` | `#262a36` → `#07080b` | OKLCH extrapolation; chroma tapered toward black |
+
+**Method:** Convert each Figma anchor to OKLCH (L = perceptual lightness, C = chroma, H = hue). Compute circular mean hue from text stops 400/500/700 (~271°). Interpolate missing L along that hue; reduce C at light extremes and deep shadows so neutrals do not pick up muddy saturation. Round-trip to sRGB hex.
+
+**Semantic mapping (our naming, not Figma’s):**
+
+| Token | Stop | Figma equivalent |
+|---|---|---|
+| `--color-foreground` | `--gray-700` | Their “Text/Muted” (darkest UI text) |
+| `--color-foreground-muted` | `--gray-500` | Their “Text/Normal” |
+| `--color-foreground-subtle` | `--gray-400` | Their “Text/Subdued” |
+| `--color-foreground-disabled` | `--gray-300` | Their Icon/Disabled |
+
+Contrast on white: gray-700 ~11.4:1, gray-500 ~5.2:1, gray-400 ~3.6:1 — all intentional; primary is softer than near-black while still passing AA.
+
 ### Semantic color tokens
 
 **Surfaces & text**
 
 | Token | Maps to | Usage |
 |---|---|---|
-| `--color-foreground` | `--gray-900` | Primary text |
-| `--color-foreground-muted` | `--gray-500` | Secondary text, labels |
-| `--color-foreground-subtle` | `--gray-400` | Placeholders, hints |
-| `--color-foreground-disabled` | `--gray-400` | Disabled labels, icons |
+| `--color-foreground` | `--gray-700` | Primary text (headings, labels) |
+| `--color-foreground-muted` | `--gray-500` | Secondary text, body descriptions |
+| `--color-foreground-subtle` | `--gray-400` | Placeholders, timestamps, hints |
+| `--color-foreground-disabled` | `--gray-300` | Disabled labels, icons |
 | `--color-surface-hover` | `--gray-100` | Row/menu hover |
 | `--color-surface-pressed` | `--gray-200` | Pressed neutral surface |
-| `--color-background-disabled` | `--gray-50` | Disabled input/button fill |
+| `--color-background-disabled` | `--gray-25` | Disabled input/button fill |
 | `--color-border-disabled` | `--gray-100` | Disabled control border |
 | `--color-border` | `--gray-200` | Dividers, input borders |
 
@@ -119,23 +149,44 @@ Careplus uses a **flat white canvas**: the main content area and cards are both 
 | Variant | Fill | Hover | Active | Text |
 |---|---|---|---|---|
 | Primary | `--brand-500` | `--brand-600` | `--brand-700` | `--white` |
-| Secondary | `--gray-100` | `--gray-200` | — | `--gray-900` |
-| Ghost | `transparent` | `--gray-100` | — | `--gray-900` |
-| Outline | `transparent` | `--gray-50` | — | `--gray-900` (+ `--color-action-outline-border`) |
+| Secondary | `--gray-100` | `--gray-200` | — | `--gray-700` |
+| Ghost | `transparent` | `--gray-100` | — | `--gray-700` |
+| Outline | `transparent` | `--gray-50` | — | `--gray-700` (+ `--color-action-outline-border`) |
 | Destructive | `--red-600` | `--red-700` | — | `--white` |
 
 Primary actions use `--color-action-primary` / `-hover` / `-active` (brand-500 → 600 → 700). **Accent** tokens (`--color-accent`, `--color-accent-emphasis`) are for links, chrome, and brand moments on light surfaces — not primary button fills.
 
-Disabled primary/destructive buttons use `--gray-100` fill and `--gray-400` text tokens (`--color-action-primary-disabled`, etc.).
+Disabled primary/destructive buttons use `--gray-100` fill and `--gray-300` text tokens (`--color-action-primary-disabled`, etc.).
+
+Shared interaction semantics are available for generic controls and surfaces:
+`--color-state-hover`, `--color-state-active`, `--color-state-focus`, `--color-state-disabled-text`, `--color-state-disabled-bg`, `--color-state-disabled-border`.
 
 **Feedback**
 
 | Token | Maps to | Usage |
 |---|---|---|
-| `--color-success` | `--green-600` | Success states |
-| `--color-warning` | `--amber-600` | Warning states |
-| `--color-error` | `--red-600` | Error states |
-| `--color-info` | `--blue-600` | Info, help text |
+| `--color-success` | `--green-600` | Success icon, border |
+| `--color-success-surface` | `--green-100` | Success banner/badge background |
+| `--color-success-foreground` | `--green-700` | Text on success-surface |
+| `--color-success-border` | `--green-600` | Success border |
+| `--color-warning` | `--amber-600` | Warning icon, border |
+| `--color-warning-surface` | `--amber-100` | Warning banner/badge background |
+| `--color-warning-foreground` | `--amber-600` | Text on warning-surface (darkest amber primitive) |
+| `--color-warning-border` | `--amber-600` | Warning border |
+| `--color-error` | `--red-600` | Error icon, border |
+| `--color-error-surface` | `--red-100` | Error banner/badge background |
+| `--color-error-foreground` | `--red-700` | Text on error-surface |
+| `--color-error-border` | `--red-600` | Error border |
+| `--color-info` | `--blue-600` | Info icon, border |
+| `--color-info-surface` | `--blue-100` | Info banner/badge background |
+| `--color-info-foreground` | `--blue-700` | Text on info-surface |
+| `--color-info-border` | `--blue-600` | Info border |
+
+**Overlay**
+
+| Token | Value | Usage |
+|---|---|---|
+| `--color-overlay-scrim` | `#00000066` | Modal/drawer backdrop (40% black) |
 
 The system ships with a single light theme. Alternate themes can be added later by overriding semantic tokens — not component CSS.
 
@@ -175,15 +226,27 @@ Two complementary sans serifs: **Inter** for body and UI, **Open Sauce One** for
 | `--text-body-secondary` | `--text-sm` | Meta, nav, secondary copy |
 | `--text-caption` | `--text-xs` | Captions, hints, fine print |
 | `--text-lead` | `--text-lg` | Intro under a page title |
+| `--text-label` | `--text-sm` | Form labels, table headers |
+| `--text-input` | `--text-body` | Input text |
+| `--text-button` | `--text-body` | Button labels |
+| `--text-overline` | `--text-caption` | Eyebrow/overline text |
+| `--text-link` | `--text-body` | Inline/app links |
 | `--text-heading-subsection` | `--text-lg` | Card titles, tertiary headings |
 | `--text-heading-section` | `--text-2xl` | Section headings |
 | `--text-heading-page` | `--text-3xl` | Primary page title in app chrome |
 | `--text-heading-hero` | `--text-4xl` | Hero / documentation page titles |
+| `--text-heading-display` | `--text-5xl` | Marketing/display headings |
+| `--font-weight-body` | `--font-normal` | Body copy |
+| `--font-weight-label` | `--font-medium` | Labels |
+| `--font-weight-button` | `--font-medium` | Action labels |
+| `--font-weight-heading` | `--font-semibold` | Headings |
+| `--tracking-overline` | `--tracking-wider` | Eyebrow treatment |
 | `--leading-body` | `--leading-normal` | Default UI line height |
 | `--leading-body-relaxed` | `--leading-relaxed` | Paragraphs, long-form |
 | `--leading-heading` | `--leading-tight` | Display and section headings |
-
-Weights and letter-spacing stay primitive for now (`--font-medium`, `--tracking-wider`, etc.) until a repeated pattern warrants semantic aliases.
+| `--leading-label` | `--leading-snug` | Dense UI labels |
+| `--leading-input` | `--leading-normal` | Form fields |
+| `--leading-button` | `--leading-snug` | Compact action labels |
 
 ### Primitive families
 
@@ -238,12 +301,28 @@ Motion tokens prevent inconsistent animation throughout the UI.
 | `--ease-in-out` | `cubic-bezier(0.4, 0, 0.2, 1)` | State changes |
 | `--ease-spring` | `cubic-bezier(0.34, 1.56, 0.64, 1)` | Playful pop (modals) |
 
-Always pair `prefers-reduced-motion` overrides:
+Always pair `prefers-reduced-motion` overrides (already in `app.css` base layer):
 ```css
 @media (prefers-reduced-motion: reduce) {
   * { transition-duration: 0.01ms !important; }
 }
 ```
+
+---
+
+## Z-index
+
+A fixed scale prevents ad-hoc stacking numbers and cross-component z-index conflicts. Components reference these primitives directly (no semantic aliases yet — the layer names are already self-documenting).
+
+| Token | Value | Usage |
+|---|---|---|
+| `--z-0` | 0 | Reset / natural flow |
+| `--z-10` | 10 | Raised content |
+| `--z-20` | 20 | Sticky headers |
+| `--z-30` | 30 | Dropdowns, popovers |
+| `--z-40` | 40 | Modals, drawers |
+| `--z-50` | 50 | Toasts, notifications |
+| `--z-max` | 9999 | Escape hatches |
 
 ---
 
@@ -298,14 +377,14 @@ Disabled uses action disabled semantics (`--color-action-primary-disabled`, `--c
 
 #### Secondary (`btn btn--secondary`)
 
-Neutral filled button for lower-emphasis companion actions (Cancel, Back, etc.).
+Outlined button — white background with a gray-200 border, for lower-emphasis companion actions (Cancel, Back, etc.).
 
 | State | Fill | Border | Text |
 |---|---|---|---|
-| Default | `--color-action-secondary` (gray-100) | `--color-border` (gray-200) | `--color-action-secondary-text` (gray-900) |
-| Hover | `--color-action-secondary-hover` (gray-200) | — | — |
+| Default | `--color-surface` (white) | `--color-border` (gray-200) | `--color-action-secondary-text` (gray-700) |
+| Hover | `--color-surface-hover` (gray-100) | — | — |
 | Active | `--color-surface-pressed` (gray-200) | — | — |
-| Disabled | `--color-background-disabled` (gray-50) | `--color-border-disabled` (gray-100) | `--color-foreground-disabled` (gray-400) |
+| Disabled | `--color-background-disabled` (gray-25) | `--color-border-disabled` (gray-100) | `--color-foreground-disabled` (gray-300) |
 
 #### Destructive (`btn btn--destructive`)
 
@@ -316,7 +395,7 @@ Danger button for irreversible actions (delete, remove).
 | Default | `--color-action-destructive` (red-600) | red-600 | white |
 | Hover | `--color-action-destructive-hover` (red-700) | red-700 | — |
 | Active | `--red-800` | red-800 | — |
-| Disabled | `--color-action-destructive-disabled` (gray-100) | transparent | `--color-action-destructive-text-disabled` (gray-400) |
+| Disabled | `--color-action-destructive-disabled` (gray-100) | transparent | `--color-action-destructive-text-disabled` (gray-300) |
 
 #### Icon-only modifier (`btn--icon`)
 
@@ -336,6 +415,26 @@ When pulling from Figma via MCP:
 ---
 
 ## Changelog
+
+### 0.3.7 — Disabled background primitive
+- Added `--gray-25` (`#f8fafb`) from Figma Background/Disabled [0] (Chandima-Kit input)
+- `--color-background-disabled` now maps to `--gray-25`, distinct from sidebar `--gray-50`
+
+### 0.3.6 — Careplus-aligned gray scale
+- Rebuilt `--gray-*` primitives from Figma hex anchors (50–500, 700); 600 and 800–950 OKLCH-interpolated
+- `--color-foreground` now maps to `--gray-700` (`#36394a`) — soft primary text, not near-black
+- Disabled text/icons map to `--gray-300` (`#a4acb9`); action label text uses `--gray-700`
+- Documentation site swatches and `DESIGN.md` gray methodology updated
+
+### 0.3.5 — Semantic typography + state coverage
+- Expanded semantic typography for common SaaS UI roles: label/input/button/link/overline, display heading, role weights, and role line heights
+- Added generic interactive state semantics (`--color-state-*`) for hover/active/focus/disabled in non-action contexts
+- Added feedback border semantics (`--color-*-border`) for success, warning, error, and info states
+
+### 0.3.4 — Priority token gap fills
+- Added `styles/tokens/z-index.css` — 7-step z-index primitive scale (`--z-0` through `--z-max`)
+- Added feedback foreground tokens: `--color-success-foreground`, `--color-warning-foreground`, `--color-error-foreground`, `--color-info-foreground` — text color for use on matching `*-surface` backgrounds
+- Added `--color-overlay-scrim` (`#00000066`) — 40% black for modal/drawer backdrops
 
 ### 0.3.3 — Flat primary button, simplified tokens
 - Removed skeuomorphic shine/rim/ring layers from primary button — now a flat brand-color fill

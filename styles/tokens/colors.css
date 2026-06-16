@@ -24,20 +24,22 @@
   --brand-950: #040c14;
 
   /* --- Gray (neutral) ---
-     Cool-tinted neutrals aligned to brand hue (212°), low saturation (~4–8%).
-     OKLCH perceptual lightness targets (same ladder as brand).
-     Reads as gray in UI; subtle blue cast ties chrome to #1379F0. */
-  --gray-50:   #f4f4f5;
-  --gray-100:  #e6e7e8;
-  --gray-200:  #d2d4d5;
-  --gray-300:  #a9adb3;
-  --gray-400:  #848d96;
-  --gray-500:  #69727c;
-  --gray-600:  #525960;
-  --gray-700:  #3c3f44;
-  --gray-800:  #292b2e;
-  --gray-900:  #17191a;
-  --gray-950:  #0b0b0c;
+     Careplus/Figma-aligned cool blue-grays. Stops 25–500 and 700 are exact
+     hex from the reference file; 600, 800–950 are OKLCH-interpolated
+     (perceptual L + tapered chroma). Hue ~248–277° — bluer than brand
+     (212°) so chrome reads soft without competing with action blue. */
+  --gray-25:   #f8fafb; /* Figma Background/Disabled [0] — disabled input/control fill */
+  --gray-50:   #f6f8fa; /* Figma Background/Normal [25] */
+  --gray-100:  #eceff3; /* Figma Border/Normal [50] */
+  --gray-200:  #dfe1e7; /* Figma Border/Hover [100] */
+  --gray-300:  #a4acb9; /* Figma Icon/Disabled [300] */
+  --gray-400:  #818898; /* Figma Text/Subdued [400] */
+  --gray-500:  #666d80; /* Figma Text/Normal [500] */
+  --gray-600:  #4f5567; /* OKLCH L midpoint 500→700 */
+  --gray-700:  #36394a; /* Figma Text/Muted [600] — primary UI text emphasis */
+  --gray-800:  #262a36; /* OKLCH extrapolated; chroma tapered */
+  --gray-900:  #14161e; /* OKLCH extrapolated; chroma tapered */
+  --gray-950:  #07080b; /* OKLCH extrapolated; chroma tapered */
 
   /* --- Green (success) ---
      Tailwind v4 defaults (oklch → hex). Stops used by semantic feedback tokens. */

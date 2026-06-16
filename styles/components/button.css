@@ -21,8 +21,8 @@
   --button-primary-border-active:  var(--color-action-primary-active);
 
   /* --- Secondary --- */
-  --button-secondary-bg:           var(--color-action-secondary);
-  --button-secondary-bg-hover:     var(--color-action-secondary-hover);
+  --button-secondary-bg:           var(--color-surface);       /* white — outlined style */
+  --button-secondary-bg-hover:     var(--color-surface-hover); /* gray-100 on hover */
   --button-secondary-bg-active:    var(--color-surface-pressed);
   --button-secondary-text:         var(--color-action-secondary-text);
   --button-secondary-border:       var(--color-border);
@@ -95,7 +95,7 @@
 
 /* ==========================================================================
    Secondary (.btn--secondary)
-   Neutral filled button for lower-emphasis actions.
+   Outlined button — white fill with a gray border for lower-emphasis actions.
    ========================================================================== */
 
 .btn--secondary {

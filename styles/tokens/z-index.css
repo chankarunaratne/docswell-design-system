@@ -1,0 +1,15 @@
+/* ==========================================================================
+   Tier 1 — Z-index Primitives
+   Stacking layer scale. Components and semantic tokens reference these to
+   prevent magic numbers and cross-component z-index conflicts.
+   ========================================================================== */
+
+@theme {
+  --z-0:   0;
+  --z-10:  10;   /* raised content */
+  --z-20:  20;   /* sticky headers */
+  --z-30:  30;   /* dropdowns, popovers */
+  --z-40:  40;   /* modals, drawers */
+  --z-50:  50;   /* toasts, notifications */
+  --z-max: 9999; /* escape hatches */
+}
