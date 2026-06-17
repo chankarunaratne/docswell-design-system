@@ -54,6 +54,7 @@
             <li><a class="docs__nav-link" href="#dropdown" data-nav-link>Dropdown</a></li>
             <li><a class="docs__nav-link" href="#checkbox" data-nav-link>Checkbox</a></li>
             <li><a class="docs__nav-link" href="#radio" data-nav-link>Radio</a></li>
+            <li><a class="docs__nav-link" href="#form-example" data-nav-link>Form example</a></li>
           </ul>
         </div>
       </nav>
@@ -1634,6 +1635,141 @@
             <tr><td><code class="docs__token">--radio-group-gap</code></td><td><code class="docs__token">--spacing-2</code></td><td>Gap between options in a set</td></tr>
           </tbody>
         </table>
+      </section>
+
+      <!-- ── Form example ─────────────────────────────────────────────── -->
+      <section id="form-example" class="docs__section">
+        <span class="docs__eyebrow">In practice</span>
+        <h1 class="docs__title">Form example</h1>
+        <p class="docs__lead">
+          A realistic workspace setup flow composed from the component library — inputs, dropdown, radio set, checkboxes, and button variants working together with system spacing.
+        </p>
+
+        <form class="docs-form" action="#" method="post" novalidate>
+          <div class="docs-form__card">
+
+            <header class="docs-form__header">
+              <div class="docs-form__intro">
+                <h2 class="docs-form__title">Create a workspace</h2>
+                <p class="docs-form__subtitle">Spin up a shared environment for your team. You can invite members and adjust billing after setup.</p>
+              </div>
+              <button type="button" class="btn btn--secondary btn--icon" aria-label="Workspace help">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14ZM8 4a.75.75 0 0 1 .75.75v3a.75.75 0 0 1-1.5 0v-3A.75.75 0 0 1 8 4Zm0 8a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" clip-rule="evenodd"/></svg>
+              </button>
+            </header>
+
+            <div class="docs-form__body">
+
+              <div class="docs-form__fields">
+                <label class="input">
+                  <span class="input__label">Workspace name</span>
+                  <div class="input__content">
+                    <input class="input__control" type="text" name="workspace-name" placeholder="e.g. Riverside Analytics" value="Riverside Analytics" autocomplete="organization" />
+                    <span class="input__hint">Shown on invoices and shared links.</span>
+                  </div>
+                </label>
+
+                <div class="docs-form__row">
+                  <label class="input">
+                    <span class="input__label">First name</span>
+                    <div class="input__content">
+                      <input class="input__control" type="text" name="first-name" placeholder="Morgan" value="Morgan" autocomplete="given-name" />
+                    </div>
+                  </label>
+                  <label class="input">
+                    <span class="input__label">Last name</span>
+                    <div class="input__content">
+                      <input class="input__control" type="text" name="last-name" placeholder="Ellis" value="Ellis" autocomplete="family-name" />
+                    </div>
+                  </label>
+                </div>
+
+                <label class="input">
+                  <span class="input__label">Work email</span>
+                  <div class="input__content">
+                    <input class="input__control" type="email" name="email" placeholder="name@company.com" value="morgan.ellis@riverside.io" autocomplete="email" />
+                    <span class="input__hint">We will send the confirmation link here.</span>
+                  </div>
+                </label>
+
+                <label class="dropdown">
+                  <span class="dropdown__label">Primary department</span>
+                  <div class="dropdown__content">
+                    <div class="dropdown__control">
+                      <svg class="dropdown__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3.5 6.75A1.75 1.75 0 0 1 5.25 5h9.5A1.75 1.75 0 0 1 16.5 6.75v6.5A1.75 1.75 0 0 1 14.75 15h-9.5A1.75 1.75 0 0 1 3.5 13.25v-6.5Z"/><path d="M7 8.5h6M7 11h4" stroke-linecap="round"/></svg>
+                      <select class="dropdown__select" name="department" required aria-label="Primary department">
+                        <option value="" disabled hidden>Select a department</option>
+                        <option value="engineering" selected>Engineering</option>
+                        <option value="design">Design</option>
+                        <option value="operations">Operations</option>
+                        <option value="sales">Sales</option>
+                      </select>
+                      <svg class="dropdown__chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 10.94l3.71-3.71a.75.75 0 1 1 1.06 1.06l-4.24 4.25a.75.75 0 0 1-1.06 0L5.21 8.29a.75.75 0 0 1 .02-1.08Z" clip-rule="evenodd"/></svg>
+                    </div>
+                    <span class="dropdown__hint">Used to tailor default templates and permissions.</span>
+                  </div>
+                </label>
+              </div>
+
+              <fieldset class="radio-group docs-form__fieldset">
+                <legend class="radio-group__legend">Billing plan</legend>
+                <label class="radio radio--with-description">
+                  <input type="radio" class="radio__input" name="billing-plan" value="starter" checked />
+                  <span class="radio__control" aria-hidden="true"><span class="radio__dot"></span></span>
+                  <span class="radio__text">
+                    <span class="radio__label">Starter</span>
+                    <span class="radio__description">Up to 10 seats, 5 GB storage, email support.</span>
+                  </span>
+                </label>
+                <label class="radio radio--with-description">
+                  <input type="radio" class="radio__input" name="billing-plan" value="growth" />
+                  <span class="radio__control" aria-hidden="true"><span class="radio__dot"></span></span>
+                  <span class="radio__text">
+                    <span class="radio__label">Growth</span>
+                    <span class="radio__description">Unlimited seats, 100 GB storage, priority support.</span>
+                  </span>
+                </label>
+                <label class="radio">
+                  <input type="radio" class="radio__input" name="billing-plan" value="enterprise" />
+                  <span class="radio__control" aria-hidden="true"><span class="radio__dot"></span></span>
+                  <span class="radio__label">Enterprise — contact sales</span>
+                </label>
+              </fieldset>
+
+              <div class="docs-form__checks">
+                <label class="checkbox">
+                  <input type="checkbox" class="checkbox__input" name="notify-team" checked />
+                  <span class="checkbox__control" aria-hidden="true">
+                    <svg class="checkbox__icon checkbox__icon--check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M8.707 1.793a1 1 0 0 1 0 1.414l-4.5 4.5a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L3.5 5.586l3.793-3.793a1 1 0 0 1 1.414 0Z" clip-rule="evenodd"/></svg>
+                    <svg class="checkbox__icon checkbox__icon--indeterminate" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 5h6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>
+                  </span>
+                  <span class="checkbox__label">Notify teammates when the workspace goes live</span>
+                </label>
+                <label class="checkbox checkbox--with-description">
+                  <input type="checkbox" class="checkbox__input" name="terms" required />
+                  <span class="checkbox__control" aria-hidden="true">
+                    <svg class="checkbox__icon checkbox__icon--check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M8.707 1.793a1 1 0 0 1 0 1.414l-4.5 4.5a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L3.5 5.586l3.793-3.793a1 1 0 0 1 1.414 0Z" clip-rule="evenodd"/></svg>
+                    <svg class="checkbox__icon checkbox__icon--indeterminate" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 5h6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>
+                  </span>
+                  <span class="checkbox__text">
+                    <span class="checkbox__label">Accept terms of service</span>
+                    <span class="checkbox__description">I agree to the Docswell customer agreement and data processing addendum.</span>
+                  </span>
+                </label>
+              </div>
+
+            </div>
+
+            <footer class="docs-form__actions">
+              <button type="button" class="btn btn--destructive">Discard draft</button>
+              <div class="docs-form__actions-end">
+                <button type="button" class="btn btn--secondary">Cancel</button>
+                <button type="submit" class="btn btn--primary">Create workspace</button>
+              </div>
+            </footer>
+
+          </div>
+        </form>
       </section>
 
     </main>

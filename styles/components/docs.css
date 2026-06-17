@@ -24,6 +24,12 @@
   --docs-nav-fg:               var(--color-foreground-muted);
   --docs-nav-fg-hover:         var(--docs-accent-emphasis);
   --docs-nav-fg-active:        var(--docs-accent);
+
+  /* Form example — layout only; field chrome comes from component tokens */
+  --docs-form-gap:             var(--spacing-6);
+  --docs-form-section-gap:     var(--spacing-8);
+  --docs-form-card-padding:    var(--spacing-10);
+  --docs-form-row-gap:         var(--spacing-4);
 }
 
 /* ----- Layout shell -------------------------------------------------------- */
@@ -589,6 +595,102 @@
   text-align: right;
 }
 
+/* ----- Form example (docs playground) ------------------------------------ */
+
+.docs-form {
+  margin-block-start: var(--spacing-8);
+}
+
+.docs-form__card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--docs-form-section-gap);
+  padding: var(--docs-form-card-padding);
+  background-color: var(--color-surface);
+  border: 1px solid var(--docs-rule);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.docs-form__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--spacing-4);
+  padding-block-end: var(--docs-form-gap);
+  border-bottom: 1px solid var(--docs-rule);
+}
+
+.docs-form__intro {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+  min-width: 0;
+}
+
+.docs-form__title {
+  font-size: var(--text-heading-subsection);
+  font-weight: var(--font-semibold);
+  line-height: var(--leading-heading);
+  color: var(--color-foreground);
+  margin: 0;
+}
+
+.docs-form__subtitle {
+  font-size: var(--text-body-secondary);
+  line-height: var(--leading-body);
+  color: var(--color-foreground-muted);
+  margin: 0;
+  max-width: 36rem;
+}
+
+.docs-form__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--docs-form-section-gap);
+}
+
+.docs-form__fields {
+  display: flex;
+  flex-direction: column;
+  gap: var(--docs-form-gap);
+}
+
+.docs-form__row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--docs-form-row-gap);
+}
+
+.docs-form__fieldset {
+  padding-block-start: var(--spacing-1);
+}
+
+.docs-form__checks {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+  padding-block-start: var(--spacing-1);
+}
+
+.docs-form__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-4);
+  padding-block-start: var(--docs-form-gap);
+  border-top: 1px solid var(--docs-rule);
+}
+
+.docs-form__actions-end {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--spacing-3);
+  margin-inline-start: auto;
+}
+
 /* ----- Responsive: stack on narrow viewports ------------------------------ */
 
 @media (max-width: 48rem) {
@@ -603,5 +705,16 @@
   }
   .docs__main {
     padding: var(--spacing-10) var(--spacing-6);
+  }
+  .docs-form__row {
+    grid-template-columns: 1fr;
+  }
+  .docs-form__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .docs-form__actions-end {
+    margin-inline-start: 0;
+    justify-content: flex-end;
   }
 }
