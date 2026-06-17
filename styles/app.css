@@ -22,7 +22,7 @@
 /* --- Tier 3: Components (added as built) --- */
 @import "./components/docs.css";
 @import "./components/button.css";
-/* @import "./components/input.css"; */
+@import "./components/input.css";
 /* @import "./components/card.css"; */
 
 /* ==========================================================================

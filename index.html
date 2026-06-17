@@ -50,6 +50,7 @@
           <div class="docs__nav-group-title">Components</div>
           <ul class="docs__nav-list">
             <li><a class="docs__nav-link" href="#button" data-nav-link>Button</a></li>
+            <li><a class="docs__nav-link" href="#input" data-nav-link>Input</a></li>
           </ul>
         </div>
       </nav>
@@ -998,6 +999,99 @@
               <td><code class="docs__token">:focus-visible</code></td>
               <td colspan="3">2px <code class="docs__token">--color-border-focus</code> outline, 2px offset (all variants)</td>
             </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- ── Input ────────────────────────────────────────────────────── -->
+      <section id="input" class="docs__section">
+        <span class="docs__eyebrow">Components</span>
+        <h1 class="docs__title">Input</h1>
+        <p class="docs__lead">
+          Text input with Figma-aligned rest chrome (blue-tinted spread shadow), semantic placeholder/hint/icon roles, and explicit normal, filled, disabled, and focused snapshots.
+        </p>
+
+        <h2 class="docs__heading">Preview</h2>
+        <div class="component-preview" aria-label="Input component preview">
+          <label class="input" style="width:300px">
+            <span class="input__label">Label</span>
+            <div class="input__control" role="textbox" aria-label="Normal input">
+              <span class="input__icon" aria-hidden="true">⌘</span>
+              <span class="input__placeholder">Placeholder</span>
+              <span class="input__icon" aria-hidden="true">◌</span>
+            </div>
+            <span class="input__hint">This is a hint text to help user.</span>
+          </label>
+
+          <label class="input input--disabled" style="width:300px">
+            <span class="input__label">Label</span>
+            <div class="input__control" role="textbox" aria-label="Disabled input" aria-disabled="true">
+              <span class="input__icon" aria-hidden="true">⌘</span>
+              <span class="input__placeholder">Placeholder</span>
+              <span class="input__icon" aria-hidden="true">◌</span>
+            </div>
+            <span class="input__hint">This is a hint text to help user.</span>
+          </label>
+
+          <label class="input" style="width:300px">
+            <span class="input__label">Label</span>
+            <div class="input__control input__control--filled" role="textbox" aria-label="Filled input">
+              <span class="input__icon" aria-hidden="true">⌘</span>
+              <span class="input__placeholder">Placeholder</span>
+              <span class="input__icon" aria-hidden="true">◌</span>
+            </div>
+            <span class="input__hint">This is a hint text to help user.</span>
+          </label>
+
+          <label class="input" style="width:300px">
+            <span class="input__label">Label</span>
+            <div class="input__control input__control--docs-focus" role="textbox" aria-label="Focused input" tabindex="-1">
+              <span class="input__icon" aria-hidden="true">⌘</span>
+              <span class="input__placeholder">Placeholder</span>
+              <span class="input__icon" aria-hidden="true">◌</span>
+            </div>
+            <span class="input__hint">This is a hint text to help user.</span>
+          </label>
+        </div>
+
+        <pre class="docs__code"><code>&lt;label class="input"&gt;
+  &lt;span class="input__label"&gt;Label&lt;/span&gt;
+  &lt;input class="input__control" placeholder="Placeholder" /&gt;
+  &lt;span class="input__hint"&gt;This is a hint text to help user.&lt;/span&gt;
+&lt;/label&gt;</code></pre>
+
+        <h2 class="docs__heading">Interactive filled behavior</h2>
+        <p class="docs__paragraph docs__paragraph--muted">
+          This real <code class="docs__token">&lt;input&gt;</code> auto-switches to filled text styling when it contains a value via <code class="docs__token">:not(:placeholder-shown)</code>.
+        </p>
+        <div class="component-preview" aria-label="Interactive input preview">
+          <label class="input" style="width:300px">
+            <span class="input__label">Label</span>
+            <input class="input__control" type="text" placeholder="Placeholder" value="Placeholder" />
+            <span class="input__hint">This is a hint text to help user.</span>
+          </label>
+          <label class="input" style="width:300px">
+            <span class="input__label">Label</span>
+            <input class="input__control" type="text" placeholder="Placeholder" />
+            <span class="input__hint">This is a hint text to help user.</span>
+          </label>
+        </div>
+
+        <h2 class="docs__heading">Input tokens</h2>
+        <table class="docs__table">
+          <thead><tr><th>Token</th><th>Maps to</th><th>Role</th></tr></thead>
+          <tbody>
+            <tr><td><code class="docs__token">--input-radius</code></td><td><code class="docs__token">--radius-base</code></td><td>Control radius · 6px</td></tr>
+            <tr><td><code class="docs__token">--input-padding-inline</code></td><td><code class="docs__token">--spacing-2</code></td><td>Horizontal padding · 8px</td></tr>
+            <tr><td><code class="docs__token">--input-padding-block</code></td><td><code class="docs__token">--spacing-1_5</code></td><td>Vertical padding · 6px</td></tr>
+            <tr><td><code class="docs__token">--input-gap-control-hint</code></td><td><code class="docs__token">--spacing-1_5</code></td><td>Control → hint gap · 6px</td></tr>
+            <tr><td><code class="docs__token">--input-shadow-rest</code></td><td><code class="docs__token">--shadow-input-rest</code></td><td>Figma Form/Input/Normal chrome</td></tr>
+            <tr><td><code class="docs__token">--input-text-filled</code></td><td><code class="docs__token">--color-foreground-loud</code></td><td>Entered value text (filled/focus)</td></tr>
+            <tr><td><code class="docs__token">--input-placeholder</code></td><td><code class="docs__token">--color-text-placeholder</code></td><td>Placeholder text</td></tr>
+            <tr><td><code class="docs__token">--input-hint</code></td><td><code class="docs__token">--color-text-hint</code></td><td>Hint text (normal)</td></tr>
+            <tr><td><code class="docs__token">--input-hint-disabled</code></td><td><code class="docs__token">--color-text-hint-disabled</code></td><td>Hint text (disabled)</td></tr>
+            <tr><td><code class="docs__token">--input-icon</code></td><td><code class="docs__token">--color-icon-subtle</code></td><td>Icon color (normal)</td></tr>
+            <tr><td><code class="docs__token">--input-icon-disabled</code></td><td><code class="docs__token">--color-icon-disabled</code></td><td>Icon color (disabled)</td></tr>
           </tbody>
         </table>
       </section>

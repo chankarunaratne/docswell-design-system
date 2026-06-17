@@ -1,0 +1,138 @@
+/* ==========================================================================
+   Tier 3 — Input component
+   Figma-aligned normal + disabled states with semantic color roles.
+   ========================================================================== */
+
+@theme {
+  --input-radius:            var(--radius-base);
+  --input-padding-inline:    var(--spacing-2);
+  --input-padding-block:     var(--spacing-1_5);
+  --input-gap-icon-text:     var(--spacing-2);
+  --input-gap-label-control: var(--spacing-1);
+  --input-gap-control-hint:  var(--spacing-1_5);
+
+  --input-bg:                var(--color-surface);
+  --input-bg-disabled:       var(--color-background-disabled);
+  --input-text:              var(--color-foreground);
+  --input-text-filled:       var(--color-foreground-loud);
+  --input-text-focus:        var(--color-foreground-loud);
+  --input-placeholder:       var(--color-text-placeholder);
+  --input-hint:              var(--color-text-hint);
+  --input-hint-disabled:     var(--color-text-hint-disabled);
+  --input-icon:              var(--color-icon-subtle);
+  --input-icon-disabled:     var(--color-icon-disabled);
+
+  --input-shadow-rest:       var(--shadow-input-rest);
+  --input-shadow-hover:      var(--shadow-input-hover);
+  --input-shadow-focus:      var(--shadow-input-focus);
+}
+
+.input {
+  display: flex;
+  flex-direction: column;
+  gap: var(--input-gap-label-control);
+}
+
+.input__label {
+  color: var(--color-foreground);
+  font-size: var(--text-label);
+  font-weight: var(--font-weight-label);
+  line-height: var(--leading-label);
+}
+
+.input__control {
+  display: flex;
+  align-items: center;
+  gap: var(--input-gap-icon-text);
+  width: 100%;
+  border: 0;
+  border-radius: var(--input-radius);
+  background-color: var(--input-bg);
+  box-shadow: var(--input-shadow-rest);
+  color: var(--input-text);
+  font-size: var(--text-input);
+  line-height: var(--leading-input);
+  padding: var(--input-padding-block) var(--input-padding-inline);
+}
+
+.input__control::placeholder {
+  color: var(--input-placeholder);
+}
+
+.input__control:hover {
+  box-shadow: var(--input-shadow-hover);
+}
+
+.input__placeholder {
+  color: var(--input-placeholder);
+  flex: 1 0 0;
+}
+
+.input__control:focus-visible,
+.input__control--docs-focus {
+  outline: 0;
+  box-shadow: var(--input-shadow-focus);
+  color: var(--input-text-focus);
+}
+
+.input__control--filled {
+  color: var(--input-text-filled);
+}
+
+.input__control:not(:placeholder-shown) {
+  color: var(--input-text-filled);
+}
+
+.input__control--filled .input__placeholder {
+  color: var(--input-text-filled);
+}
+
+.input__control:focus-visible::placeholder,
+.input__control--docs-focus::placeholder {
+  color: var(--input-text-focus);
+}
+
+.input__control:focus-visible .input__placeholder,
+.input__control--docs-focus .input__placeholder {
+  color: var(--input-text-focus);
+}
+
+.input__icon {
+  color: var(--input-icon);
+}
+
+.input__hint {
+  color: var(--input-hint);
+  font-size: var(--text-hint);
+  line-height: var(--leading-hint);
+}
+
+.input--disabled .input__control,
+.input__control:disabled {
+  background-color: var(--input-bg-disabled);
+  box-shadow: none;
+  color: var(--color-state-disabled-text);
+  cursor: not-allowed;
+}
+
+.input--disabled .input__control:hover,
+.input__control:disabled:hover {
+  box-shadow: none;
+}
+
+.input--disabled .input__control::placeholder,
+.input__control:disabled::placeholder {
+  color: var(--input-icon-disabled);
+}
+
+.input--disabled .input__placeholder {
+  color: var(--input-icon-disabled);
+}
+
+.input--disabled .input__icon {
+  color: var(--input-icon-disabled);
+}
+
+.input--disabled .input__hint {
+  color: var(--input-hint-disabled);
+}

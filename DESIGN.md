@@ -75,7 +75,7 @@ If the brand color changes, you update one primitive (`--brand-500`). The semant
 
 ### Primitive palette structure
 
-Each color gets an 11-step scale: `50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950`.
+Each color gets a standard light→dark scale (`50` to `950`) plus optional in-between anchors (e.g. `25`) when Figma has a distinct, reusable role.
 
 | Token name | Role |
 |---|---|
@@ -136,8 +136,13 @@ Contrast on white: gray-700 ~11.4:1, gray-500 ~5.2:1, gray-400 ~3.6:1 — all in
 |---|---|---|
 | `--color-foreground` | `--gray-700` | Primary text (headings, labels) |
 | `--color-foreground-muted` | `--gray-500` | Secondary text, body descriptions |
-| `--color-foreground-subtle` | `--gray-400` | Placeholders, timestamps, hints |
+| `--color-foreground-subtle` | `--gray-400` | Subtle metadata / tertiary text |
 | `--color-foreground-disabled` | `--gray-300` | Disabled labels, icons |
+| `--color-text-placeholder` | `--gray-400` | Input placeholder text |
+| `--color-text-hint` | `--gray-500` | Helper text below fields (normal) |
+| `--color-text-hint-disabled` | `--gray-300` | Helper text below disabled fields |
+| `--color-icon-subtle` | `--gray-400` | Neutral control icons |
+| `--color-icon-disabled` | `--gray-300` | Disabled control icons |
 | `--color-surface-hover` | `--gray-100` | Row/menu hover |
 | `--color-surface-pressed` | `--gray-200` | Pressed neutral surface |
 | `--color-background-disabled` | `--gray-25` | Disabled input/button fill |
@@ -226,8 +231,9 @@ Two complementary sans serifs: **Inter** for body and UI, **Open Sauce One** for
 | `--text-body-secondary` | `--text-sm` | Meta, nav, secondary copy |
 | `--text-caption` | `--text-xs` | Captions, hints, fine print |
 | `--text-lead` | `--text-lg` | Intro under a page title |
-| `--text-label` | `--text-sm` | Form labels, table headers |
+| `--text-label` | `--text-body` | Form labels, table headers |
 | `--text-input` | `--text-body` | Input text |
+| `--text-hint` | `--text-caption` | Input helper text |
 | `--text-button` | `--text-body` | Button labels |
 | `--text-overline` | `--text-caption` | Eyebrow/overline text |
 | `--text-link` | `--text-body` | Inline/app links |
@@ -246,6 +252,7 @@ Two complementary sans serifs: **Inter** for body and UI, **Open Sauce One** for
 | `--leading-heading` | `--leading-tight` | Display and section headings |
 | `--leading-label` | `--leading-snug` | Dense UI labels |
 | `--leading-input` | `--leading-normal` | Form fields |
+| `--leading-hint` | `calc(16 / 12)` | 12px hint text with Figma 16px line-height |
 | `--leading-button` | `--leading-snug` | Compact action labels |
 
 ### Primitive families
@@ -279,7 +286,8 @@ Compact UI scale — **14px body** at a typical 16px browser root (`--text-base:
 | Token | Value | Usage |
 |---|---|---|
 | `--radius-sm` | 0.25rem | Subtle rounding (tags, badges) |
-| `--radius-md` | 0.5rem | Inputs, buttons |
+| `--radius-base` | 0.375rem | Default controls (inputs, buttons) |
+| `--radius-md` | 0.5rem | Larger controls/cards |
 | `--radius-lg` | 1rem | Cards, modals |
 | `--radius-xl` | 1.5rem | Large panels |
 | `--radius-full` | 9999px | Pills, avatars |
@@ -397,6 +405,23 @@ Danger button for irreversible actions (delete, remove).
 | Active | `--red-800` | red-800 | — |
 | Disabled | `--color-action-destructive-disabled` (gray-100) | transparent | `--color-action-destructive-text-disabled` (gray-300) |
 
+### Input
+
+Figma-aligned text input with semantic roles for placeholder, hint, and icon colors.
+
+| Property | Token | Figma reference |
+|---|---|---|
+| Radius | `--input-radius` → `--radius-base` (6px) | Input radius 6 |
+| Padding | `--input-padding-inline` / `--input-padding-block` | 8px / 6px |
+| Label gap | `--input-gap-label-control` | 4px |
+| Hint gap | `--input-gap-control-hint` | 6px |
+| Rest chrome | `--input-shadow-rest` → `--shadow-input-rest` | Form/Input/Normal |
+| Placeholder | `--input-placeholder` → `--color-text-placeholder` | Text/Subdued [400] |
+| Hint (normal) | `--input-hint` → `--color-text-hint` | Text/Normal [500] |
+| Hint (disabled) | `--input-hint-disabled` → `--color-text-hint-disabled` | Text/Disabled [300] |
+| Icon (normal) | `--input-icon` → `--color-icon-subtle` | Icon/Subdued [400] |
+| Icon (disabled) | `--input-icon-disabled` → `--color-icon-disabled` | Icon/Disabled [300] |
+
 #### Icon-only modifier (`btn--icon`)
 
 Square modifier (32×32px) for icon-only buttons. Combine with any variant: `btn btn--secondary btn--icon`. Uses `--button-icon-size: 2rem`. Always pair with `aria-label` for accessibility.
@@ -415,6 +440,28 @@ When pulling from Figma via MCP:
 ---
 
 ## Changelog
+
+### 0.3.11 — Input filled state
+- Added `--input-text-filled` (`--color-foreground-loud`) for entered-value text in filled state
+- Added docs snapshot class `input__control--filled` to show filled state separately from focus
+- Input preview now demonstrates normal, disabled, filled, and focused states
+
+### 0.3.10 — Input focus state (brand-tinted)
+- Added `--shadow-input-focus` with the same 4-layer geometry as Figma focus (`1px keyline`, `2px white spacer`, `3px outer ring`, `1px/2px lift`)
+- Recolored Figma purple focus treatment to Docswell primary blue family (`brand-500/600` tints)
+- Input focus now maps to `--input-shadow-focus: var(--shadow-input-focus)` and uses loud field text via `--color-foreground-loud`
+
+### 0.3.9 — Input hover shadow
+- Added `--shadow-input-hover` from Figma Form/Input/Hover (`#09194829` spread + lift)
+- Added `--input-shadow-hover` component token and mapped `.input__control:hover` to it
+- Disabled inputs keep `box-shadow: none` on hover
+
+### 0.3.8 — Input semantic cleanup + component tokens
+- Added semantic color roles for form text/icons: placeholder, hint (normal/disabled), and icon (normal/disabled)
+- Added `--spacing-1_5` (6px) and `--radius-base` (6px) primitives for Figma-aligned control geometry
+- Added `--shadow-input-rest` primitive using Figma blue-tinted spread shadow (`#09194821` + `#12376914`)
+- Added `styles/components/input.css` with component tokens for normal/disabled input states and enabled it in `app.css`
+- Updated semantic typography: `--text-label` now maps to 14px body size, added `--text-hint` and `--leading-hint`
 
 ### 0.3.7 — Disabled background primitive
 - Added `--gray-25` (`#f8fafb`) from Figma Background/Disabled [0] (Chandima-Kit input)

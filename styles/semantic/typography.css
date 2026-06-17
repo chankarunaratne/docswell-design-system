@@ -15,8 +15,9 @@
   --text-body-secondary:   var(--text-sm);
   --text-caption:          var(--text-xs);
   --text-lead:             var(--text-lg);
-  --text-label:            var(--text-sm);
+  --text-label:            var(--text-body);
   --text-input:            var(--text-body);
+  --text-hint:             var(--text-caption);
   --text-button:           var(--text-body);
   --text-overline:         var(--text-caption);
   --text-link:             var(--text-body);
@@ -41,5 +42,6 @@
   --leading-heading:       var(--leading-tight);
   --leading-label:         var(--leading-snug);
   --leading-input:         var(--leading-normal);
+  --leading-hint:          calc(16 / 12);
   --leading-button:        var(--leading-snug);
 }

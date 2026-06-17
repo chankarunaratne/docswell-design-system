@@ -7,6 +7,12 @@
 @theme {
   --shadow-none: none;
   --shadow-xs:   0 1px 2px  #0000000d;
+  /* Figma Form/Input/Normal: blue-tinted spread + soft lift */
+  --shadow-input-rest: 0 0 0 1px #09194821, 0 1px 2px #12376914;
+  /* Figma Form/Input/Hover: stronger unified navy alpha on both layers */
+  --shadow-input-hover: 0 0 0 1px #09194829, 0 1px 2px #09194829;
+  /* Figma Form/Input/Focus geometry, recolored to brand-primary family */
+  --shadow-input-focus: 0 1px 2px #0b55aa66, 0 0 0 1px #1379f0, 0 0 0 2px #ffffff, 0 0 0 3px #1379f052;
   --shadow-sm:   0 1px 3px  #0000001a, 0 1px 2px #0000000f;
   --shadow-md:   0 4px 6px  #00000012, 0 2px 4px #0000000f;
   --shadow-lg:   0 10px 15px #0000001a, 0 4px 6px #0000000d;

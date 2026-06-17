@@ -22,8 +22,14 @@
   --color-foreground:         var(--gray-700);  /* headings, labels, primary copy */
   --color-foreground-muted:   var(--gray-500);  /* secondary text, body descriptions */
   --color-foreground-subtle:  var(--gray-400);  /* placeholders, timestamps, hints */
+  --color-foreground-loud:    var(--gray-900);  /* high-emphasis field text on focus */
   --color-foreground-inverse: var(--white);     /* text on filled/brand backgrounds */
   --color-foreground-disabled: var(--gray-300); /* disabled labels, icons */
+  --color-text-placeholder:   var(--gray-400);  /* input placeholder text */
+  --color-text-hint:          var(--gray-500);  /* helper text under fields */
+  --color-text-hint-disabled: var(--gray-300);  /* helper text for disabled fields */
+  --color-icon-subtle:        var(--gray-400);  /* neutral control icons */
+  --color-icon-disabled:      var(--gray-300);  /* disabled control icons */
 
   /* --- Disabled (inputs, controls) --- */
   --color-background-disabled: var(--gray-25); /* lighter wash than sidebar gray-50 */
