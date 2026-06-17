@@ -441,6 +441,42 @@ Closed trigger sharing Input chrome and Figma Form/Input shadow states. Componen
 
 States: normal, hover (shadow + placeholder emphasis), filled, focus, error, disabled — same modifiers as Input (`dropdown--error`, `dropdown--disabled`, `aria-invalid`).
 
+### Checkbox
+
+Square control (16px) centered in a 24px hit target. Unchecked uses dedicated gray checkbox shadows; checked/focus uses brand-primary blue (Figma purple recolored).
+
+| Property | Token | Figma reference |
+|---|---|---|
+| Hit target | `--checkbox-size` → `--spacing-6` (24px) | Outer frame |
+| Control | `--checkbox-control-size` → `--spacing-4` (16px) | Inner box |
+| Radius | `--checkbox-radius` → `--radius-xs` (3px) | Rounded square |
+| Checked fill | `--checkbox-bg-checked` → `--color-action-primary` | Primary/100 → brand-500 |
+| Rest chrome | `--checkbox-shadow-rest` | Form/Checkbox & Radio/Normal |
+| Hover | `--checkbox-shadow-hover` | Form/Checkbox & Radio/Hover |
+| Focus / pressed | `--checkbox-shadow-focus` | Primary Active geometry → brand |
+| Checked rest | `--checkbox-shadow-selected` | 1px brand keyline |
+| Disabled | `--checkbox-bg-disabled` / `--checkbox-border-disabled` | gray-25 + gray-100 border |
+
+States: normal, hover, pressed (unchecked focus), selected, selected focus, indeterminate, disabled (checked).
+
+#### Label + description
+
+Add `checkbox--with-description` and wrap copy in `checkbox__text`. Control top-aligns; label uses `--text-label` (medium 14px); description uses `--text-body` regular at `--color-text-hint`. Hovering anywhere on the label row updates unchecked control chrome.
+
+### Radio
+
+Circular control sharing Form/Checkbox & Radio shadows with checkbox. Selected = brand-500 fill + 6px white center dot (`--shadow-radio-dot` lift). `radio-group` / `fieldset` stacks options.
+
+| Property | Token | Figma reference |
+|---|---|---|
+| Hit / control | `--radio-size` / `--radio-control-size` | 24px / 16px |
+| Selected fill | `--radio-bg-checked` → `--color-action-primary` | Primary/100 → brand-500 |
+| Dot | `--radio-dot-size` (6px), `--radio-dot-shadow` | White center on selected |
+| Chrome | `--radio-shadow-*` → `--shadow-checkbox-*` | Shared Normal/Hover/Focus |
+| Label layout | Same pattern as checkbox (`radio--with-description`) | 6px gap, label + description |
+
+States: normal, hover, focus, selected, selected focus, disabled (selected dot in gray).
+
 ---
 
 ## Figma sync
@@ -455,6 +491,21 @@ When pulling from Figma via MCP:
 ---
 
 ## Changelog
+
+### 0.3.16 — Radio component
+- Added `--shadow-radio-dot` primitive (brand-tinted dot lift on selected radio)
+- Added `styles/components/radio.css` with 6 control states + label/description layout mirroring checkbox
+- Added `radio-group` fieldset pattern for option sets; focus/selected recolored to brand-primary
+
+### 0.3.15 — Checkbox label + description
+- Added `--checkbox-gap-control-text` (6px), `--checkbox-label`, `--checkbox-description`, `--checkbox-label-padding-block` component tokens
+- `checkbox--with-description` + `checkbox__text` / `checkbox__description` layout; row hover propagates to control via `:has()`
+- Docs: normal / hover / selected matrix for label + description variant
+
+### 0.3.14 — Checkbox component
+- Added `--radius-xs` (3px) primitive for checkbox/radio corners
+- Added `--shadow-checkbox-rest`, `--shadow-checkbox-hover`, `--shadow-checkbox-focus`, `--shadow-checkbox-selected` primitives (focus/selected recolored to brand-primary)
+- Added `styles/components/checkbox.css` with 7 Figma states; docs state matrix + interactive examples
 
 ### 0.3.13 — Dropdown component + input hint gap
 - Added `styles/components/dropdown.css` with Tier 3 tokens aliasing Input chrome; placeholder maps to `--color-text-hint` (gray-500); hover promotes placeholder to `--color-foreground` + medium weight

@@ -15,6 +15,16 @@
   --shadow-input-focus: 0 1px 2px #0b55aa66, 0 0 0 1px #1379f0, 0 0 0 2px #ffffff, 0 0 0 3px #1379f052;
   /* Figma Form/Input/Error geometry, recolored to system red (600 keyline, 800 lift) */
   --shadow-input-error: 0 1px 2px #9a000752, 0 0 0 1px #e7000b, 0 0 0 2px #ffffff, 0 0 0 3px #e7000b3d;
+  /* Figma Form/Checkbox & Radio/Normal — gray keyline + soft lift */
+  --shadow-checkbox-rest: 0 0 0 1px #dfe1e7, 0 1px 2px #a4acb966;
+  /* Figma Form/Checkbox & Radio/Hover */
+  --shadow-checkbox-hover: 0 0 0 1px #c1c7d0, 0 1px 2px #666d8066;
+  /* Figma Form/Button/Primary Active geometry, recolored to brand-primary (same as input focus) */
+  --shadow-checkbox-focus: 0 1px 2px #0b55aa66, 0 0 0 1px #1379f0, 0 0 0 2px #ffffff, 0 0 0 3px #1379f052;
+  /* Checked rest — 1px brand keyline */
+  --shadow-checkbox-selected: 0 0 0 1px #1379f0;
+  /* Selected radio inner dot lift — brand family (Figma purple recolored) */
+  --shadow-radio-dot: 0 1px 2px #0b55aa66;
   --shadow-sm:   0 1px 3px  #0000001a, 0 1px 2px #0000000f;
   --shadow-md:   0 4px 6px  #00000012, 0 2px 4px #0000000f;
   --shadow-lg:   0 10px 15px #0000001a, 0 4px 6px #0000000d;

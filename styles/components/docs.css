@@ -432,6 +432,25 @@
   border-radius: var(--radius-lg);
 }
 
+/* Label + description form controls — Figma uses ~300px row width */
+.button-state-matrix--with-copy {
+  grid-template-columns: repeat(auto-fit, minmax(18.75rem, 1fr));
+}
+
+.button-state-matrix--with-copy .button-state-cell {
+  align-items: stretch;
+}
+
+.button-state-matrix--with-copy .checkbox,
+.button-state-matrix--with-copy .radio {
+  width: 100%;
+}
+
+.component-preview .checkbox--with-description,
+.component-preview .radio--with-description {
+  width: min(100%, 18.75rem);
+}
+
 .button-state-cell {
   display: flex;
   flex-direction: column;

@@ -1,0 +1,223 @@
+/* ==========================================================================
+   Tier 3 — Radio component
+   Shares Form/Checkbox & Radio chrome with checkbox; selected uses brand fill
+   + white center dot. Focus ring recolored to brand-primary.
+   ========================================================================== */
+
+@theme {
+  --radio-size:           var(--spacing-6);
+  --radio-control-size:   var(--spacing-4);
+  --radio-dot-size:         var(--spacing-1_5);
+
+  --radio-bg:               var(--color-surface);
+  --radio-bg-checked:       var(--color-action-primary);
+  --radio-bg-disabled:      var(--color-background-disabled);
+  --radio-border-disabled:  var(--color-border-disabled);
+  --radio-dot:              var(--color-foreground-inverse);
+  --radio-dot-disabled:     var(--color-border);
+
+  --radio-shadow-rest:      var(--shadow-checkbox-rest);
+  --radio-shadow-hover:       var(--shadow-checkbox-hover);
+  --radio-shadow-focus:       var(--shadow-checkbox-focus);
+  --radio-shadow-selected:    var(--shadow-checkbox-selected);
+  --radio-dot-shadow:         var(--shadow-radio-dot);
+
+  --radio-gap-control-text:     var(--spacing-1_5);
+  --radio-label:                var(--color-foreground);
+  --radio-description:          var(--color-text-hint);
+  --radio-description-disabled: var(--color-text-hint-disabled);
+  --radio-label-padding-block:  0.125rem;
+
+  --radio-group-gap:            var(--spacing-2);
+}
+
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--radio-group-gap);
+  border: 0;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+}
+
+.radio-group__legend {
+  color: var(--radio-label);
+  font-size: var(--text-label);
+  font-weight: var(--font-weight-label);
+  line-height: var(--leading-label);
+  margin-block-end: var(--spacing-1);
+  padding: 0;
+}
+
+.radio {
+  display: inline-grid;
+  grid-template-columns: var(--radio-size) auto;
+  column-gap: var(--radio-gap-control-text);
+  align-items: center;
+  cursor: pointer;
+}
+
+.radio--with-description {
+  align-items: start;
+  max-width: 100%;
+}
+
+.radio--with-description .radio__control {
+  align-self: start;
+}
+
+.radio--snapshot {
+  cursor: default;
+}
+
+.radio__input {
+  grid-column: 1;
+  grid-row: 1;
+  width: var(--radio-size);
+  height: var(--radio-size);
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.radio__input:focus,
+.radio__input:focus-visible {
+  outline: 0;
+}
+
+.radio__control {
+  grid-column: 1;
+  grid-row: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--radio-size);
+  height: var(--radio-size);
+  pointer-events: none;
+  justify-self: center;
+  align-self: center;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+
+.radio__control::before {
+  content: "";
+  display: block;
+  width: var(--radio-control-size);
+  height: var(--radio-control-size);
+  border-radius: var(--radius-full);
+  background-color: var(--radio-bg);
+  box-shadow: var(--radio-shadow-rest);
+  flex-shrink: 0;
+}
+
+.radio__dot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+  width: var(--radio-dot-size);
+  height: var(--radio-dot-size);
+  border-radius: var(--radius-full);
+  background-color: var(--radio-dot);
+  box-shadow: var(--radio-dot-shadow);
+}
+
+.radio__label {
+  grid-column: 2;
+  grid-row: 1;
+  align-self: center;
+  color: var(--radio-label);
+  font-size: var(--text-label);
+  font-weight: var(--font-weight-label);
+  line-height: var(--leading-label);
+}
+
+.radio__text {
+  grid-column: 2;
+  grid-row: 1;
+  align-self: start;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+}
+
+.radio--with-description .radio__label {
+  grid-column: unset;
+  grid-row: unset;
+  align-self: auto;
+  padding-block: var(--radio-label-padding-block);
+}
+
+.radio__description {
+  color: var(--radio-description);
+  font-size: var(--text-body);
+  font-weight: var(--font-weight-body);
+  line-height: var(--leading-body);
+  white-space: normal;
+}
+
+.radio__input:not(:checked):not(:disabled):hover + .radio__control::before,
+.radio:not(.radio--disabled):has(.radio__input:not(:checked):not(:disabled)):hover .radio__control::before,
+.radio__control--docs-hover::before {
+  box-shadow: var(--radio-shadow-hover);
+}
+
+.radio__input:not(:checked):focus-visible + .radio__control::before,
+.radio__input:not(:checked):active + .radio__control::before,
+.radio__control--docs-focus::before {
+  box-shadow: var(--radio-shadow-focus);
+}
+
+.radio__input:checked + .radio__control::before,
+.radio__control--docs-selected::before {
+  background-color: var(--radio-bg-checked);
+  box-shadow: var(--radio-shadow-selected);
+}
+
+.radio__input:checked + .radio__control .radio__dot,
+.radio__control--docs-selected .radio__dot,
+.radio__control--docs-selected-focus .radio__dot {
+  display: block;
+}
+
+.radio__input:checked:focus-visible + .radio__control::before,
+.radio__input:checked:active + .radio__control::before,
+.radio__control--docs-selected-focus::before {
+  background-color: var(--radio-bg-checked);
+  box-shadow: var(--radio-shadow-focus);
+}
+
+.radio__input:disabled + .radio__control::before,
+.radio__control--docs-disabled::before,
+.radio__control--docs-disabled-selected::before {
+  background-color: var(--radio-bg-disabled);
+  border: 1px solid var(--radio-border-disabled);
+  box-shadow: none;
+}
+
+.radio__input:disabled:checked + .radio__control .radio__dot,
+.radio__control--docs-disabled-selected .radio__dot {
+  display: block;
+  background-color: var(--radio-dot-disabled);
+  box-shadow: none;
+}
+
+.radio--disabled,
+.radio__input:disabled {
+  cursor: not-allowed;
+}
+
+.radio--disabled .radio__label {
+  color: var(--color-state-disabled-text);
+}
+
+.radio--disabled .radio__description {
+  color: var(--radio-description-disabled);
+}

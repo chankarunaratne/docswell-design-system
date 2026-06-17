@@ -52,6 +52,8 @@
             <li><a class="docs__nav-link" href="#button" data-nav-link>Button</a></li>
             <li><a class="docs__nav-link" href="#input" data-nav-link>Input</a></li>
             <li><a class="docs__nav-link" href="#dropdown" data-nav-link>Dropdown</a></li>
+            <li><a class="docs__nav-link" href="#checkbox" data-nav-link>Checkbox</a></li>
+            <li><a class="docs__nav-link" href="#radio" data-nav-link>Radio</a></li>
           </ul>
         </div>
       </nav>
@@ -1270,6 +1272,370 @@
         </table>
       </section>
 
+      <!-- ── Checkbox ───────────────────────────────────────────────────── -->
+      <section id="checkbox" class="docs__section">
+        <span class="docs__eyebrow">Components</span>
+        <h1 class="docs__title">Checkbox</h1>
+        <p class="docs__lead">
+          16×16 control in a 24×24 hit target. Unchecked chrome uses gray Form/Checkbox shadows; checked and focus rings use brand-primary blue (Figma purple recolored).
+        </p>
+
+        <h2 class="docs__heading">State matrix</h2>
+        <div class="button-state-matrix" aria-label="Checkbox states">
+          <div class="button-state-cell">
+            <span class="button-state-cell__label">Normal</span>
+            <span class="checkbox checkbox--snapshot" aria-hidden="true">
+              <span class="checkbox__control">
+                <svg class="checkbox__icon checkbox__icon--check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M8.707 1.793a1 1 0 0 1 0 1.414l-4.5 4.5a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L3.5 5.586l3.793-3.793a1 1 0 0 1 1.414 0Z" clip-rule="evenodd"/></svg>
+                <svg class="checkbox__icon checkbox__icon--indeterminate" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 5h6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>
+              </span>
+            </span>
+            <span class="button-state-cell__token">rest</span>
+          </div>
+          <div class="button-state-cell">
+            <span class="button-state-cell__label">Hover</span>
+            <span class="checkbox checkbox--snapshot" aria-hidden="true">
+              <span class="checkbox__control checkbox__control--docs-hover">
+                <svg class="checkbox__icon checkbox__icon--check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M8.707 1.793a1 1 0 0 1 0 1.414l-4.5 4.5a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L3.5 5.586l3.793-3.793a1 1 0 0 1 1.414 0Z" clip-rule="evenodd"/></svg>
+                <svg class="checkbox__icon checkbox__icon--indeterminate" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 5h6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>
+              </span>
+            </span>
+            <span class="button-state-cell__token">hover</span>
+          </div>
+          <div class="button-state-cell">
+            <span class="button-state-cell__label">Pressed</span>
+            <span class="checkbox checkbox--snapshot" aria-hidden="true">
+              <span class="checkbox__control checkbox__control--docs-focus">
+                <svg class="checkbox__icon checkbox__icon--check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M8.707 1.793a1 1 0 0 1 0 1.414l-4.5 4.5a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L3.5 5.586l3.793-3.793a1 1 0 0 1 1.414 0Z" clip-rule="evenodd"/></svg>
+                <svg class="checkbox__icon checkbox__icon--indeterminate" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 5h6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>
+              </span>
+            </span>
+            <span class="button-state-cell__token">focus ring</span>
+          </div>
+          <div class="button-state-cell">
+            <span class="button-state-cell__label">Selected focus</span>
+            <span class="checkbox checkbox--snapshot" aria-hidden="true">
+              <span class="checkbox__control checkbox__control--docs-selected-focus">
+                <svg class="checkbox__icon checkbox__icon--check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M8.707 1.793a1 1 0 0 1 0 1.414l-4.5 4.5a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L3.5 5.586l3.793-3.793a1 1 0 0 1 1.414 0Z" clip-rule="evenodd"/></svg>
+                <svg class="checkbox__icon checkbox__icon--indeterminate" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 5h6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>
+              </span>
+            </span>
+            <span class="button-state-cell__token">checked + focus</span>
+          </div>
+          <div class="button-state-cell">
+            <span class="button-state-cell__label">Selected</span>
+            <span class="checkbox checkbox--snapshot" aria-hidden="true">
+              <span class="checkbox__control checkbox__control--docs-selected">
+                <svg class="checkbox__icon checkbox__icon--check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M8.707 1.793a1 1 0 0 1 0 1.414l-4.5 4.5a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L3.5 5.586l3.793-3.793a1 1 0 0 1 1.414 0Z" clip-rule="evenodd"/></svg>
+                <svg class="checkbox__icon checkbox__icon--indeterminate" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 5h6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>
+              </span>
+            </span>
+            <span class="button-state-cell__token">brand-500</span>
+          </div>
+          <div class="button-state-cell">
+            <span class="button-state-cell__label">Indeterminate</span>
+            <span class="checkbox checkbox--snapshot" aria-hidden="true">
+              <span class="checkbox__control checkbox__control--docs-indeterminate">
+                <svg class="checkbox__icon checkbox__icon--check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M8.707 1.793a1 1 0 0 1 0 1.414l-4.5 4.5a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L3.5 5.586l3.793-3.793a1 1 0 0 1 1.414 0Z" clip-rule="evenodd"/></svg>
+                <svg class="checkbox__icon checkbox__icon--indeterminate" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 5h6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>
+              </span>
+            </span>
+            <span class="button-state-cell__token">dash icon</span>
+          </div>
+          <div class="button-state-cell">
+            <span class="button-state-cell__label">Disabled</span>
+            <span class="checkbox checkbox--snapshot" aria-hidden="true">
+              <span class="checkbox__control checkbox__control--docs-disabled-checked">
+                <svg class="checkbox__icon checkbox__icon--check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M8.707 1.793a1 1 0 0 1 0 1.414l-4.5 4.5a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L3.5 5.586l3.793-3.793a1 1 0 0 1 1.414 0Z" clip-rule="evenodd"/></svg>
+                <svg class="checkbox__icon checkbox__icon--indeterminate" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 5h6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>
+              </span>
+            </span>
+            <span class="button-state-cell__token">gray-25 fill</span>
+          </div>
+        </div>
+
+        <h2 class="docs__heading">Label + description</h2>
+        <p class="docs__paragraph docs__paragraph--muted">
+          6px gap between control and text. Label-only rows center-align; with description the control top-aligns and label gets 2px vertical padding.
+        </p>
+        <div class="button-state-matrix button-state-matrix--with-copy" aria-label="Checkbox with label and description">
+          <div class="button-state-cell">
+            <span class="button-state-cell__label">Normal</span>
+            <label class="checkbox checkbox--with-description checkbox--snapshot" aria-hidden="true">
+              <span class="checkbox__control">
+                <svg class="checkbox__icon checkbox__icon--check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M8.707 1.793a1 1 0 0 1 0 1.414l-4.5 4.5a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L3.5 5.586l3.793-3.793a1 1 0 0 1 1.414 0Z" clip-rule="evenodd"/></svg>
+                <svg class="checkbox__icon checkbox__icon--indeterminate" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 5h6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>
+              </span>
+              <span class="checkbox__text">
+                <span class="checkbox__label">Label</span>
+                <span class="checkbox__description">By Jove, my quick study of lexicography won a prize!</span>
+              </span>
+            </label>
+            <span class="button-state-cell__token">rest</span>
+          </div>
+          <div class="button-state-cell">
+            <span class="button-state-cell__label">Hover</span>
+            <label class="checkbox checkbox--with-description checkbox--snapshot" aria-hidden="true">
+              <span class="checkbox__control checkbox__control--docs-hover">
+                <svg class="checkbox__icon checkbox__icon--check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M8.707 1.793a1 1 0 0 1 0 1.414l-4.5 4.5a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L3.5 5.586l3.793-3.793a1 1 0 0 1 1.414 0Z" clip-rule="evenodd"/></svg>
+                <svg class="checkbox__icon checkbox__icon--indeterminate" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 5h6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>
+              </span>
+              <span class="checkbox__text">
+                <span class="checkbox__label">Label</span>
+                <span class="checkbox__description">By Jove, my quick study of lexicography won a prize!</span>
+              </span>
+            </label>
+            <span class="button-state-cell__token">hover chrome</span>
+          </div>
+          <div class="button-state-cell">
+            <span class="button-state-cell__label">Selected</span>
+            <label class="checkbox checkbox--with-description checkbox--snapshot" aria-hidden="true">
+              <span class="checkbox__control checkbox__control--docs-selected">
+                <svg class="checkbox__icon checkbox__icon--check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M8.707 1.793a1 1 0 0 1 0 1.414l-4.5 4.5a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L3.5 5.586l3.793-3.793a1 1 0 0 1 1.414 0Z" clip-rule="evenodd"/></svg>
+                <svg class="checkbox__icon checkbox__icon--indeterminate" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 5h6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>
+              </span>
+              <span class="checkbox__text">
+                <span class="checkbox__label">Label</span>
+                <span class="checkbox__description">By Jove, my quick study of lexicography won a prize!</span>
+              </span>
+            </label>
+            <span class="button-state-cell__token">brand-500</span>
+          </div>
+        </div>
+
+        <pre class="docs__code"><code>&lt;label class="checkbox"&gt;
+  &lt;input type="checkbox" class="checkbox__input" /&gt;
+  &lt;span class="checkbox__control" aria-hidden="true"&gt;
+    &lt;!-- check + indeterminate SVGs --&gt;
+  &lt;/span&gt;
+  &lt;span class="checkbox__label"&gt;Label&lt;/span&gt;
+&lt;/label&gt;
+
+&lt;label class="checkbox checkbox--with-description"&gt;
+  &lt;input type="checkbox" class="checkbox__input" /&gt;
+  &lt;span class="checkbox__control" aria-hidden="true"&gt;...&lt;/span&gt;
+  &lt;span class="checkbox__text"&gt;
+    &lt;span class="checkbox__label"&gt;Label&lt;/span&gt;
+    &lt;span class="checkbox__description"&gt;Supporting description text.&lt;/span&gt;
+  &lt;/span&gt;
+&lt;/label&gt;</code></pre>
+
+        <h2 class="docs__heading">Interactive</h2>
+        <div class="component-preview" aria-label="Interactive checkbox preview">
+          <label class="checkbox">
+            <input type="checkbox" class="checkbox__input" />
+            <span class="checkbox__control" aria-hidden="true">
+              <svg class="checkbox__icon checkbox__icon--check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M8.707 1.793a1 1 0 0 1 0 1.414l-4.5 4.5a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L3.5 5.586l3.793-3.793a1 1 0 0 1 1.414 0Z" clip-rule="evenodd"/></svg>
+              <svg class="checkbox__icon checkbox__icon--indeterminate" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 5h6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>
+            </span>
+            <span class="checkbox__label">Unchecked</span>
+          </label>
+          <label class="checkbox">
+            <input type="checkbox" class="checkbox__input" checked />
+            <span class="checkbox__control" aria-hidden="true">
+              <svg class="checkbox__icon checkbox__icon--check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M8.707 1.793a1 1 0 0 1 0 1.414l-4.5 4.5a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L3.5 5.586l3.793-3.793a1 1 0 0 1 1.414 0Z" clip-rule="evenodd"/></svg>
+              <svg class="checkbox__icon checkbox__icon--indeterminate" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 5h6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>
+            </span>
+            <span class="checkbox__label">Checked</span>
+          </label>
+          <label class="checkbox">
+            <input type="checkbox" class="checkbox__input" data-checkbox-indeterminate />
+            <span class="checkbox__control" aria-hidden="true">
+              <svg class="checkbox__icon checkbox__icon--check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M8.707 1.793a1 1 0 0 1 0 1.414l-4.5 4.5a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L3.5 5.586l3.793-3.793a1 1 0 0 1 1.414 0Z" clip-rule="evenodd"/></svg>
+              <svg class="checkbox__icon checkbox__icon--indeterminate" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 5h6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>
+            </span>
+            <span class="checkbox__label">Indeterminate</span>
+          </label>
+          <label class="checkbox checkbox--disabled">
+            <input type="checkbox" class="checkbox__input" disabled checked />
+            <span class="checkbox__control" aria-hidden="true">
+              <svg class="checkbox__icon checkbox__icon--check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M8.707 1.793a1 1 0 0 1 0 1.414l-4.5 4.5a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L3.5 5.586l3.793-3.793a1 1 0 0 1 1.414 0Z" clip-rule="evenodd"/></svg>
+              <svg class="checkbox__icon checkbox__icon--indeterminate" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 5h6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>
+            </span>
+            <span class="checkbox__label">Disabled</span>
+          </label>
+          <label class="checkbox checkbox--with-description">
+            <input type="checkbox" class="checkbox__input" />
+            <span class="checkbox__control" aria-hidden="true">
+              <svg class="checkbox__icon checkbox__icon--check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M8.707 1.793a1 1 0 0 1 0 1.414l-4.5 4.5a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L3.5 5.586l3.793-3.793a1 1 0 0 1 1.414 0Z" clip-rule="evenodd"/></svg>
+              <svg class="checkbox__icon checkbox__icon--indeterminate" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 5h6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>
+            </span>
+            <span class="checkbox__text">
+              <span class="checkbox__label">Label</span>
+              <span class="checkbox__description">By Jove, my quick study of lexicography won a prize!</span>
+            </span>
+          </label>
+        </div>
+
+        <h2 class="docs__heading">Checkbox tokens</h2>
+        <table class="docs__table">
+          <thead><tr><th>Token</th><th>Maps to</th><th>Role</th></tr></thead>
+          <tbody>
+            <tr><td><code class="docs__token">--checkbox-size</code></td><td><code class="docs__token">--spacing-6</code></td><td>Hit target · 24px</td></tr>
+            <tr><td><code class="docs__token">--checkbox-gap-control-text</code></td><td><code class="docs__token">--spacing-1_5</code></td><td>Control → label/description · 6px</td></tr>
+            <tr><td><code class="docs__token">--checkbox-label</code></td><td><code class="docs__token">--color-foreground</code></td><td>Label text · gray-700 medium</td></tr>
+            <tr><td><code class="docs__token">--checkbox-description</code></td><td><code class="docs__token">--color-text-hint</code></td><td>Description text · gray-500</td></tr>
+            <tr><td><code class="docs__token">--checkbox-control-size</code></td><td><code class="docs__token">--spacing-4</code></td><td>Visible box · 16px</td></tr>
+            <tr><td><code class="docs__token">--checkbox-radius</code></td><td><code class="docs__token">--radius-xs</code></td><td>Corner radius · 3px</td></tr>
+            <tr><td><code class="docs__token">--checkbox-bg-checked</code></td><td><code class="docs__token">--color-action-primary</code></td><td>Checked / indeterminate fill · brand-500</td></tr>
+            <tr><td><code class="docs__token">--checkbox-shadow-rest</code></td><td><code class="docs__token">--shadow-checkbox-rest</code></td><td>Form/Checkbox &amp; Radio/Normal</td></tr>
+            <tr><td><code class="docs__token">--checkbox-shadow-hover</code></td><td><code class="docs__token">--shadow-checkbox-hover</code></td><td>Form/Checkbox &amp; Radio/Hover</td></tr>
+            <tr><td><code class="docs__token">--checkbox-shadow-focus</code></td><td><code class="docs__token">--shadow-checkbox-focus</code></td><td>Focus / pressed ring (brand-primary)</td></tr>
+            <tr><td><code class="docs__token">--checkbox-shadow-selected</code></td><td><code class="docs__token">--shadow-checkbox-selected</code></td><td>Checked rest keyline</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- ── Radio ──────────────────────────────────────────────────────── -->
+      <section id="radio" class="docs__section">
+        <span class="docs__eyebrow">Components</span>
+        <h1 class="docs__title">Radio</h1>
+        <p class="docs__lead">
+          Circular control sharing Form/Checkbox &amp; Radio chrome with checkbox. Selected fills brand-500 with a white center dot; focus ring uses brand-primary blue.
+        </p>
+
+        <h2 class="docs__heading">State matrix</h2>
+        <div class="button-state-matrix" aria-label="Radio control states">
+          <div class="button-state-cell">
+            <span class="button-state-cell__label">Normal</span>
+            <span class="radio radio--snapshot" aria-hidden="true">
+              <span class="radio__control"><span class="radio__dot"></span></span>
+            </span>
+            <span class="button-state-cell__token">rest</span>
+          </div>
+          <div class="button-state-cell">
+            <span class="button-state-cell__label">Hover</span>
+            <span class="radio radio--snapshot" aria-hidden="true">
+              <span class="radio__control radio__control--docs-hover"><span class="radio__dot"></span></span>
+            </span>
+            <span class="button-state-cell__token">hover</span>
+          </div>
+          <div class="button-state-cell">
+            <span class="button-state-cell__label">Focus</span>
+            <span class="radio radio--snapshot" aria-hidden="true">
+              <span class="radio__control radio__control--docs-focus"><span class="radio__dot"></span></span>
+            </span>
+            <span class="button-state-cell__token">focus ring</span>
+          </div>
+          <div class="button-state-cell">
+            <span class="button-state-cell__label">Selected focus</span>
+            <span class="radio radio--snapshot" aria-hidden="true">
+              <span class="radio__control radio__control--docs-selected-focus"><span class="radio__dot"></span></span>
+            </span>
+            <span class="button-state-cell__token">checked + focus</span>
+          </div>
+          <div class="button-state-cell">
+            <span class="button-state-cell__label">Selected</span>
+            <span class="radio radio--snapshot" aria-hidden="true">
+              <span class="radio__control radio__control--docs-selected"><span class="radio__dot"></span></span>
+            </span>
+            <span class="button-state-cell__token">brand-500</span>
+          </div>
+          <div class="button-state-cell">
+            <span class="button-state-cell__label">Disabled</span>
+            <span class="radio radio--snapshot" aria-hidden="true">
+              <span class="radio__control radio__control--docs-disabled-selected"><span class="radio__dot"></span></span>
+            </span>
+            <span class="button-state-cell__token">gray-25 fill</span>
+          </div>
+        </div>
+
+        <h2 class="docs__heading">Label + description</h2>
+        <div class="button-state-matrix button-state-matrix--with-copy" aria-label="Radio with label and description">
+          <div class="button-state-cell">
+            <span class="button-state-cell__label">Normal</span>
+            <label class="radio radio--with-description radio--snapshot" aria-hidden="true">
+              <span class="radio__control"><span class="radio__dot"></span></span>
+              <span class="radio__text">
+                <span class="radio__label">Label</span>
+                <span class="radio__description">By Jove, my quick study of lexicography won a prize!</span>
+              </span>
+            </label>
+            <span class="button-state-cell__token">rest</span>
+          </div>
+          <div class="button-state-cell">
+            <span class="button-state-cell__label">Hover</span>
+            <label class="radio radio--with-description radio--snapshot" aria-hidden="true">
+              <span class="radio__control radio__control--docs-hover"><span class="radio__dot"></span></span>
+              <span class="radio__text">
+                <span class="radio__label">Label</span>
+                <span class="radio__description">By Jove, my quick study of lexicography won a prize!</span>
+              </span>
+            </label>
+            <span class="button-state-cell__token">hover chrome</span>
+          </div>
+          <div class="button-state-cell">
+            <span class="button-state-cell__label">Selected</span>
+            <label class="radio radio--with-description radio--snapshot" aria-hidden="true">
+              <span class="radio__control radio__control--docs-selected"><span class="radio__dot"></span></span>
+              <span class="radio__text">
+                <span class="radio__label">Label</span>
+                <span class="radio__description">By Jove, my quick study of lexicography won a prize!</span>
+              </span>
+            </label>
+            <span class="button-state-cell__token">brand-500</span>
+          </div>
+        </div>
+
+        <pre class="docs__code"><code>&lt;fieldset class="radio-group"&gt;
+  &lt;legend class="radio-group__legend"&gt;Choose one&lt;/legend&gt;
+  &lt;label class="radio"&gt;
+    &lt;input type="radio" class="radio__input" name="plan" value="a" /&gt;
+    &lt;span class="radio__control" aria-hidden="true"&gt;&lt;span class="radio__dot"&gt;&lt;/span&gt;&lt;/span&gt;
+    &lt;span class="radio__label"&gt;Option A&lt;/span&gt;
+  &lt;/label&gt;
+&lt;/fieldset&gt;
+
+&lt;label class="radio radio--with-description"&gt;
+  &lt;input type="radio" class="radio__input" name="plan" value="b" /&gt;
+  &lt;span class="radio__control" aria-hidden="true"&gt;&lt;span class="radio__dot"&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class="radio__text"&gt;
+    &lt;span class="radio__label"&gt;Label&lt;/span&gt;
+    &lt;span class="radio__description"&gt;Supporting description text.&lt;/span&gt;
+  &lt;/span&gt;
+&lt;/label&gt;</code></pre>
+
+        <h2 class="docs__heading">Interactive set</h2>
+        <div class="component-preview" aria-label="Interactive radio group" style="flex-direction:column;align-items:flex-start">
+          <fieldset class="radio-group">
+            <legend class="radio-group__legend">Notification preference</legend>
+            <label class="radio">
+              <input type="radio" class="radio__input" name="docs-radio" value="email" checked />
+              <span class="radio__control" aria-hidden="true"><span class="radio__dot"></span></span>
+              <span class="radio__label">Email</span>
+            </label>
+            <label class="radio radio--with-description">
+              <input type="radio" class="radio__input" name="docs-radio" value="push" />
+              <span class="radio__control" aria-hidden="true"><span class="radio__dot"></span></span>
+              <span class="radio__text">
+                <span class="radio__label">Push</span>
+                <span class="radio__description">Alerts on this device only.</span>
+              </span>
+            </label>
+            <label class="radio radio--disabled">
+              <input type="radio" class="radio__input" name="docs-radio" value="sms" disabled checked />
+              <span class="radio__control" aria-hidden="true"><span class="radio__dot"></span></span>
+              <span class="radio__label">SMS (unavailable)</span>
+            </label>
+          </fieldset>
+        </div>
+
+        <h2 class="docs__heading">Radio tokens</h2>
+        <table class="docs__table">
+          <thead><tr><th>Token</th><th>Maps to</th><th>Role</th></tr></thead>
+          <tbody>
+            <tr><td><code class="docs__token">--radio-size</code></td><td><code class="docs__token">--spacing-6</code></td><td>Hit target · 24px</td></tr>
+            <tr><td><code class="docs__token">--radio-control-size</code></td><td><code class="docs__token">--spacing-4</code></td><td>Visible circle · 16px</td></tr>
+            <tr><td><code class="docs__token">--radio-dot-size</code></td><td><code class="docs__token">--spacing-1_5</code></td><td>Selected center dot · 6px</td></tr>
+            <tr><td><code class="docs__token">--radio-bg-checked</code></td><td><code class="docs__token">--color-action-primary</code></td><td>Selected fill · brand-500</td></tr>
+            <tr><td><code class="docs__token">--radio-shadow-rest</code></td><td><code class="docs__token">--shadow-checkbox-rest</code></td><td>Form/Checkbox &amp; Radio/Normal</td></tr>
+            <tr><td><code class="docs__token">--radio-shadow-focus</code></td><td><code class="docs__token">--shadow-checkbox-focus</code></td><td>Focus ring (brand-primary)</td></tr>
+            <tr><td><code class="docs__token">--radio-dot-shadow</code></td><td><code class="docs__token">--shadow-radio-dot</code></td><td>White dot lift on selected</td></tr>
+            <tr><td><code class="docs__token">--radio-group-gap</code></td><td><code class="docs__token">--spacing-2</code></td><td>Gap between options in a set</td></tr>
+          </tbody>
+        </table>
+      </section>
+
     </main>
   </div>
 
@@ -1315,6 +1681,10 @@
       const initial = window.location.hash?.replace('#', '') || sections[0]?.id;
       if (initial) setActive(initial);
     })();
+
+    document.querySelectorAll('[data-checkbox-indeterminate]').forEach((input) => {
+      input.indeterminate = true;
+    });
   </script>
 
 </body>
