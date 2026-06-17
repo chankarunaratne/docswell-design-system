@@ -1,0 +1,207 @@
+/* ==========================================================================
+   Tier 3 — Dropdown component
+   Closed trigger mirrors Input chrome; placeholder uses hint-tone gray-500.
+   ========================================================================== */
+
+@theme {
+  --dropdown-radius:            var(--input-radius);
+  --dropdown-padding-inline:    var(--input-padding-inline);
+  --dropdown-padding-block:     var(--input-padding-block);
+  --dropdown-gap-icon-text:     var(--input-gap-icon-text);
+  --dropdown-gap-label-control: var(--input-gap-label-control);
+  --dropdown-gap-control-hint:  var(--input-gap-control-hint);
+  --dropdown-icon-size:         var(--spacing-5);
+
+  --dropdown-bg:                var(--input-bg);
+  --dropdown-bg-disabled:       var(--input-bg-disabled);
+  --dropdown-text-filled:       var(--input-text-filled);
+  --dropdown-text-focus:        var(--input-text-focus);
+  --dropdown-text-hover:        var(--color-foreground);
+  --dropdown-placeholder:       var(--color-text-hint);
+  --dropdown-hint:              var(--input-hint);
+  --dropdown-hint-disabled:     var(--input-hint-disabled);
+  --dropdown-hint-error:        var(--input-hint-error);
+  --dropdown-gap-hint-icon:     var(--input-gap-hint-icon);
+  --dropdown-icon:              var(--input-icon);
+  --dropdown-icon-disabled:     var(--input-icon-disabled);
+
+  --dropdown-shadow-rest:       var(--input-shadow-rest);
+  --dropdown-shadow-hover:      var(--input-shadow-hover);
+  --dropdown-shadow-focus:      var(--input-shadow-focus);
+  --dropdown-shadow-error:      var(--input-shadow-error);
+}
+
+.dropdown {
+  display: flex;
+  flex-direction: column;
+  gap: var(--dropdown-gap-label-control);
+}
+
+.dropdown__label {
+  color: var(--color-foreground);
+  font-size: var(--text-label);
+  font-weight: var(--font-weight-label);
+  line-height: var(--leading-label);
+}
+
+.dropdown__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--dropdown-gap-control-hint);
+  width: 100%;
+}
+
+.dropdown__control {
+  display: flex;
+  align-items: center;
+  gap: var(--dropdown-gap-icon-text);
+  width: 100%;
+  border: 0;
+  border-radius: var(--dropdown-radius);
+  background-color: var(--dropdown-bg);
+  box-shadow: var(--dropdown-shadow-rest);
+  color: var(--dropdown-text-filled);
+  font-size: var(--text-input);
+  line-height: var(--leading-input);
+  padding: var(--dropdown-padding-block) var(--dropdown-padding-inline);
+  text-align: left;
+  cursor: pointer;
+}
+
+.dropdown__control:hover {
+  box-shadow: var(--dropdown-shadow-hover);
+}
+
+.dropdown__control:hover .dropdown__value--placeholder {
+  color: var(--dropdown-text-hover);
+  font-weight: var(--font-weight-label);
+}
+
+.dropdown__control:focus-visible,
+.dropdown__control--docs-focus,
+.dropdown__control:has(.dropdown__select:focus-visible) {
+  outline: 0;
+  box-shadow: var(--dropdown-shadow-focus);
+  color: var(--dropdown-text-focus);
+}
+
+.dropdown__control:focus-visible .dropdown__value,
+.dropdown__control--docs-focus .dropdown__value,
+.dropdown__control:has(.dropdown__select:focus-visible) .dropdown__select {
+  color: var(--dropdown-text-focus);
+}
+
+.dropdown__control--filled .dropdown__value,
+.dropdown__value:not(.dropdown__value--placeholder) {
+  color: var(--dropdown-text-filled);
+}
+
+.dropdown__value--placeholder {
+  color: var(--dropdown-placeholder);
+  flex: 1 0 0;
+  min-width: 0;
+}
+
+.dropdown__value {
+  flex: 1 0 0;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dropdown__icon,
+.dropdown__chevron {
+  flex-shrink: 0;
+  width: var(--dropdown-icon-size);
+  height: var(--dropdown-icon-size);
+  color: var(--dropdown-icon);
+}
+
+.dropdown__select {
+  flex: 1 0 0;
+  min-width: 0;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  line-height: inherit;
+  appearance: none;
+  cursor: pointer;
+}
+
+.dropdown__select:focus {
+  outline: 0;
+}
+
+.dropdown__select:invalid {
+  color: var(--dropdown-placeholder);
+}
+
+.dropdown__select:valid {
+  color: var(--dropdown-text-filled);
+}
+
+.dropdown__hint {
+  color: var(--dropdown-hint);
+  font-size: var(--text-hint);
+  line-height: var(--leading-hint);
+}
+
+.dropdown--error .dropdown__control,
+.dropdown__control[aria-invalid="true"] {
+  box-shadow: var(--dropdown-shadow-error);
+}
+
+.dropdown--error .dropdown__control:hover,
+.dropdown__control[aria-invalid="true"]:hover {
+  box-shadow: var(--dropdown-shadow-error);
+}
+
+.dropdown__hint--error,
+.dropdown--error .dropdown__hint {
+  display: flex;
+  align-items: center;
+  gap: var(--dropdown-gap-hint-icon);
+  color: var(--dropdown-hint-error);
+}
+
+.dropdown__hint-icon {
+  flex-shrink: 0;
+  width: 1rem;
+  height: 1rem;
+  color: var(--dropdown-hint-error);
+}
+
+.dropdown--disabled .dropdown__control,
+.dropdown__control:disabled {
+  background-color: var(--dropdown-bg-disabled);
+  box-shadow: none;
+  color: var(--color-state-disabled-text);
+  cursor: not-allowed;
+}
+
+.dropdown--disabled .dropdown__control:hover,
+.dropdown__control:disabled:hover {
+  box-shadow: none;
+}
+
+.dropdown--disabled .dropdown__value,
+.dropdown--disabled .dropdown__value--placeholder {
+  color: var(--dropdown-icon-disabled);
+}
+
+.dropdown--disabled .dropdown__icon,
+.dropdown--disabled .dropdown__chevron {
+  color: var(--dropdown-icon-disabled);
+}
+
+.dropdown--disabled .dropdown__hint {
+  color: var(--dropdown-hint-disabled);
+}
+
+.dropdown--disabled .dropdown__select {
+  cursor: not-allowed;
+  color: var(--dropdown-icon-disabled);
+}

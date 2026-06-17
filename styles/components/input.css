@@ -19,18 +19,28 @@
   --input-placeholder:       var(--color-text-placeholder);
   --input-hint:              var(--color-text-hint);
   --input-hint-disabled:     var(--color-text-hint-disabled);
+  --input-hint-error:        var(--color-text-hint-error);
+  --input-gap-hint-icon:     var(--spacing-1);
   --input-icon:              var(--color-icon-subtle);
   --input-icon-disabled:     var(--color-icon-disabled);
 
   --input-shadow-rest:       var(--shadow-input-rest);
   --input-shadow-hover:      var(--shadow-input-hover);
   --input-shadow-focus:      var(--shadow-input-focus);
+  --input-shadow-error:      var(--shadow-input-error);
 }
 
 .input {
   display: flex;
   flex-direction: column;
   gap: var(--input-gap-label-control);
+}
+
+.input__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--input-gap-control-hint);
+  width: 100%;
 }
 
 .input__label {
@@ -105,6 +115,31 @@
   color: var(--input-hint);
   font-size: var(--text-hint);
   line-height: var(--leading-hint);
+}
+
+.input--error .input__control,
+.input__control[aria-invalid="true"] {
+  box-shadow: var(--input-shadow-error);
+}
+
+.input--error .input__control:hover,
+.input__control[aria-invalid="true"]:hover {
+  box-shadow: var(--input-shadow-error);
+}
+
+.input__hint--error,
+.input--error .input__hint {
+  display: flex;
+  align-items: center;
+  gap: var(--input-gap-hint-icon);
+  color: var(--input-hint-error);
+}
+
+.input__hint-icon {
+  flex-shrink: 0;
+  width: 1rem;
+  height: 1rem;
+  color: var(--input-hint-error);
 }
 
 .input--disabled .input__control,

@@ -51,6 +51,7 @@
           <ul class="docs__nav-list">
             <li><a class="docs__nav-link" href="#button" data-nav-link>Button</a></li>
             <li><a class="docs__nav-link" href="#input" data-nav-link>Input</a></li>
+            <li><a class="docs__nav-link" href="#dropdown" data-nav-link>Dropdown</a></li>
           </ul>
         </div>
       </nav>
@@ -1008,56 +1009,81 @@
         <span class="docs__eyebrow">Components</span>
         <h1 class="docs__title">Input</h1>
         <p class="docs__lead">
-          Text input with Figma-aligned rest chrome (blue-tinted spread shadow), semantic placeholder/hint/icon roles, and explicit normal, filled, disabled, and focused snapshots.
+          Text input with Figma-aligned rest chrome (blue-tinted spread shadow), semantic placeholder/hint/icon roles, and explicit normal, filled, disabled, focused, and error snapshots.
         </p>
 
         <h2 class="docs__heading">Preview</h2>
         <div class="component-preview" aria-label="Input component preview">
           <label class="input" style="width:300px">
             <span class="input__label">Label</span>
-            <div class="input__control" role="textbox" aria-label="Normal input">
-              <span class="input__icon" aria-hidden="true">⌘</span>
-              <span class="input__placeholder">Placeholder</span>
-              <span class="input__icon" aria-hidden="true">◌</span>
+            <div class="input__content">
+              <div class="input__control" role="textbox" aria-label="Normal input">
+                <span class="input__icon" aria-hidden="true">⌘</span>
+                <span class="input__placeholder">Placeholder</span>
+                <span class="input__icon" aria-hidden="true">◌</span>
+              </div>
+              <span class="input__hint">This is a hint text to help user.</span>
             </div>
-            <span class="input__hint">This is a hint text to help user.</span>
           </label>
 
           <label class="input input--disabled" style="width:300px">
             <span class="input__label">Label</span>
-            <div class="input__control" role="textbox" aria-label="Disabled input" aria-disabled="true">
-              <span class="input__icon" aria-hidden="true">⌘</span>
-              <span class="input__placeholder">Placeholder</span>
-              <span class="input__icon" aria-hidden="true">◌</span>
+            <div class="input__content">
+              <div class="input__control" role="textbox" aria-label="Disabled input" aria-disabled="true">
+                <span class="input__icon" aria-hidden="true">⌘</span>
+                <span class="input__placeholder">Placeholder</span>
+                <span class="input__icon" aria-hidden="true">◌</span>
+              </div>
+              <span class="input__hint">This is a hint text to help user.</span>
             </div>
-            <span class="input__hint">This is a hint text to help user.</span>
           </label>
 
           <label class="input" style="width:300px">
             <span class="input__label">Label</span>
-            <div class="input__control input__control--filled" role="textbox" aria-label="Filled input">
-              <span class="input__icon" aria-hidden="true">⌘</span>
-              <span class="input__placeholder">Placeholder</span>
-              <span class="input__icon" aria-hidden="true">◌</span>
+            <div class="input__content">
+              <div class="input__control input__control--filled" role="textbox" aria-label="Filled input">
+                <span class="input__icon" aria-hidden="true">⌘</span>
+                <span class="input__placeholder">Placeholder</span>
+                <span class="input__icon" aria-hidden="true">◌</span>
+              </div>
+              <span class="input__hint">This is a hint text to help user.</span>
             </div>
-            <span class="input__hint">This is a hint text to help user.</span>
           </label>
 
           <label class="input" style="width:300px">
             <span class="input__label">Label</span>
-            <div class="input__control input__control--docs-focus" role="textbox" aria-label="Focused input" tabindex="-1">
-              <span class="input__icon" aria-hidden="true">⌘</span>
-              <span class="input__placeholder">Placeholder</span>
-              <span class="input__icon" aria-hidden="true">◌</span>
+            <div class="input__content">
+              <div class="input__control input__control--docs-focus" role="textbox" aria-label="Focused input" tabindex="-1">
+                <span class="input__icon" aria-hidden="true">⌘</span>
+                <span class="input__placeholder">Placeholder</span>
+                <span class="input__icon" aria-hidden="true">◌</span>
+              </div>
+              <span class="input__hint">This is a hint text to help user.</span>
             </div>
-            <span class="input__hint">This is a hint text to help user.</span>
+          </label>
+
+          <label class="input input--error" style="width:300px">
+            <span class="input__label">Label</span>
+            <div class="input__content">
+              <div class="input__control input__control--filled" role="textbox" aria-label="Error input" aria-invalid="true">
+                <span class="input__icon" aria-hidden="true">⌘</span>
+                <span class="input__placeholder">Placeholder</span>
+                <span class="input__icon" aria-hidden="true">◌</span>
+              </div>
+              <span class="input__hint input__hint--error" role="alert">
+                <svg class="input__hint-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14ZM8 4a.75.75 0 0 1 .75.75v3a.75.75 0 0 1-1.5 0v-3A.75.75 0 0 1 8 4Zm0 8a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" clip-rule="evenodd"/></svg>
+                This is a hint text to help user.
+              </span>
+            </div>
           </label>
         </div>
 
         <pre class="docs__code"><code>&lt;label class="input"&gt;
   &lt;span class="input__label"&gt;Label&lt;/span&gt;
-  &lt;input class="input__control" placeholder="Placeholder" /&gt;
-  &lt;span class="input__hint"&gt;This is a hint text to help user.&lt;/span&gt;
+  &lt;div class="input__content"&gt;
+    &lt;input class="input__control" placeholder="Placeholder" /&gt;
+    &lt;span class="input__hint"&gt;This is a hint text to help user.&lt;/span&gt;
+  &lt;/div&gt;
 &lt;/label&gt;</code></pre>
 
         <h2 class="docs__heading">Interactive filled behavior</h2>
@@ -1067,13 +1093,17 @@
         <div class="component-preview" aria-label="Interactive input preview">
           <label class="input" style="width:300px">
             <span class="input__label">Label</span>
-            <input class="input__control" type="text" placeholder="Placeholder" value="Placeholder" />
-            <span class="input__hint">This is a hint text to help user.</span>
+            <div class="input__content">
+              <input class="input__control" type="text" placeholder="Placeholder" value="Placeholder" />
+              <span class="input__hint">This is a hint text to help user.</span>
+            </div>
           </label>
           <label class="input" style="width:300px">
             <span class="input__label">Label</span>
-            <input class="input__control" type="text" placeholder="Placeholder" />
-            <span class="input__hint">This is a hint text to help user.</span>
+            <div class="input__content">
+              <input class="input__control" type="text" placeholder="Placeholder" />
+              <span class="input__hint">This is a hint text to help user.</span>
+            </div>
           </label>
         </div>
 
@@ -1086,12 +1116,156 @@
             <tr><td><code class="docs__token">--input-padding-block</code></td><td><code class="docs__token">--spacing-1_5</code></td><td>Vertical padding · 6px</td></tr>
             <tr><td><code class="docs__token">--input-gap-control-hint</code></td><td><code class="docs__token">--spacing-1_5</code></td><td>Control → hint gap · 6px</td></tr>
             <tr><td><code class="docs__token">--input-shadow-rest</code></td><td><code class="docs__token">--shadow-input-rest</code></td><td>Figma Form/Input/Normal chrome</td></tr>
-            <tr><td><code class="docs__token">--input-text-filled</code></td><td><code class="docs__token">--color-foreground-loud</code></td><td>Entered value text (filled/focus)</td></tr>
+            <tr><td><code class="docs__token">--input-shadow-hover</code></td><td><code class="docs__token">--shadow-input-hover</code></td><td>Figma Form/Input/Hover chrome</td></tr>
+            <tr><td><code class="docs__token">--input-shadow-focus</code></td><td><code class="docs__token">--shadow-input-focus</code></td><td>Focus ring (brand-primary family)</td></tr>
+            <tr><td><code class="docs__token">--input-shadow-error</code></td><td><code class="docs__token">--shadow-input-error</code></td><td>Error ring (red-600 / red-800 family)</td></tr>
+            <tr><td><code class="docs__token">--input-text-filled</code></td><td><code class="docs__token">--color-foreground-loud</code></td><td>Entered value text (filled/focus/error)</td></tr>
+            <tr><td><code class="docs__token">--input-hint-error</code></td><td><code class="docs__token">--color-text-hint-error</code></td><td>Validation hint text + icon</td></tr>
             <tr><td><code class="docs__token">--input-placeholder</code></td><td><code class="docs__token">--color-text-placeholder</code></td><td>Placeholder text</td></tr>
             <tr><td><code class="docs__token">--input-hint</code></td><td><code class="docs__token">--color-text-hint</code></td><td>Hint text (normal)</td></tr>
             <tr><td><code class="docs__token">--input-hint-disabled</code></td><td><code class="docs__token">--color-text-hint-disabled</code></td><td>Hint text (disabled)</td></tr>
             <tr><td><code class="docs__token">--input-icon</code></td><td><code class="docs__token">--color-icon-subtle</code></td><td>Icon color (normal)</td></tr>
             <tr><td><code class="docs__token">--input-icon-disabled</code></td><td><code class="docs__token">--color-icon-disabled</code></td><td>Icon color (disabled)</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- ── Dropdown ─────────────────────────────────────────────────── -->
+      <section id="dropdown" class="docs__section">
+        <span class="docs__eyebrow">Components</span>
+        <h1 class="docs__title">Dropdown</h1>
+        <p class="docs__lead">
+          Closed trigger sharing Input chrome and states. Placeholder uses hint-tone gray (<code class="docs__token">--color-text-hint</code>) and promotes to label emphasis on hover. Chevron is always trailing.
+        </p>
+
+        <h2 class="docs__heading">Preview</h2>
+        <div class="component-preview" aria-label="Dropdown component preview">
+          <label class="dropdown" style="width:300px">
+            <span class="dropdown__label">Label</span>
+            <div class="dropdown__content">
+              <button type="button" class="dropdown__control" aria-label="Normal dropdown">
+                <svg class="dropdown__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="9" cy="9" r="5.25"/><path d="m13.5 13.5 2.5 2.5" stroke-linecap="round"/></svg>
+                <span class="dropdown__value dropdown__value--placeholder">Placeholder</span>
+                <svg class="dropdown__chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 10.94l3.71-3.71a.75.75 0 1 1 1.06 1.06l-4.24 4.25a.75.75 0 0 1-1.06 0L5.21 8.29a.75.75 0 0 1 .02-1.08Z" clip-rule="evenodd"/></svg>
+              </button>
+              <span class="dropdown__hint">This is a hint text to help user.</span>
+            </div>
+          </label>
+
+          <label class="dropdown dropdown--disabled" style="width:300px">
+            <span class="dropdown__label">Label</span>
+            <div class="dropdown__content">
+              <button type="button" class="dropdown__control" disabled aria-label="Disabled dropdown">
+                <svg class="dropdown__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="9" cy="9" r="5.25"/><path d="m13.5 13.5 2.5 2.5" stroke-linecap="round"/></svg>
+                <span class="dropdown__value dropdown__value--placeholder">Placeholder</span>
+                <svg class="dropdown__chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 10.94l3.71-3.71a.75.75 0 1 1 1.06 1.06l-4.24 4.25a.75.75 0 0 1-1.06 0L5.21 8.29a.75.75 0 0 1 .02-1.08Z" clip-rule="evenodd"/></svg>
+              </button>
+              <span class="dropdown__hint">This is a hint text to help user.</span>
+            </div>
+          </label>
+
+          <label class="dropdown" style="width:300px">
+            <span class="dropdown__label">Label</span>
+            <div class="dropdown__content">
+              <button type="button" class="dropdown__control dropdown__control--filled" aria-label="Filled dropdown">
+                <svg class="dropdown__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="9" cy="9" r="5.25"/><path d="m13.5 13.5 2.5 2.5" stroke-linecap="round"/></svg>
+                <span class="dropdown__value">Placeholder</span>
+                <svg class="dropdown__chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 10.94l3.71-3.71a.75.75 0 1 1 1.06 1.06l-4.24 4.25a.75.75 0 0 1-1.06 0L5.21 8.29a.75.75 0 0 1 .02-1.08Z" clip-rule="evenodd"/></svg>
+              </button>
+              <span class="dropdown__hint">This is a hint text to help user.</span>
+            </div>
+          </label>
+
+          <label class="dropdown" style="width:300px">
+            <span class="dropdown__label">Label</span>
+            <div class="dropdown__content">
+              <button type="button" class="dropdown__control dropdown__control--docs-focus" aria-label="Focused dropdown">
+                <svg class="dropdown__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="9" cy="9" r="5.25"/><path d="m13.5 13.5 2.5 2.5" stroke-linecap="round"/></svg>
+                <span class="dropdown__value dropdown__value--placeholder">Placeholder</span>
+                <svg class="dropdown__chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 10.94l3.71-3.71a.75.75 0 1 1 1.06 1.06l-4.24 4.25a.75.75 0 0 1-1.06 0L5.21 8.29a.75.75 0 0 1 .02-1.08Z" clip-rule="evenodd"/></svg>
+              </button>
+              <span class="dropdown__hint">This is a hint text to help user.</span>
+            </div>
+          </label>
+
+          <label class="dropdown dropdown--error" style="width:300px">
+            <span class="dropdown__label">Label</span>
+            <div class="dropdown__content">
+              <button type="button" class="dropdown__control dropdown__control--filled" aria-invalid="true" aria-label="Error dropdown">
+                <svg class="dropdown__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="9" cy="9" r="5.25"/><path d="m13.5 13.5 2.5 2.5" stroke-linecap="round"/></svg>
+                <span class="dropdown__value">Placeholder</span>
+                <svg class="dropdown__chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 10.94l3.71-3.71a.75.75 0 1 1 1.06 1.06l-4.24 4.25a.75.75 0 0 1-1.06 0L5.21 8.29a.75.75 0 0 1 .02-1.08Z" clip-rule="evenodd"/></svg>
+              </button>
+              <span class="dropdown__hint dropdown__hint--error" role="alert">
+                <svg class="dropdown__hint-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14ZM8 4a.75.75 0 0 1 .75.75v3a.75.75 0 0 1-1.5 0v-3A.75.75 0 0 1 8 4Zm0 8a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" clip-rule="evenodd"/></svg>
+                This is a hint text to help user.
+              </span>
+            </div>
+          </label>
+        </div>
+
+        <pre class="docs__code"><code>&lt;label class="dropdown"&gt;
+  &lt;span class="dropdown__label"&gt;Label&lt;/span&gt;
+  &lt;div class="dropdown__content"&gt;
+    &lt;button type="button" class="dropdown__control" aria-haspopup="listbox"&gt;
+      &lt;span class="dropdown__value dropdown__value--placeholder"&gt;Placeholder&lt;/span&gt;
+      &lt;!-- chevron icon --&gt;
+    &lt;/button&gt;
+    &lt;span class="dropdown__hint"&gt;This is a hint text to help user.&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/label&gt;</code></pre>
+
+        <h2 class="docs__heading">Interactive native select</h2>
+        <p class="docs__paragraph docs__paragraph--muted">
+          A styled <code class="docs__token">&lt;select&gt;</code> inside the trigger uses <code class="docs__token">:invalid</code> / <code class="docs__token">:valid</code> to switch between placeholder and filled text colors.
+        </p>
+        <div class="component-preview" aria-label="Interactive dropdown preview">
+          <label class="dropdown" style="width:300px">
+            <span class="dropdown__label">Label</span>
+            <div class="dropdown__content">
+              <div class="dropdown__control">
+                <svg class="dropdown__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="9" cy="9" r="5.25"/><path d="m13.5 13.5 2.5 2.5" stroke-linecap="round"/></svg>
+                <select class="dropdown__select" required aria-label="Select an option">
+                  <option value="" disabled selected hidden>Placeholder</option>
+                  <option value="a">Option A</option>
+                  <option value="b">Option B</option>
+                </select>
+                <svg class="dropdown__chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 10.94l3.71-3.71a.75.75 0 1 1 1.06 1.06l-4.24 4.25a.75.75 0 0 1-1.06 0L5.21 8.29a.75.75 0 0 1 .02-1.08Z" clip-rule="evenodd"/></svg>
+              </div>
+              <span class="dropdown__hint">This is a hint text to help user.</span>
+            </div>
+          </label>
+          <label class="dropdown" style="width:300px">
+            <span class="dropdown__label">Label</span>
+            <div class="dropdown__content">
+              <div class="dropdown__control">
+                <svg class="dropdown__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="9" cy="9" r="5.25"/><path d="m13.5 13.5 2.5 2.5" stroke-linecap="round"/></svg>
+                <select class="dropdown__select" required aria-label="Select an option with value">
+                  <option value="" disabled hidden>Placeholder</option>
+                  <option value="a" selected>Option A</option>
+                  <option value="b">Option B</option>
+                </select>
+                <svg class="dropdown__chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 10.94l3.71-3.71a.75.75 0 1 1 1.06 1.06l-4.24 4.25a.75.75 0 0 1-1.06 0L5.21 8.29a.75.75 0 0 1 .02-1.08Z" clip-rule="evenodd"/></svg>
+              </div>
+              <span class="dropdown__hint">This is a hint text to help user.</span>
+            </div>
+          </label>
+        </div>
+
+        <h2 class="docs__heading">Dropdown tokens</h2>
+        <table class="docs__table">
+          <thead><tr><th>Token</th><th>Maps to</th><th>Role</th></tr></thead>
+          <tbody>
+            <tr><td><code class="docs__token">--dropdown-radius</code></td><td><code class="docs__token">--input-radius</code></td><td>Control radius · 6px</td></tr>
+            <tr><td><code class="docs__token">--dropdown-gap-control-hint</code></td><td><code class="docs__token">--spacing-1_5</code></td><td>Control → hint gap · 6px</td></tr>
+            <tr><td><code class="docs__token">--dropdown-placeholder</code></td><td><code class="docs__token">--color-text-hint</code></td><td>Unselected trigger text · gray-500</td></tr>
+            <tr><td><code class="docs__token">--dropdown-text-hover</code></td><td><code class="docs__token">--color-foreground</code></td><td>Placeholder emphasis on hover</td></tr>
+            <tr><td><code class="docs__token">--dropdown-text-filled</code></td><td><code class="docs__token">--color-foreground-loud</code></td><td>Selected value text</td></tr>
+            <tr><td><code class="docs__token">--dropdown-icon-size</code></td><td><code class="docs__token">--spacing-5</code></td><td>Leading/trailing icon · 20px</td></tr>
+            <tr><td><code class="docs__token">--dropdown-shadow-rest</code></td><td><code class="docs__token">--shadow-input-rest</code></td><td>Figma Form/Input/Normal chrome</td></tr>
+            <tr><td><code class="docs__token">--dropdown-shadow-hover</code></td><td><code class="docs__token">--shadow-input-hover</code></td><td>Figma Form/Input/Hover chrome</td></tr>
+            <tr><td><code class="docs__token">--dropdown-shadow-focus</code></td><td><code class="docs__token">--shadow-input-focus</code></td><td>Focus ring (brand-primary family)</td></tr>
+            <tr><td><code class="docs__token">--dropdown-shadow-error</code></td><td><code class="docs__token">--shadow-input-error</code></td><td>Error ring (red-600 / red-800 family)</td></tr>
           </tbody>
         </table>
       </section>

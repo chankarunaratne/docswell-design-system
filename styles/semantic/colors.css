@@ -28,6 +28,7 @@
   --color-text-placeholder:   var(--gray-400);  /* input placeholder text */
   --color-text-hint:          var(--gray-500);  /* helper text under fields */
   --color-text-hint-disabled: var(--gray-300);  /* helper text for disabled fields */
+  --color-text-hint-error:    var(--color-error); /* validation message under fields */
   --color-icon-subtle:        var(--gray-400);  /* neutral control icons */
   --color-icon-disabled:      var(--gray-300);  /* disabled control icons */
 

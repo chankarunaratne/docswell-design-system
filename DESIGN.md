@@ -426,6 +426,21 @@ Figma-aligned text input with semantic roles for placeholder, hint, and icon col
 
 Square modifier (32×32px) for icon-only buttons. Combine with any variant: `btn btn--secondary btn--icon`. Uses `--button-icon-size: 2rem`. Always pair with `aria-label` for accessibility.
 
+### Dropdown
+
+Closed trigger sharing Input chrome and Figma Form/Input shadow states. Component tokens alias Input where values match; placeholder uses hint-tone gray-500 instead of input placeholder gray-400.
+
+| Property | Token | Figma reference |
+|---|---|---|
+| Radius / padding / shadows | `--dropdown-*` → `--input-*` | Same as Input |
+| Placeholder | `--dropdown-placeholder` → `--color-text-hint` | Text/Normal [500] |
+| Hover text | `--dropdown-text-hover` → `--color-foreground` | Text/Muted [600] + medium |
+| Filled value | `--dropdown-text-filled` → `--color-foreground-loud` | Selected option text |
+| Icon size | `--dropdown-icon-size` → `--spacing-5` (20px) | Leading + chevron |
+| Hint gap | `--dropdown-gap-control-hint` | 6px via `dropdown__content` |
+
+States: normal, hover (shadow + placeholder emphasis), filled, focus, error, disabled — same modifiers as Input (`dropdown--error`, `dropdown--disabled`, `aria-invalid`).
+
 ---
 
 ## Figma sync
@@ -440,6 +455,16 @@ When pulling from Figma via MCP:
 ---
 
 ## Changelog
+
+### 0.3.13 — Dropdown component + input hint gap
+- Added `styles/components/dropdown.css` with Tier 3 tokens aliasing Input chrome; placeholder maps to `--color-text-hint` (gray-500); hover promotes placeholder to `--color-foreground` + medium weight
+- Input and Dropdown use `__content` wrapper for Figma-aligned 6px control→hint gap (`--input-gap-control-hint` / `--dropdown-gap-control-hint`)
+- Docs preview: normal, disabled, filled, focused, error states; interactive native `<select>` demo
+
+### 0.3.12 — Input error state
+- Added `--shadow-input-error` using system reds (`red-600` keyline/outer ring, `red-800` lift) with Figma error geometry
+- Added `--color-text-hint-error` semantic and `--input-hint-error` / `--input-shadow-error` component tokens
+- Error state via `input--error` or `aria-invalid="true"`; error hint supports icon + `role="alert"`
 
 ### 0.3.11 — Input filled state
 - Added `--input-text-filled` (`--color-foreground-loud`) for entered-value text in filled state
