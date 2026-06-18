@@ -15,6 +15,12 @@
   --shadow-input-focus: 0 1px 2px #0b55aa66, 0 0 0 1px #1379f0, 0 0 0 2px #ffffff, 0 0 0 3px #1379f052;
   /* Figma Form/Input/Error geometry, recolored to system red (600 keyline, 800 lift) */
   --shadow-input-error: 0 1px 2px #9a000752, 0 0 0 1px #e7000b, 0 0 0 2px #ffffff, 0 0 0 3px #e7000b3d;
+  /* Figma Form/Button/Secondary Normal — navy keyline + gray lift */
+  --shadow-button-secondary-rest: 0 1px 2px #a4acb93d, 0 0 0 1px #12376914;
+  /* Figma Form/Button/Primary Normal — brand keyline + lift (purple recolored) */
+  --shadow-button-primary-rest: 0 1px 2px #0b55aa80, 0 0 0 1px #0b55aa;
+  /* Figma Form/Button/Destructive Normal — red keyline + lift (same geometry as primary) */
+  --shadow-button-destructive-rest: 0 1px 2px #9a000780, 0 0 0 1px #c10007;
   /* Figma Form/Checkbox & Radio/Normal — gray keyline + soft lift */
   --shadow-checkbox-rest: 0 0 0 1px #dfe1e7, 0 1px 2px #a4acb966;
   /* Figma Form/Checkbox & Radio/Hover */

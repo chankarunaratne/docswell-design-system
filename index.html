@@ -772,13 +772,13 @@
         <span class="docs__eyebrow">Components</span>
         <h1 class="docs__title">Button</h1>
         <p class="docs__lead">
-          Action controls in four variants — <strong>primary</strong> (brand emphasis), <strong>secondary</strong> (neutral), <strong>destructive</strong> (danger), and an <strong>icon-only</strong> modifier. All share a 32px height, 6px radius, Inter Medium 14/20 label, and full state coverage (rest, hover, active, disabled, focus-visible).
+          Action controls in four variants — <strong>primary</strong> (brand emphasis), <strong>secondary</strong> (elevated neutral), <strong>destructive</strong> (danger), and an <strong>icon-only</strong> modifier. All share a 32px height, 6px radius, 6px icon–label gap, Inter Medium 14/20 label, and full state coverage (rest, hover, active, disabled, focus-visible).
         </p>
 
         <!-- Primary -->
         <h2 class="docs__heading">Primary</h2>
         <p class="docs__paragraph docs__paragraph--muted">
-          Flat brand fill on <code class="docs__token">brand-500</code>. Hover and active darken to <code class="docs__token">brand-600</code> and <code class="docs__token">brand-700</code> via the action-primary semantic ladder.
+          Brand fill on <code class="docs__token">brand-500</code> with a shadow keyline and lift. Hover and active darken to <code class="docs__token">brand-600</code> and <code class="docs__token">brand-700</code>; focus uses the shared brand shadow ring.
         </p>
 
         <h3 class="docs__subheading">Primary states</h3>
@@ -786,27 +786,27 @@
           <div class="button-state-cell">
             <span class="button-state-cell__label">Rest</span>
             <button type="button" class="btn btn--primary">Compose</button>
-            <span class="button-state-cell__token">brand-500</span>
+            <span class="button-state-cell__token">shadow-rest</span>
           </div>
           <div class="button-state-cell">
             <span class="button-state-cell__label">Hover</span>
             <button type="button" class="btn btn--primary btn--docs-hover" tabindex="-1">Compose</button>
-            <span class="button-state-cell__token">--color-action-primary-hover</span>
+            <span class="button-state-cell__token">brand-600</span>
           </div>
           <div class="button-state-cell">
             <span class="button-state-cell__label">Active</span>
             <button type="button" class="btn btn--primary btn--docs-active" tabindex="-1">Compose</button>
-            <span class="button-state-cell__token">--color-action-primary-active</span>
+            <span class="button-state-cell__token">brand-700</span>
           </div>
           <div class="button-state-cell">
             <span class="button-state-cell__label">Disabled</span>
             <button type="button" class="btn btn--primary" disabled tabindex="-1">Compose</button>
-            <span class="button-state-cell__token">action-primary-disabled</span>
+            <span class="button-state-cell__token">no shadow</span>
           </div>
           <div class="button-state-cell">
             <span class="button-state-cell__label">Focus</span>
             <button type="button" class="btn btn--primary btn--docs-focus" tabindex="-1">Compose</button>
-            <span class="button-state-cell__token">--color-border-focus</span>
+            <span class="button-state-cell__token">shadow-input-focus</span>
           </div>
         </div>
 
@@ -817,12 +817,11 @@
           <thead><tr><th>Token</th><th>Maps to</th><th>Role</th></tr></thead>
           <tbody>
             <tr><td><code class="docs__token">--button-primary-bg</code></td><td><code class="docs__token">--color-action-primary</code></td><td>Background · brand-500</td></tr>
+            <tr><td><code class="docs__token">--button-primary-shadow-rest</code></td><td><code class="docs__token">--shadow-button-primary-rest</code></td><td>Keyline + lift · rest/hover/active</td></tr>
+            <tr><td><code class="docs__token">--button-primary-shadow-focus</code></td><td><code class="docs__token">--shadow-input-focus</code></td><td>Focus ring · brand keyline + halo</td></tr>
             <tr><td><code class="docs__token">--button-primary-bg-hover</code></td><td><code class="docs__token">--color-action-primary-hover</code></td><td>Hover background · brand-600</td></tr>
             <tr><td><code class="docs__token">--button-primary-bg-active</code></td><td><code class="docs__token">--color-action-primary-active</code></td><td>Active background · brand-700</td></tr>
             <tr><td><code class="docs__token">--button-primary-text</code></td><td><code class="docs__token">--color-action-primary-text</code></td><td>Label · white</td></tr>
-            <tr><td><code class="docs__token">--button-primary-border</code></td><td><code class="docs__token">--color-action-primary</code></td><td>Border · brand-500</td></tr>
-            <tr><td><code class="docs__token">--button-primary-border-hover</code></td><td><code class="docs__token">--color-action-primary-hover</code></td><td>Hover border · brand-600</td></tr>
-            <tr><td><code class="docs__token">--button-primary-border-active</code></td><td><code class="docs__token">--color-action-primary-active</code></td><td>Active border · brand-700</td></tr>
           </tbody>
         </table>
         <p class="docs__paragraph docs__paragraph--muted">
@@ -832,7 +831,7 @@
         <!-- Secondary -->
         <h2 class="docs__heading">Secondary</h2>
         <p class="docs__paragraph docs__paragraph--muted">
-          White background with a subtle gray-200 border. Hover introduces a soft gray-100 fill for clear feedback.
+          White background with a shadow keyline and soft lift. Hover adds a light gray-50 wash; active steps to gray-100. Label shifts to loud text on hover and active.
         </p>
 
         <h3 class="docs__subheading">Secondary states</h3>
@@ -840,27 +839,27 @@
           <div class="button-state-cell">
             <span class="button-state-cell__label">Rest</span>
             <button type="button" class="btn btn--secondary">Cancel</button>
-            <span class="button-state-cell__token">white fill</span>
+            <span class="button-state-cell__token">shadow-rest</span>
           </div>
           <div class="button-state-cell">
             <span class="button-state-cell__label">Hover</span>
             <button type="button" class="btn btn--secondary btn--docs-hover" tabindex="-1">Cancel</button>
-            <span class="button-state-cell__token">gray-100</span>
+            <span class="button-state-cell__token">gray-50 + loud text</span>
           </div>
           <div class="button-state-cell">
             <span class="button-state-cell__label">Active</span>
             <button type="button" class="btn btn--secondary btn--docs-active" tabindex="-1">Cancel</button>
-            <span class="button-state-cell__token">surface-pressed</span>
+            <span class="button-state-cell__token">gray-100 + loud text</span>
           </div>
           <div class="button-state-cell">
             <span class="button-state-cell__label">Disabled</span>
             <button type="button" class="btn btn--secondary" disabled tabindex="-1">Cancel</button>
-            <span class="button-state-cell__token">background-disabled</span>
+            <span class="button-state-cell__token">no shadow</span>
           </div>
           <div class="button-state-cell">
             <span class="button-state-cell__label">Focus</span>
             <button type="button" class="btn btn--secondary btn--docs-focus" tabindex="-1">Cancel</button>
-            <span class="button-state-cell__token">--color-border-focus</span>
+            <span class="button-state-cell__token">shadow-input-focus</span>
           </div>
         </div>
 
@@ -871,17 +870,21 @@
           <thead><tr><th>Token</th><th>Maps to</th><th>Role</th></tr></thead>
           <tbody>
             <tr><td><code class="docs__token">--button-secondary-bg</code></td><td><code class="docs__token">--color-surface</code></td><td>Background · white</td></tr>
-            <tr><td><code class="docs__token">--button-secondary-bg-hover</code></td><td><code class="docs__token">--color-surface-hover</code></td><td>Hover background · gray-100</td></tr>
-            <tr><td><code class="docs__token">--button-secondary-bg-active</code></td><td><code class="docs__token">--color-surface-pressed</code></td><td>Active background · gray-200</td></tr>
-            <tr><td><code class="docs__token">--button-secondary-text</code></td><td><code class="docs__token">--color-action-secondary-text</code></td><td>Label · gray-700</td></tr>
-            <tr><td><code class="docs__token">--button-secondary-border</code></td><td><code class="docs__token">--color-border</code></td><td>Border · gray-200</td></tr>
+            <tr><td><code class="docs__token">--button-secondary-shadow-rest</code></td><td><code class="docs__token">--shadow-button-secondary-rest</code></td><td>Keyline + lift · rest/hover/active</td></tr>
+            <tr><td><code class="docs__token">--button-secondary-shadow-focus</code></td><td><code class="docs__token">--shadow-input-focus</code></td><td>Focus ring · brand keyline + halo</td></tr>
+            <tr><td><code class="docs__token">--button-secondary-bg-hover</code></td><td><code class="docs__token">--color-action-outline-hover</code></td><td>Hover background · gray-50</td></tr>
+            <tr><td><code class="docs__token">--button-secondary-bg-active</code></td><td><code class="docs__token">--color-surface-hover</code></td><td>Active background · gray-100</td></tr>
+            <tr><td><code class="docs__token">--button-secondary-text</code></td><td><code class="docs__token">--color-foreground</code></td><td>Label · gray-700</td></tr>
+            <tr><td><code class="docs__token">--button-secondary-text-hover</code></td><td><code class="docs__token">--color-foreground-loud</code></td><td>Label · hover</td></tr>
+            <tr><td><code class="docs__token">--button-secondary-text-active</code></td><td><code class="docs__token">--color-foreground-loud</code></td><td>Label · active</td></tr>
+            <tr><td><code class="docs__token">--button-gap</code></td><td><code class="docs__token">--spacing-1_5</code></td><td>Icon–label gap · 6px</td></tr>
           </tbody>
         </table>
 
         <!-- Destructive -->
         <h2 class="docs__heading">Destructive</h2>
         <p class="docs__paragraph docs__paragraph--muted">
-          Danger button for irreversible actions (delete, remove). Red fill; hover and active darken the background and border.
+          Red fill with a shadow keyline and lift. Hover and active darken to <code class="docs__token">red-700</code> and <code class="docs__token">red-800</code>; focus uses the shared red shadow ring (same geometry as error inputs).
         </p>
 
         <h3 class="docs__subheading">Destructive states</h3>
@@ -889,7 +892,7 @@
           <div class="button-state-cell">
             <span class="button-state-cell__label">Rest</span>
             <button type="button" class="btn btn--destructive">Delete</button>
-            <span class="button-state-cell__token">red-600</span>
+            <span class="button-state-cell__token">shadow-rest</span>
           </div>
           <div class="button-state-cell">
             <span class="button-state-cell__label">Hover</span>
@@ -904,12 +907,12 @@
           <div class="button-state-cell">
             <span class="button-state-cell__label">Disabled</span>
             <button type="button" class="btn btn--destructive" disabled tabindex="-1">Delete</button>
-            <span class="button-state-cell__token">action-destructive-disabled</span>
+            <span class="button-state-cell__token">no shadow</span>
           </div>
           <div class="button-state-cell">
             <span class="button-state-cell__label">Focus</span>
             <button type="button" class="btn btn--destructive btn--docs-focus" tabindex="-1">Delete</button>
-            <span class="button-state-cell__token">--color-border-focus</span>
+            <span class="button-state-cell__token">shadow-input-error</span>
           </div>
         </div>
 
@@ -920,12 +923,11 @@
           <thead><tr><th>Token</th><th>Maps to</th><th>Role</th></tr></thead>
           <tbody>
             <tr><td><code class="docs__token">--button-destructive-bg</code></td><td><code class="docs__token">--color-action-destructive</code></td><td>Background · red-600</td></tr>
+            <tr><td><code class="docs__token">--button-destructive-shadow-rest</code></td><td><code class="docs__token">--shadow-button-destructive-rest</code></td><td>Keyline + lift · rest/hover/active</td></tr>
+            <tr><td><code class="docs__token">--button-destructive-shadow-focus</code></td><td><code class="docs__token">--shadow-input-error</code></td><td>Focus ring · red keyline + halo</td></tr>
             <tr><td><code class="docs__token">--button-destructive-bg-hover</code></td><td><code class="docs__token">--color-action-destructive-hover</code></td><td>Hover background · red-700</td></tr>
             <tr><td><code class="docs__token">--button-destructive-bg-active</code></td><td><code class="docs__token">--red-800</code></td><td>Active background · red-800</td></tr>
             <tr><td><code class="docs__token">--button-destructive-text</code></td><td><code class="docs__token">--color-action-destructive-text</code></td><td>Label · white</td></tr>
-            <tr><td><code class="docs__token">--button-destructive-border</code></td><td><code class="docs__token">--color-action-destructive</code></td><td>Border · red-600</td></tr>
-            <tr><td><code class="docs__token">--button-destructive-border-hover</code></td><td><code class="docs__token">--color-action-destructive-hover</code></td><td>Hover border · red-700</td></tr>
-            <tr><td><code class="docs__token">--button-destructive-border-active</code></td><td><code class="docs__token">--red-800</code></td><td>Active border · red-800</td></tr>
           </tbody>
         </table>
 
@@ -995,13 +997,15 @@
             </tr>
             <tr>
               <td><code class="docs__token">:disabled</code></td>
-              <td><code class="docs__token">--color-action-primary-disabled</code> + text-disabled</td>
-              <td><code class="docs__token">--color-background-disabled</code>, border-disabled, foreground-disabled</td>
-              <td><code class="docs__token">--color-action-destructive-disabled</code> + text-disabled</td>
+              <td><code class="docs__token">--color-background-disabled</code>, foreground-disabled, no shadow</td>
+              <td><code class="docs__token">--color-background-disabled</code>, foreground-disabled, no shadow</td>
+              <td><code class="docs__token">--color-background-disabled</code>, foreground-disabled, no shadow</td>
             </tr>
             <tr>
               <td><code class="docs__token">:focus-visible</code></td>
-              <td colspan="3">2px <code class="docs__token">--color-border-focus</code> outline, 2px offset (all variants)</td>
+              <td><code class="docs__token">--button-primary-shadow-focus</code></td>
+              <td><code class="docs__token">--button-secondary-shadow-focus</code></td>
+              <td><code class="docs__token">--button-destructive-shadow-focus</code></td>
             </tr>
           </tbody>
         </table>

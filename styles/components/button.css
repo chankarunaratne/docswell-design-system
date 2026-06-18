@@ -1,12 +1,13 @@
 /* ==========================================================================
    Tier 3 — Button component
-   Variants: primary, secondary (neutral fill), destructive (danger),
+   Variants: primary, secondary (elevated neutral), destructive (danger),
    and an icon-only modifier.
    ========================================================================== */
 
 @theme {
   /* --- Shared --- */
   --button-radius:           0.375rem;
+  --button-gap:              var(--spacing-1_5);
   --button-padding-inline:   var(--spacing-2);
   --button-padding-block:    0.375rem;
   --button-icon-size:        2rem;
@@ -16,25 +17,26 @@
   --button-primary-bg-hover:       var(--color-action-primary-hover);
   --button-primary-bg-active:      var(--color-action-primary-active);
   --button-primary-text:           var(--color-action-primary-text);
-  --button-primary-border:         var(--color-action-primary);
-  --button-primary-border-hover:   var(--color-action-primary-hover);
-  --button-primary-border-active:  var(--color-action-primary-active);
+  --button-primary-shadow-rest:    var(--shadow-button-primary-rest);
+  --button-primary-shadow-focus:   var(--shadow-input-focus);
 
   /* --- Secondary --- */
-  --button-secondary-bg:           var(--color-surface);       /* white — outlined style */
-  --button-secondary-bg-hover:     var(--color-surface-hover); /* gray-100 on hover */
-  --button-secondary-bg-active:    var(--color-surface-pressed);
-  --button-secondary-text:         var(--color-action-secondary-text);
-  --button-secondary-border:       var(--color-border);
+  --button-secondary-bg:             var(--color-surface);
+  --button-secondary-bg-hover:       var(--color-action-outline-hover);
+  --button-secondary-bg-active:      var(--color-surface-hover);
+  --button-secondary-text:           var(--color-foreground);
+  --button-secondary-text-hover:     var(--color-foreground-loud);
+  --button-secondary-text-active:    var(--color-foreground-loud);
+  --button-secondary-shadow-rest:    var(--shadow-button-secondary-rest);
+  --button-secondary-shadow-focus:   var(--shadow-input-focus);
 
   /* --- Destructive --- */
   --button-destructive-bg:             var(--color-action-destructive);
   --button-destructive-bg-hover:       var(--color-action-destructive-hover);
   --button-destructive-bg-active:      var(--red-800);
   --button-destructive-text:           var(--color-action-destructive-text);
-  --button-destructive-border:         var(--color-action-destructive);
-  --button-destructive-border-hover:   var(--color-action-destructive-hover);
-  --button-destructive-border-active:  var(--red-800);
+  --button-destructive-shadow-rest:    var(--shadow-button-destructive-rest);
+  --button-destructive-shadow-focus:   var(--shadow-input-error);
 }
 
 /* ==========================================================================
@@ -45,7 +47,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: var(--spacing-2);
+  gap: var(--button-gap);
   padding: var(--button-padding-block) var(--button-padding-inline);
   border-radius: var(--button-radius);
   font-family: var(--font-body);
@@ -58,103 +60,103 @@
   cursor: pointer;
   transition:
     background-color var(--duration-fast) var(--ease-out),
-    box-shadow var(--duration-fast) var(--ease-out);
+    box-shadow var(--duration-fast) var(--ease-out),
+    color var(--duration-fast) var(--ease-out);
 }
 
 /* ==========================================================================
    Primary (.btn--primary)
+   Brand fill with shadow keyline + lift; hover/active darken the fill.
    ========================================================================== */
 
 .btn--primary {
   color: var(--button-primary-text);
   background-color: var(--button-primary-bg);
-  border-color: var(--button-primary-border);
+  box-shadow: var(--button-primary-shadow-rest);
 }
 
 .btn--primary:hover:not(:disabled) {
   background-color: var(--button-primary-bg-hover);
-  border-color: var(--button-primary-border-hover);
 }
 
 .btn--primary:active:not(:disabled) {
   background-color: var(--button-primary-bg-active);
-  border-color: var(--button-primary-border-active);
 }
 
 .btn--primary:disabled {
-  color: var(--color-action-primary-text-disabled);
-  background-color: var(--color-action-primary-disabled);
-  border-color: transparent;
+  color: var(--color-foreground-disabled);
+  background-color: var(--color-background-disabled);
+  box-shadow: none;
   cursor: not-allowed;
 }
 
 .btn--primary:focus-visible {
-  outline: 2px solid var(--color-border-focus);
-  outline-offset: 2px;
+  box-shadow: var(--button-primary-shadow-focus);
+  outline: none;
 }
 
 /* ==========================================================================
    Secondary (.btn--secondary)
-   Outlined button — white fill with a gray border for lower-emphasis actions.
+   Elevated neutral button — white fill, shadow keyline + lift, no CSS border.
    ========================================================================== */
 
 .btn--secondary {
   color: var(--button-secondary-text);
   background-color: var(--button-secondary-bg);
-  border-color: var(--button-secondary-border);
+  box-shadow: var(--button-secondary-shadow-rest);
 }
 
 .btn--secondary:hover:not(:disabled) {
+  color: var(--button-secondary-text-hover);
   background-color: var(--button-secondary-bg-hover);
 }
 
 .btn--secondary:active:not(:disabled) {
+  color: var(--button-secondary-text-active);
   background-color: var(--button-secondary-bg-active);
 }
 
 .btn--secondary:disabled {
   color: var(--color-foreground-disabled);
   background-color: var(--color-background-disabled);
-  border-color: var(--color-border-disabled);
+  box-shadow: none;
   cursor: not-allowed;
 }
 
 .btn--secondary:focus-visible {
-  outline: 2px solid var(--color-border-focus);
-  outline-offset: 2px;
+  box-shadow: var(--button-secondary-shadow-focus);
+  outline: none;
 }
 
 /* ==========================================================================
    Destructive (.btn--destructive)
-   Danger / irreversible action.
+   Danger fill with shadow keyline + lift; hover/active darken the fill.
    ========================================================================== */
 
 .btn--destructive {
   color: var(--button-destructive-text);
   background-color: var(--button-destructive-bg);
-  border-color: var(--button-destructive-border);
+  box-shadow: var(--button-destructive-shadow-rest);
 }
 
 .btn--destructive:hover:not(:disabled) {
   background-color: var(--button-destructive-bg-hover);
-  border-color: var(--button-destructive-border-hover);
 }
 
 .btn--destructive:active:not(:disabled) {
   background-color: var(--button-destructive-bg-active);
-  border-color: var(--button-destructive-border-active);
 }
 
 .btn--destructive:disabled {
-  color: var(--color-action-destructive-text-disabled);
-  background-color: var(--color-action-destructive-disabled);
-  border-color: transparent;
+  color: var(--color-foreground-disabled);
+  background-color: var(--color-background-disabled);
+  box-shadow: none;
   cursor: not-allowed;
 }
 
 .btn--destructive:focus-visible {
-  outline: 2px solid var(--color-border-focus);
-  outline-offset: 2px;
+  box-shadow: var(--button-destructive-shadow-focus);
+  outline: none;
 }
 
 /* ==========================================================================

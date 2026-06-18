@@ -481,45 +481,43 @@
 
 .docs .btn--primary.btn--docs-hover:not(:disabled) {
   background-color: var(--button-primary-bg-hover);
-  border-color: var(--button-primary-border-hover);
 }
 
 .docs .btn--primary.btn--docs-active:not(:disabled) {
   background-color: var(--button-primary-bg-active);
-  border-color: var(--button-primary-border-active);
 }
 
 .docs .btn--primary.btn--docs-focus:not(:disabled) {
-  outline: 2px solid var(--color-border-focus);
-  outline-offset: 2px;
+  box-shadow: var(--button-primary-shadow-focus);
+  outline: none;
 }
 
 .docs .btn--secondary.btn--docs-hover:not(:disabled) {
+  color: var(--button-secondary-text-hover);
   background-color: var(--button-secondary-bg-hover);
 }
 
 .docs .btn--secondary.btn--docs-active:not(:disabled) {
+  color: var(--button-secondary-text-active);
   background-color: var(--button-secondary-bg-active);
 }
 
 .docs .btn--secondary.btn--docs-focus:not(:disabled) {
-  outline: 2px solid var(--color-border-focus);
-  outline-offset: 2px;
+  box-shadow: var(--button-secondary-shadow-focus);
+  outline: none;
 }
 
 .docs .btn--destructive.btn--docs-hover:not(:disabled) {
   background-color: var(--button-destructive-bg-hover);
-  border-color: var(--button-destructive-border-hover);
 }
 
 .docs .btn--destructive.btn--docs-active:not(:disabled) {
   background-color: var(--button-destructive-bg-active);
-  border-color: var(--button-destructive-border-active);
 }
 
 .docs .btn--destructive.btn--docs-focus:not(:disabled) {
-  outline: 2px solid var(--color-border-focus);
-  outline-offset: 2px;
+  box-shadow: var(--button-destructive-shadow-focus);
+  outline: none;
 }
 
 /* ----- Radius / shadow demo cards ----------------------------------------- */

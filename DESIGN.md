@@ -161,7 +161,7 @@ Contrast on white: gray-700 ~11.4:1, gray-500 ~5.2:1, gray-400 ~3.6:1 — all in
 
 Primary actions use `--color-action-primary` / `-hover` / `-active` (brand-500 → 600 → 700). **Accent** tokens (`--color-accent`, `--color-accent-emphasis`) are for links, chrome, and brand moments on light surfaces — not primary button fills.
 
-Disabled primary/destructive buttons use `--gray-100` fill and `--gray-300` text tokens (`--color-action-primary-disabled`, etc.).
+Disabled filled buttons (primary, destructive) and secondary all use `--color-background-disabled` + `--color-foreground-disabled` with no shadow.
 
 Shared interaction semantics are available for generic controls and surfaces:
 `--color-state-hover`, `--color-state-active`, `--color-state-focus`, `--color-state-disabled-text`, `--color-state-disabled-bg`, `--color-state-disabled-border`.
@@ -369,41 +369,46 @@ Four variants sharing a 32px height, 6px radius, and consistent state coverage (
 
 #### Primary (`btn btn--primary`)
 
-Flat brand-colored primary button.
+Brand fill with shadow keyline and lift. Hover/active darken the fill; focus uses the shared brand shadow ring.
+
+| State | Fill | Chrome | Text |
+|---|---|---|---|
+| Default | `--color-action-primary` (brand-500) | `--shadow-button-primary-rest` | white |
+| Hover | `--color-action-primary-hover` (brand-600) | same shadow | white |
+| Active | `--color-action-primary-active` (brand-700) | same shadow | white |
+| Disabled | `--color-background-disabled` (gray-25) | none | `--color-foreground-disabled` |
+| Focus | — | `--shadow-input-focus` (brand keyline + halo) | white |
 
 | Property | Value | Token |
 |---|---|---|
-| Background | brand-500 | `--button-primary-bg` → `--color-action-primary` |
-| Background (hover) | brand-600 | `--button-primary-bg-hover` → `--color-action-primary-hover` |
-| Background (active) | brand-700 | `--button-primary-bg-active` → `--color-action-primary-active` |
-| Border | brand-500 | `--button-primary-border` → `--color-action-primary` |
-| Text | white | `--button-primary-text` → `--color-action-primary-text` |
 | Radius | 6px | `--button-radius` |
 | Padding | 8×6px | `--button-padding-inline` / `--button-padding-block` |
 
-Disabled uses action disabled semantics (`--color-action-primary-disabled`, `--color-action-primary-text-disabled`).
-
 #### Secondary (`btn btn--secondary`)
 
-Outlined button — white background with a gray-200 border, for lower-emphasis companion actions (Cancel, Back, etc.).
+Elevated neutral button — white background with shadow keyline and lift (no CSS border). Hover/active use solid gray washes; label shifts to loud text on interaction.
 
-| State | Fill | Border | Text |
+| State | Fill | Chrome | Text |
 |---|---|---|---|
-| Default | `--color-surface` (white) | `--color-border` (gray-200) | `--color-action-secondary-text` (gray-700) |
-| Hover | `--color-surface-hover` (gray-100) | — | — |
-| Active | `--color-surface-pressed` (gray-200) | — | — |
-| Disabled | `--color-background-disabled` (gray-25) | `--color-border-disabled` (gray-100) | `--color-foreground-disabled` (gray-300) |
+| Default | `--color-surface` (white) | `--shadow-button-secondary-rest` | `--color-foreground` (gray-700) |
+| Hover | `--color-action-outline-hover` (gray-50) | same shadow | `--color-foreground-loud` |
+| Active | `--color-surface-hover` (gray-100) | same shadow | `--color-foreground-loud` |
+| Disabled | `--color-background-disabled` (gray-25) | none | `--color-foreground-disabled` (gray-300) |
+| Focus | — | `--shadow-input-focus` (brand keyline + halo) | — |
 
 #### Destructive (`btn btn--destructive`)
 
-Danger button for irreversible actions (delete, remove).
+Danger fill with shadow keyline and lift. Same state model as primary; focus reuses the error-input shadow ring.
 
-| State | Background | Border | Text |
+| State | Fill | Chrome | Text |
 |---|---|---|---|
-| Default | `--color-action-destructive` (red-600) | red-600 | white |
-| Hover | `--color-action-destructive-hover` (red-700) | red-700 | — |
-| Active | `--red-800` | red-800 | — |
-| Disabled | `--color-action-destructive-disabled` (gray-100) | transparent | `--color-action-destructive-text-disabled` (gray-300) |
+| Default | `--color-action-destructive` (red-600) | `--shadow-button-destructive-rest` | white |
+| Hover | `--color-action-destructive-hover` (red-700) | same shadow | white |
+| Active | `--red-800` | same shadow | white |
+| Disabled | `--color-background-disabled` (gray-25) | none | `--color-foreground-disabled` |
+| Focus | — | `--shadow-input-error` (red keyline + halo) | white |
+
+All filled button variants share the same pattern: `shadow-rest` at rest/hover/active, role-colored `shadow-focus` on `:focus-visible`, flat disabled with no chrome.
 
 ### Input
 
@@ -526,6 +531,23 @@ When pulling from Figma via MCP:
 - Added `--shadow-input-focus` with the same 4-layer geometry as Figma focus (`1px keyline`, `2px white spacer`, `3px outer ring`, `1px/2px lift`)
 - Recolored Figma purple focus treatment to Docswell primary blue family (`brand-500/600` tints)
 - Input focus now maps to `--input-shadow-focus: var(--shadow-input-focus)` and uses loud field text via `--color-foreground-loud`
+
+### 0.3.12 — Destructive button shadow chrome
+- Destructive button aligned with primary/secondary: red keyline + lift (`--shadow-button-destructive-rest`), focus via `--shadow-input-error`
+- Disabled matches other variants (gray-25, no shadow); removed `--button-destructive-border*` tokens
+- All filled variants now share one state model: shadow-rest → shadow-focus → flat disabled
+
+### 0.3.11 — Primary button shadow chrome
+- Primary button now uses brand keyline + lift (`--shadow-button-primary-rest`) instead of matching CSS border
+- Focus uses `--shadow-input-focus` (shared brand shadow ring with secondary/inputs)
+- Disabled: flat gray-25 fill, no shadow — aligned with secondary and Figma
+- Removed `--button-primary-border*` component tokens
+
+### 0.3.10 — Secondary button Figma alignment
+- Secondary button now uses shadow keyline + lift (`--shadow-button-secondary-rest`) instead of CSS border
+- Hover/active: gray-50 / gray-100 solid fills with loud text on interaction; focus uses `--shadow-input-focus` (brand)
+- Disabled: flat fill, no shadow; shared button gap set to 6px (`--button-gap` → `--spacing-1_5`)
+- Removed `--button-secondary-border`; text tokens now map to `--color-foreground` / `--color-foreground-loud`
 
 ### 0.3.9 — Input hover shadow
 - Added `--shadow-input-hover` from Figma Form/Input/Hover (`#09194829` spread + lift)
